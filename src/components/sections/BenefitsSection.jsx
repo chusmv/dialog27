@@ -42,12 +42,12 @@ export function BenefitsSection() {
           <p className="mb-5 text-xs tracking-[0.3em] text-white/40 uppercase">Integraciones nativas</p>
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8">
             {landingContent.erpLogos.map((erp) => (
-              <div
+              <article
                 key={erp}
                 className="glass rounded-xl px-5 py-2.5 text-sm font-bold text-white/60 transition-colors hover:text-orange-400"
               >
                 {erp}
-              </div>
+              </article>
             ))}
           </div>
         </div>

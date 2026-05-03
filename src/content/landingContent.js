@@ -1,4 +1,4 @@
-export const landingContent = {
+export const baseLandingContent = {
   navLinks: [
     { href: '#solution', label: 'Cómo funciona' },
     { href: '#benefits', label: 'Beneficios' },
@@ -9,7 +9,7 @@ export const landingContent = {
     title: ['Del documento de tu cliente', 'a la contabilidad,', 'automáticamente.'],
     description:
       'Tus clientes suben documentos. D27 Docs los procesa y los contabiliza en tu ERP. Tú solo validas.',
-    primaryCta: 'Pedir una demo',
+    primaryCta: 'Pedir demo',
     secondaryCta: 'Ver cómo funciona',
     flowNodes: [
       { label: 'Cliente', sublabel: 'WhatsApp / Email', icon: '👤', motionClass: 'float-1' },
@@ -155,3 +155,5 @@ export const landingContent = {
     helper: 'Sin tarjeta de crédito · Alta en 48h · Cancela cuando quieras',
   },
 }
+
+export const landingContent = baseLandingContent

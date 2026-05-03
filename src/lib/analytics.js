@@ -1,5 +1,23 @@
 import { siteConfig } from '../config/siteConfig'
 
+export function withTrackingContext(context = {}, payload = {}) {
+  const nextPayload = { ...payload }
+
+  if (context.variant) {
+    nextPayload.variant = context.variant
+  }
+
+  if (context.slug) {
+    nextPayload.slug = context.slug
+  }
+
+  if (context.pageType) {
+    nextPayload.pageType = context.pageType
+  }
+
+  return nextPayload
+}
+
 export function trackEvent(name, payload = {}) {
   if (typeof window === 'undefined' || !name) {
     return

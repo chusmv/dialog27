@@ -19,6 +19,7 @@ export const siteConfig = {
     description:
       'Tus clientes envían facturas y tickets por WhatsApp o email. D27 Docs los valida, extrae y deja listos para tu ERP.',
     canonical: 'https://www.dialog27.com/docs',
+    canonicalBase: 'https://www.dialog27.com/docs',
     robots: 'index,follow',
     ogType: 'website',
     socialImagePath: '/og-d27-docs.svg',

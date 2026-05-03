@@ -1,10 +1,10 @@
 import { landingContent } from '../../content/landingContent'
 import { siteConfig } from '../../config/siteConfig'
 import { useInView } from '../../hooks/useInView'
-import { trackEvent } from '../../lib/analytics'
+import { trackEvent, withTrackingContext } from '../../lib/analytics'
 import { ArrowRightIcon } from '../icons/LandingIcons'
 
-export function CtaSection() {
+export function CtaSection({ trackingContext = {} }) {
   const [sectionRef, inView] = useInView()
 
   return (
@@ -35,7 +35,12 @@ export function CtaSection() {
               target="_blank"
               rel="noreferrer"
               className="btn-primary glow-orange inline-flex items-center justify-center gap-2 rounded-2xl px-10 py-4 text-base font-bold text-white no-underline"
-              onClick={() => trackEvent('final_cta_primary_click', { location: 'final-cta' })}
+              onClick={() =>
+                trackEvent(
+                  'final_cta_primary_click',
+                  withTrackingContext(trackingContext, { location: 'final-cta' }),
+                )
+              }
             >
               {landingContent.cta.primaryLabel}
               <ArrowRightIcon />
@@ -45,7 +50,12 @@ export function CtaSection() {
               target="_blank"
               rel="noreferrer"
               className="btn-ghost inline-flex items-center justify-center gap-2 rounded-2xl px-10 py-4 text-base text-white/60 no-underline"
-              onClick={() => trackEvent('final_cta_secondary_click', { location: 'final-cta' })}
+              onClick={() =>
+                trackEvent(
+                  'final_cta_secondary_click',
+                  withTrackingContext(trackingContext, { location: 'final-cta' }),
+                )
+              }
             >
               {landingContent.cta.secondaryLabel}
             </a>

@@ -5,27 +5,42 @@ import { SolutionSection } from '../components/sections/SolutionSection'
 import { BenefitsSection } from '../components/sections/BenefitsSection'
 import { ProofSection } from '../components/sections/ProofSection'
 import { CtaSection } from '../components/sections/CtaSection'
+import { CampaignHeroSection } from '../components/sections/CampaignHeroSection'
+import { CampaignCtaSection } from '../components/sections/CampaignCtaSection'
+import { HeroFlowSection } from '../components/sections/HeroFlowSection'
 import { FooterSection } from '../components/sections/FooterSection'
 import { siteConfig } from '../config/siteConfig'
+import { getLandingVariant } from '../content/landingVariants'
 import { useSeo } from '../hooks/useSeo'
 
-function App() {
-  useSeo(siteConfig.seo)
+function App({ variantKey = 'default' }) {
+  const variant = getLandingVariant(variantKey)
+
+  useSeo(variant.seo ?? siteConfig.seo)
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[#0a0a0f] text-white">
+    <div className="relative min-h-screen overflow-x-hidden bg-[#0f2044] text-white">
       <a href="#main-content" className="skip-link">
         Saltar al contenido
       </a>
       <div className="noise" />
-      <NavBar />
+      <NavBar trackingContext={variant.tracking} />
       <main id="main-content" className="relative z-10">
-        <HeroSection />
+        {variant.kind === 'campaign' ? (
+          <CampaignHeroSection variant={variant} />
+        ) : (
+          <HeroSection trackingContext={variant.tracking} />
+        )}
+        <HeroFlowSection />
         <ProblemSection />
         <SolutionSection />
         <BenefitsSection />
         <ProofSection />
-        <CtaSection />
+        {variant.kind === 'campaign' ? (
+          <CampaignCtaSection variant={variant} />
+        ) : (
+          <CtaSection trackingContext={variant.tracking} />
+        )}
       </main>
       <FooterSection />
     </div>

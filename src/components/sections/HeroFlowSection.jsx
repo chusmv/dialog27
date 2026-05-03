@@ -1,0 +1,69 @@
+import { landingContent } from '../../content/landingContent'
+import { ArrowDownIcon, ArrowRightIcon } from '../icons/LandingIcons'
+
+function FlowCard({ node, compact = false }) {
+  return (
+    <article
+      className={`${node.motionClass} hero-flow-card ${node.featured ? 'hero-flow-card-featured' : ''} flex w-full flex-col items-center justify-center rounded-[1.45rem] text-center ${compact ? 'min-h-[8rem] px-4 py-4.5' : 'min-h-[9.3rem] px-4 py-4.5 lg:min-h-[9.75rem] lg:px-4 lg:py-5'}`}
+    >
+      <div className={`leading-none ${compact ? 'mb-2.5 text-[2rem]' : 'mb-2.5 text-[2.2rem] lg:text-[2.35rem]'}`}>
+        {node.icon}
+      </div>
+      <h3
+        className={`font-display font-extrabold text-white ${compact ? 'text-[1.38rem] leading-none' : 'text-[1.42rem] leading-none lg:text-[1.55rem]'}`}
+      >
+        {node.label}
+      </h3>
+      <p
+        className={`mt-2 font-medium text-white/42 ${compact ? 'max-w-[10rem] text-[0.82rem] leading-[1.18]' : 'max-w-[9.5rem] text-[0.82rem] leading-[1.16] lg:max-w-[10.2rem] lg:text-[0.86rem]'}`}
+      >
+        {node.sublabel}
+      </p>
+    </article>
+  )
+}
+
+export function HeroFlowSection() {
+  return (
+    <section id="hero-flow" className="relative z-20 -mt-5 px-6 pb-10 md:-mt-8 md:pb-14">
+      <div className="mx-auto max-w-5xl">
+        <div className="hero-flow-grid hidden md:grid md:grid-cols-[minmax(0,1fr)_2.75rem_minmax(0,1fr)_2.75rem_minmax(0,1fr)_2.75rem_minmax(0,1fr)_2.75rem_minmax(0,1fr)] md:items-center lg:grid-cols-[minmax(0,1fr)_3.25rem_minmax(0,1fr)_3.25rem_minmax(0,1fr)_3.25rem_minmax(0,1fr)_3.25rem_minmax(0,1fr)]">
+          {landingContent.hero.flowNodes.map((node, index) => (
+            <div key={node.label} className="contents">
+              <div className="min-w-0">
+                <FlowCard node={node} />
+              </div>
+
+              {index < landingContent.hero.flowNodes.length - 1 ? (
+                <div className="hero-flow-connector relative z-10 flex w-full items-center justify-center pt-1">
+                  <div className="shimmer-line h-px w-[1.3rem] rounded lg:w-[1.8rem]" />
+                  <ArrowRightIcon className="-ml-0.5 h-[1rem] w-[1rem] text-[#fe5602]" />
+                </div>
+              ) : null}
+            </div>
+          ))}
+        </div>
+
+        <div className="grid gap-2.5 md:hidden">
+          {landingContent.hero.flowNodes.map((node, index) => (
+            <div key={node.label} className="flex flex-col items-center">
+              <div className="w-full max-w-[19rem]">
+                <FlowCard node={node} compact />
+              </div>
+
+              {index < landingContent.hero.flowNodes.length - 1 ? (
+                <div className="hero-flow-connector-mobile flex h-7 items-center justify-center text-[#fe5602]">
+                  <ArrowDownIcon className="h-5 w-5" />
+                </div>
+              ) : null}
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-5 text-center text-[1.45rem] leading-tight font-medium tracking-[0.02em] text-white/40 md:text-[1.9rem]">
+          Automatización total. Cero introducción manual de datos.
+        </p>
+      </div>
+    </section>
+  )
+}

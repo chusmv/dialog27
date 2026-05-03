@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { landingContent } from '../../content/landingContent'
 import { siteConfig } from '../../config/siteConfig'
-import { trackEvent } from '../../lib/analytics'
+import { trackEvent, withTrackingContext } from '../../lib/analytics'
 
-export function NavBar() {
+export function NavBar({ trackingContext = {} }) {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -23,13 +23,16 @@ export function NavBar() {
       aria-label="Principal"
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6">
-        <a href="#" className="flex items-center gap-2 text-white no-underline" aria-label="Ir al inicio">
-          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-orange-500">
-            <span className="font-display text-xs font-bold text-white">D</span>
-          </div>
-          <span className="font-display text-sm font-bold tracking-wide">
-            D27 <span className="text-orange-400">Docs</span>
-          </span>
+        <a
+          href="#"
+          className="flex items-center text-white no-underline"
+          aria-label="Ir al inicio de D27 Docs"
+        >
+          <img
+            src="/d27-docs-logo-landscape.webp"
+            alt=""
+            className="h-10 w-auto rounded-sm object-contain sm:h-11"
+          />
         </a>
 
         <div className="hidden items-center gap-8 text-sm text-white/60 md:flex">
@@ -46,7 +49,12 @@ export function NavBar() {
             target="_blank"
             rel="noreferrer"
             className="btn-ghost hidden rounded-lg px-4 py-2 text-sm text-white/70 no-underline md:block"
-            onClick={() => trackEvent('nav_product_click', { location: 'navbar' })}
+            onClick={() =>
+              trackEvent(
+                'nav_product_click',
+                withTrackingContext(trackingContext, { location: 'navbar' }),
+              )
+            }
           >
             Ver producto
           </a>
@@ -55,7 +63,12 @@ export function NavBar() {
             target="_blank"
             rel="noreferrer"
             className="btn-primary glow-orange rounded-xl px-5 py-2.5 text-sm font-semibold text-white no-underline"
-            onClick={() => trackEvent('nav_demo_click', { location: 'navbar' })}
+            onClick={() =>
+              trackEvent(
+                'nav_demo_click',
+                withTrackingContext(trackingContext, { location: 'navbar' }),
+              )
+            }
           >
             Pedir demo
           </a>
