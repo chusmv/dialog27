@@ -39,7 +39,8 @@ function FlowCard({ node, compact = false }) {
 
 export function HeroFlowSection() {
   return (
-    <section id="hero-flow" className="relative z-20 -mt-5 px-6 pb-10 md:-mt-8 md:pb-14">
+    <section id="hero-flow" className="relative px-6 pb-12 pt-10 md:pb-16 md:pt-12">
+      <div className="section-divider absolute inset-x-0 top-0" />
       <div className="mx-auto max-w-5xl">
         <div className="hero-flow-grid hidden md:grid md:grid-cols-[minmax(0,1fr)_2.75rem_minmax(0,1fr)_2.75rem_minmax(0,1fr)_2.75rem_minmax(0,1fr)_2.75rem_minmax(0,1fr)] md:items-center lg:grid-cols-[minmax(0,1fr)_3.25rem_minmax(0,1fr)_3.25rem_minmax(0,1fr)_3.25rem_minmax(0,1fr)_3.25rem_minmax(0,1fr)]">
           {landingContent.hero.flowNodes.map((node, index) => (
@@ -77,8 +78,8 @@ export function HeroFlowSection() {
           ))}
         </div>
 
-        <p className="mt-5 text-center text-[1.45rem] leading-tight font-medium tracking-[0.02em] text-white/40 md:text-[1.9rem]">
-          Solo 2 clicks de validación. Todo lo demás, automatizado.
+        <p className="mt-5 text-center text-[1.45rem] leading-tight font-medium tracking-[0.02em] text-white/80 md:text-[1.5rem]">
+          De la foto del documento a tenerlo contabilizado en solo 2 clicks.
         </p>
       </div>
     </section>

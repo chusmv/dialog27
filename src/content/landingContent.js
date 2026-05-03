@@ -3,6 +3,7 @@ export const baseLandingContent = {
     { href: '#solution', label: 'Cómo funciona' },
     { href: '#plans', label: 'Planes' },
     { href: '#benefits', label: 'Beneficios' },
+    { href: '#proof', label: 'Clientes' },
   ],
   hero: {
     eyebrow: 'Automatización contable completa',
@@ -52,13 +53,20 @@ export const baseLandingContent = {
       },
     ],
   },
+  heroPromo: {
+    eyebrow: 'Promoción por tiempo limitado',
+    title: 'Pruébalo 1 mes gratis',
+  },
   plansSection: {
     eyebrow: 'Planes',
     title: 'Elige el plan que encaja con tu actividad.',
     description: 'Tres paquetes pensados para crecer contigo.',
+    pricingNote: 'Precios mensuales, sin impuestos incluidos.',
     cta: {
       label: 'Solicitar demo',
     },
+    footnote:
+      'Desde cualquier plan puedes contratar bolsas de tokens adicionales. Los tokens adicionales se consumen solo cuando se agotan los tokens mensuales del plan contratado.',
     packages: [
       {
         name: 'BASIC',
@@ -92,12 +100,12 @@ export const baseLandingContent = {
         name: 'PLUS',
         price: '99,90 €',
         note: 'al mes, sin impuestos incluidos',
-        badgeLabel: 'EL MÁS COMPRADO',
+        badgeLabel: 'MAS COMPRADO',
         featured: true,
         summaryFeatures: [
           'Todo lo del BASIC y, además:',
           'Extracción complementada con OCR',
-          'Recordatorios',
+          'Recordatorios automáticos',
           'Exportaciones personalizadas',
         ],
         summaryCapacity: [
@@ -178,24 +186,31 @@ export const baseLandingContent = {
     {
       number: '01',
       icon: 'upload',
-      title: 'El cliente sube el documento',
-      description: 'Facilitamos esta tarea para tu cliente. Puede mandarte las facturas por WhatsApp, email o subiéndolas al portal. Sin apps, sin registros, sin fricción.',
+      imageSrc: '/solution-steps/cliente-d27.jpeg',
+      imageAlt: 'Cliente enviando un documento a D27 Docs desde el móvil',
+      title: 'Tus clientes envían los documentos.',
+      description: 'Desde el móvil, cuando pueden. Por WhatsApp o email. Sin instalar nada, sin portales, sin formularios. La experiencia es natural e inmediata.',
       accent: '#f97316',
       overlayClass: 'from-orange-500/20 to-amber-500/10',
     },
     {
       number: '02',
       icon: 'ai',
-      title: 'La IA identifica y extrae',
-      description: 'Factura, ticket o recibo identificado en segundos, con extracción de la información de la factura y añadiendo información de otras fuentes como el BORME.',
+      imageSrc: '/solution-steps/d27docs.jpeg',
+      imageAlt: 'Pantalla de D27 Docs procesando y extrayendo datos de documentos',
+      title: 'D27 Docs procesa y extrae la información.',
+      description: 'La IA recibe el documento, verifica calidad, extrae los datos clave (importes, fechas, emisor) y detecta errores o datos incompletos. Todo automático y añadiendo información de otras fuentes como el BORME.',
+      highlightTerms: ['BORME'],
       accent: '#3b82f6',
       overlayClass: 'from-blue-500/20 to-cyan-500/10',
     },
     {
       number: '03',
       icon: 'erp',
-      title: 'Se conecta a tu ERP',
-      description: 'Integración nativa con a3ERP, Holded y Odoo. Envía la información directamente, sin teclear nada, sin exportar nada manualmente.',
+      imageSrc: '/solution-steps/gestor.jpeg',
+      imageAlt: 'Gestor validando la información antes de enviarla al ERP',
+      title: 'Tú validas y envías al ERP.',
+      description: 'Recibes un resumen claro, organizado y trazable. Información extraída, lista para revisar y contabilizar. Sin buscar, sin descargar, sin reorganizar. Integración nativa con a3ERP, Holded y Odoo. Envía la información directamente, sin teclear nada, sin exportar nada manualmente.',
       accent: '#8b5cf6',
       overlayClass: 'from-violet-500/20 to-purple-500/10',
     },
@@ -225,14 +240,6 @@ export const baseLandingContent = {
       description: 'Escala tu despacho sin aumentar plantilla. Crecimiento sin contrataciones.',
       icon: '📈',
     },
-    {
-      metric: 0,
-      suffix: '',
-      label: 'Sorpresas en la conciliación',
-      description:
-        'Cada asiento cuadra porque el sistema nunca interpreta dos veces un documento de forma distinta.',
-      icon: '✅',
-    },
   ],
   erpLogos: [
     { name: 'Odoo', src: '/integrations/odoo.png', alt: 'Logo de Odoo' },
@@ -244,24 +251,11 @@ export const baseLandingContent = {
   testimonials: [
     {
       quote:
-        'Nuestros clientes simplemente mandan las facturas por WhatsApp. D27 Docs las clasifica, las valida y extrae todos los campos. Hemos reducido el trabajo manual de forma brutal.',
+        'En el despacho gestionamos cientos de facturas y recibos cada trimestre, y D27 Docs nos ha simplificado el trabajo de una forma brutal. Nuestros clientes solo van enviando la documentación por WhatsApp a lo largo del trimestre, y el sistema se encarga de clasificarla, comprobar si es válida y extraer la información clave. Hemos reducido muchísimo el tiempo dedicado a tareas manuales. Ahora podemos centrarnos en asesorar mejor a nuestros clientes y no en perseguir papeles.',
       author: 'Manuel Pérez',
-      role: 'Naumanni SL — Asesoría fiscal y contable',
+      role: 'Asesoría fiscal, contable y laboral · Naumanni SL',
       initials: 'MP',
-    },
-    {
-      quote:
-        'Cada trimestre nos ahogábamos en PDFs. Ahora los documentos entran solos y los asientos están listos para revisar. Cerramos dos días antes cada mes.',
-      author: 'Laura Gómez',
-      role: 'CFO, Distribuidora Altagama',
-      initials: 'LG',
-    },
-    {
-      quote:
-        'La integración con el ERP fue el cambio definitivo. Sin exportaciones, sin importaciones. El asiento está cuando abro Odoo por la mañana.',
-      author: 'Jordi Mas',
-      role: 'Socio, Gestoría Mas & Associats',
-      initials: 'JM',
+      company: 'Naumanni SL',
     },
   ],
   cta: {

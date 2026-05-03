@@ -23,7 +23,7 @@ export function HeroSection({ trackingContext = {} }) {
           {landingContent.hero.title[2]}
         </h1>
 
-        <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-white/[0.55] md:text-xl">
+        <p className="mx-auto max-w-2xl text-lg leading-relaxed text-white/[0.55] md:text-xl">
           {landingContent.hero.description}
         </p>
 

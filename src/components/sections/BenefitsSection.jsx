@@ -10,7 +10,7 @@ export function BenefitsSection() {
     <section id="benefits" className="relative scroll-mt-28 px-6 py-24">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-orange-950/5 to-transparent" />
 
-      <div ref={sectionRef} className="relative z-10 mx-auto max-w-5xl">
+      <div ref={sectionRef} className="relative z-10 mx-auto max-w-6xl">
         <SectionIntro
           eyebrow="El impacto"
           title="Resultados reales, no funcionalidades"
@@ -19,7 +19,7 @@ export function BenefitsSection() {
           inView={inView}
         />
 
-        <div className="mb-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
           {landingContent.benefits.map((benefit, index) => (
             <article
               key={benefit.label}
@@ -37,26 +37,6 @@ export function BenefitsSection() {
               </div>
             </article>
           ))}
-        </div>
-
-        <div
-          className={`fade-up rounded-2xl border border-white/10 bg-white p-6 text-center shadow-[0_24px_54px_rgba(6,10,18,0.14)] ${inView ? 'visible' : ''}`}
-        >
-          <p className="mb-5 text-xs tracking-[0.3em] text-slate-500 uppercase">Integraciones nativas</p>
-          <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-6 sm:gap-x-10">
-            {landingContent.erpLogos.map((erp) => (
-              <article
-                key={erp.name}
-                className="flex h-12 items-center justify-center rounded-xl px-2"
-              >
-                <img
-                  src={erp.src}
-                  alt={erp.alt}
-                  className="max-h-9 w-auto object-contain sm:max-h-10"
-                />
-              </article>
-            ))}
-          </div>
         </div>
       </div>
     </section>

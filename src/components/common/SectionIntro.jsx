@@ -16,9 +16,11 @@ export function SectionIntro({
       <h2 className={`font-display mb-4 text-4xl font-extrabold md:text-5xl ${titleToneClass}`}>
         {title}
       </h2>
-      <p className="font-body mx-auto max-w-xl text-lg leading-relaxed text-white/[0.55]">
-        {description}
-      </p>
+      {description ? (
+        <p className="font-body mx-auto max-w-xl text-lg leading-relaxed text-white/[0.55]">
+          {description}
+        </p>
+      ) : null}
     </div>
   )
 }

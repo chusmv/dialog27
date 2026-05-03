@@ -62,9 +62,9 @@ function renderSegments(segments) {
 
 function ErpCardArt() {
   return (
-    <div className="relative mx-auto flex h-full w-full max-w-[28rem] items-center justify-center">
-      <div className="absolute inset-10 rounded-full bg-[#5d84c8]/30 blur-3xl" />
-      <div className="campaign-erp-card relative w-full max-w-[16rem] rotate-[6deg] rounded-[1.75rem] bg-white px-7 py-8 text-[#192f64] shadow-[0_30px_80px_rgba(7,14,34,0.35)]">
+    <div className="relative mx-auto flex h-full w-full max-w-[24rem] items-center justify-center">
+      <div className="absolute inset-8 rounded-full bg-[#5d84c8]/28 blur-3xl" />
+      <div className="campaign-erp-card relative w-full max-w-[13.75rem] rotate-[6deg] rounded-[1.65rem] bg-white px-6 py-6 text-[#192f64] shadow-[0_24px_64px_rgba(7,14,34,0.32)]">
         <div className="mb-5 flex items-center justify-between text-[2.1rem] font-extrabold tracking-tight">
           <span className="text-[#8c8392]">odoo</span>
           <span>
@@ -84,10 +84,10 @@ function ErpCardArt() {
 
 function DeskArt({ badgeText }) {
   return (
-    <div className="relative mx-auto flex h-full w-full max-w-[30rem] items-center justify-center">
-      <div className="absolute inset-12 rounded-full bg-[#5d84c8]/20 blur-3xl" />
+    <div className="relative mx-auto flex h-full w-full max-w-[26rem] items-center justify-center">
+      <div className="absolute inset-10 rounded-full bg-[#5d84c8]/20 blur-3xl" />
       <svg
-        className="relative z-10 h-[20rem] w-full max-w-[24rem] text-white/95"
+        className="relative z-10 h-[16.5rem] w-full max-w-[20.5rem] text-white/95"
         viewBox="0 0 420 320"
         fill="none"
         aria-hidden="true"
@@ -123,7 +123,7 @@ function DeskArt({ badgeText }) {
         <path d="M348 199c9 0 17 8 17 17v14h-34v-14c0-9 8-17 17-17z" stroke="currentColor" strokeWidth="4" />
         <path d="M336 188c0-7 5-12 12-12s12 5 12 12" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
       </svg>
-      <div className="campaign-stamp absolute bottom-4 right-0 rounded-full border-4 border-[#fe5602] px-7 py-6 text-center text-[1.1rem] font-extrabold text-[#fe5602]">
+      <div className="campaign-stamp absolute bottom-2 right-0 rounded-full border-4 border-[#fe5602] px-6 py-5 text-center text-[1rem] font-extrabold text-[#fe5602]">
         <span className="campaign-stamp__ring" />
         <span className="relative z-10 block rounded-full border-4 border-[#fe5602] px-4 py-2 tracking-wide">
           {badgeText}
@@ -135,9 +135,9 @@ function DeskArt({ badgeText }) {
 
 function CameraArt({ bubbleLines }) {
   return (
-    <div className="relative mx-auto flex h-full w-full max-w-[30rem] items-center justify-center">
-      <div className="absolute inset-10 rounded-full bg-[#5d84c8]/25 blur-3xl" />
-      <div className="campaign-speech-bubble absolute right-0 top-0 z-10 max-w-[20rem] rounded-[999px] border-[10px] border-[#fe5602] px-8 py-6 text-center text-xl font-extrabold leading-tight text-white">
+    <div className="relative mx-auto flex h-full w-full max-w-[26rem] items-center justify-center">
+      <div className="absolute inset-8 rounded-full bg-[#5d84c8]/25 blur-3xl" />
+      <div className="campaign-speech-bubble absolute right-0 top-0 z-10 max-w-[17.5rem] rounded-[999px] border-[10px] border-[#fe5602] px-7 py-5 text-center text-[1.05rem] font-extrabold leading-tight text-white">
         {bubbleLines.map((line) => (
           <span key={line} className="block">
             {line}
@@ -145,7 +145,7 @@ function CameraArt({ bubbleLines }) {
         ))}
       </div>
       <svg
-        className="relative mt-20 h-[18rem] w-full max-w-[24rem] text-white/95"
+        className="relative mt-16 h-[15rem] w-full max-w-[20.5rem] text-white/95"
         viewBox="0 0 420 300"
         fill="none"
         aria-hidden="true"
@@ -172,11 +172,11 @@ function CameraArt({ bubbleLines }) {
 
 function ImageArt({ src, alt }) {
   return (
-    <div className="relative mx-auto flex h-full w-full max-w-[31rem] items-center justify-center">
+    <div className="relative mx-auto flex h-full w-full max-w-[25rem] items-center justify-center">
       <img
         src={src}
         alt={alt}
-        className="relative z-10 h-auto w-full max-w-[30rem] object-contain drop-shadow-[0_18px_40px_rgba(6,10,18,0.28)]"
+        className="relative z-10 h-auto w-full max-w-[24rem] object-contain drop-shadow-[0_18px_40px_rgba(6,10,18,0.28)]"
       />
     </div>
   )
@@ -210,7 +210,7 @@ export function CampaignHeroSection({ variant }) {
   const { hero, tracking } = variant
 
   return (
-    <section className="relative overflow-hidden bg-[#0f2044] px-6 pb-20 pt-28 text-white sm:pt-32 lg:pt-36">
+    <section className="relative overflow-hidden bg-[#0f2044] px-6 pb-10 pt-28 text-white sm:pb-12 sm:pt-32 lg:pt-36">
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 h-[48%] bg-[#4269af]"
         style={{ clipPath: 'polygon(0 34%, 100% 0, 100% 100%, 0 100%)' }}
@@ -225,7 +225,7 @@ export function CampaignHeroSection({ variant }) {
           ))}
         </h1>
 
-        <div className="mt-6 grid gap-12 lg:mt-5 lg:grid-cols-[minmax(0,1.05fr)_minmax(18rem,0.95fr)] lg:items-center">
+        <div className="mt-6 grid gap-8 lg:mt-5 lg:grid-cols-[minmax(0,1.08fr)_minmax(16rem,0.82fr)] lg:items-start">
           <div className="max-w-3xl">
             <ul className="space-y-3 text-[1.28rem] leading-[1.08] font-bold tracking-[-0.01em] text-white sm:text-[1.4rem] lg:text-[1.5rem]">
               {hero.bullets.map((bullet, index) => (
@@ -284,7 +284,7 @@ export function CampaignHeroSection({ variant }) {
             </div>
           </div>
 
-          <div className="min-h-[18rem] lg:min-h-[28rem]">
+          <div className="min-h-[14rem] lg:min-h-[20rem]">
             <CampaignHeroArt art={hero.art} />
           </div>
         </div>

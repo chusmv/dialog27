@@ -24,6 +24,7 @@ export default defineConfig({
     host: 'localhost',
     port: 5174,
     strictPort: true,
+    allowedHosts: ['.ngrok-free.dev', '.ngrok-free.app'],
   },
   test: {
     environment: 'jsdom',

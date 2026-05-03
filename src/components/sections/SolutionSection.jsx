@@ -1,7 +1,31 @@
 import { SectionIntro } from '../common/SectionIntro'
-import { StepIcon } from '../icons/LandingIcons'
 import { landingContent } from '../../content/landingContent'
 import { useInView } from '../../hooks/useInView'
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+function renderDescription(description, highlightTerms = []) {
+  if (!highlightTerms.length) {
+    return description
+  }
+
+  const pattern = new RegExp(`(${highlightTerms.map(escapeRegExp).join('|')})`, 'g')
+  const fragments = description.split(pattern)
+
+  return fragments.map((fragment, index) => {
+    if (highlightTerms.includes(fragment)) {
+      return (
+        <span key={`${fragment}-${index}`} className="font-bold text-white">
+          {fragment}
+        </span>
+      )
+    }
+
+    return <span key={`${fragment}-${index}`}>{fragment}</span>
+  })
+}
 
 export function SolutionSection() {
   const [sectionRef, inView] = useInView()
@@ -27,30 +51,69 @@ export function SolutionSection() {
           {landingContent.steps.map((step, index) => (
             <article
               key={step.number}
-              className={`card-lift glass fade-up fade-delay-${index + 1} relative overflow-hidden rounded-3xl border border-white/5 p-7 ${inView ? 'visible' : ''}`}
+              className={`card-lift glass fade-up fade-delay-${index + 1} relative overflow-hidden rounded-3xl border border-white/5 ${inView ? 'visible' : ''}`}
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${step.overlayClass} opacity-60`} />
               <div className="relative z-10">
-                <div className="mb-5 flex items-start justify-between">
-                  <div style={{ color: step.accent }} className="glass rounded-xl p-2">
-                    <StepIcon type={step.icon} />
-                  </div>
-                  <span
-                    className="font-display text-5xl leading-none font-extrabold"
-                    style={{ color: step.accent, opacity: 0.2 }}
-                  >
-                    {step.number}
-                  </span>
+                <div className="aspect-square overflow-hidden border-b border-white/8 sm:aspect-[5/4]">
+                  <img
+                    src={step.imageSrc}
+                    alt={step.imageAlt}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
-                <h3 className="font-display mb-2 text-xl font-bold text-white">{step.title}</h3>
-                <p className="text-sm leading-relaxed text-white/50">{step.description}</p>
-                <div
-                  className="mt-5 h-0.5 rounded"
-                  style={{ background: `linear-gradient(90deg, ${step.accent}60, transparent)` }}
-                />
+                <div className="p-7">
+                  <div className="mb-5 flex items-start justify-between gap-4">
+                    <span
+                      className="font-display text-5xl leading-none font-extrabold"
+                      style={{ color: step.accent, opacity: 0.2 }}
+                    >
+                      {step.number}
+                    </span>
+                    <div
+                      className="rounded-full border px-3 py-1 text-[0.68rem] font-bold tracking-[0.18em] uppercase"
+                      style={{
+                        color: step.accent,
+                        borderColor: `${step.accent}55`,
+                        backgroundColor: `${step.accent}14`,
+                      }}
+                    >
+                      Paso {step.number}
+                    </div>
+                  </div>
+                  <h3 className="font-display mb-2 text-xl font-bold text-white">{step.title}</h3>
+                  <p className="text-sm leading-relaxed text-white/50">
+                    {renderDescription(step.description, step.highlightTerms)}
+                  </p>
+                  <div
+                    className="mt-5 h-0.5 rounded"
+                    style={{ background: `linear-gradient(90deg, ${step.accent}60, transparent)` }}
+                  />
+                </div>
               </div>
             </article>
           ))}
+        </div>
+
+        <div
+          className={`fade-up mt-8 rounded-2xl border border-white/10 bg-white p-6 text-center shadow-[0_24px_54px_rgba(6,10,18,0.14)] ${inView ? 'visible' : ''}`}
+        >
+          <p className="mb-5 text-xs tracking-[0.3em] text-slate-500 uppercase">Integraciones nativas</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-6 sm:gap-x-10">
+            {landingContent.erpLogos.map((erp) => (
+              <article
+                key={erp.name}
+                className="flex h-12 items-center justify-center rounded-xl px-2"
+              >
+                <img
+                  src={erp.src}
+                  alt={erp.alt}
+                  className="max-h-9 w-auto object-contain sm:max-h-10"
+                />
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

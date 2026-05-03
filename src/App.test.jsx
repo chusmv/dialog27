@@ -17,20 +17,25 @@ describe('Dialog27 docs landing', () => {
     expect(
       screen.getByText(/menos tiempo en introducción de datos/i),
     ).toBeInTheDocument()
+    expect(screen.getByText(/promoción por tiempo limitado/i)).toBeInTheDocument()
+    expect(screen.getByText(/pruébalo 1 mes gratis/i)).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /planes/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /basic/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /plus/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /corporate/i })).toBeInTheDocument()
     expect(screen.getByText(/hasta 500/i)).toBeInTheDocument()
-    expect(screen.getByText(/^50$/i)).toBeInTheDocument()
-    expect(screen.getByText(/recomendado/i)).toBeInTheDocument()
+    expect(screen.getByText((_, element) => element?.textContent === 'Hasta 50')).toBeInTheDocument()
     expect(screen.getAllByRole('button', { name: /ver detalles/i }).length).toBeGreaterThan(0)
-    expect(screen.queryByRole('heading', { name: /la confianza de los profesionales contables/i })).not.toBeInTheDocument()
-    expect(screen.queryByRole('link', { name: /clientes/i })).not.toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /la confianza de los profesionales contables/i }),
+    ).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /clientes/i })).toBeInTheDocument()
     expect(screen.getByAltText(/logo de odoo/i)).toBeInTheDocument()
     expect(screen.getByAltText(/logo de a3erp/i)).toBeInTheDocument()
     expect(screen.getByAltText(/logo de holded/i)).toBeInTheDocument()
     expect(screen.getByAltText(/logo de borme/i)).toBeInTheDocument()
+    expect(screen.getByText(/solo 2 clicks de validación/i)).toBeInTheDocument()
+    expect(screen.getByText(/bolsas de tokens adicionales/i)).toBeInTheDocument()
 
     const ctaLinks = screen.getAllByRole('link', { name: /pedir demo/i })
     expect(ctaLinks.length).toBeGreaterThan(0)
@@ -83,18 +88,24 @@ describe('Dialog27 docs landing', () => {
         expect(link).toHaveAttribute('href', siteConfig.urls.demo)
       }
 
+      expect(screen.getByText(/promoción por tiempo limitado/i)).toBeInTheDocument()
+      expect(screen.getByText(/pruébalo 1 mes gratis/i)).toBeInTheDocument()
       expect(screen.getByRole('heading', { name: /basic/i })).toBeInTheDocument()
       expect(screen.getByRole('heading', { name: /plus/i })).toBeInTheDocument()
       expect(screen.getByRole('heading', { name: /corporate/i })).toBeInTheDocument()
       expect(screen.getByText(/hasta 500/i)).toBeInTheDocument()
-      expect(screen.getByText(/^50$/i)).toBeInTheDocument()
-      expect(screen.getByText(/recomendado/i)).toBeInTheDocument()
+      expect(screen.getByText((_, element) => element?.textContent === 'Hasta 50')).toBeInTheDocument()
       expect(screen.getAllByRole('button', { name: /ver detalles/i }).length).toBeGreaterThan(0)
-      expect(screen.queryByRole('heading', { name: /la confianza de los profesionales contables/i })).not.toBeInTheDocument()
+      expect(
+        screen.getByRole('heading', { name: /la confianza de los profesionales contables/i }),
+      ).toBeInTheDocument()
+      expect(screen.getByRole('link', { name: /clientes/i })).toBeInTheDocument()
       expect(screen.getByAltText(/logo de odoo/i)).toBeInTheDocument()
       expect(screen.getByAltText(/logo de a3erp/i)).toBeInTheDocument()
       expect(screen.getByAltText(/logo de holded/i)).toBeInTheDocument()
       expect(screen.getByAltText(/logo de borme/i)).toBeInTheDocument()
+      expect(screen.getByText(/solo 2 clicks de validación/i)).toBeInTheDocument()
+      expect(screen.getByText(/bolsas de tokens adicionales/i)).toBeInTheDocument()
       const packageCtaLinks = screen.getAllByRole('link', { name: /solicitar demo/i })
       expect(packageCtaLinks.length).toBeGreaterThan(0)
 

@@ -22,33 +22,76 @@ function CrownIcon() {
   )
 }
 
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true">
+      <path
+        d="M3.5 8.2l2.5 2.6 6-6.1"
+        stroke="#ff5700"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+function PlanList({ items, textClassName = 'text-white/78' }) {
+  return (
+    <ul className="space-y-2.5 text-sm leading-relaxed md:text-[0.96rem]">
+      {items.map((item) => (
+        <li key={item} className={`flex items-start gap-2.5 ${textClassName}`}>
+          <CheckIcon />
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
 function PackageCard({ pack, inView }) {
   const [expanded, setExpanded] = useState(false)
   const detailId = useId()
+  const [priceWhole, priceDecimals = '00 €'] = pack.price.split(',')
 
   const cardClass = pack.featured
-    ? 'border-[#fe5602]/45 bg-[radial-gradient(circle_at_top,rgba(254,86,2,0.2),transparent_42%),linear-gradient(180deg,rgba(31,38,57,0.98),rgba(19,25,39,0.99))] shadow-[0_26px_76px_rgba(254,86,2,0.16)] ring-1 ring-[#fe5602]/18'
-    : 'border-white/8 bg-[linear-gradient(180deg,rgba(24,31,47,0.94),rgba(18,24,38,0.98))] shadow-[0_16px_44px_rgba(7,10,18,0.18)]'
+    ? 'border-2 border-[#ff5700]/80 bg-[#162133]/96 shadow-[0_28px_82px_rgba(255,87,0,0.18)] ring-2 ring-[#ff5700]/34 lg:-mx-2 lg:z-10'
+    : 'border-white/8 bg-[#172234]/94 shadow-[0_16px_44px_rgba(7,10,18,0.18)]'
   const badgeClass = pack.featured
-    ? 'border-[#fe5602]/40 bg-[#fe5602]/14 text-[#ffe2d3]'
-    : 'border-white/12 bg-white/6 text-white/72'
+    ? 'border-white/22 bg-[#18315f]/22 text-white'
+    : 'border-white/18 bg-[#18315f]/18 text-white/86'
   const toggleClass = pack.featured
-    ? 'border-[#fe5602]/25 bg-[#fe5602]/10 text-[#ffd9c6] hover:bg-[#fe5602]/14'
+    ? 'border-[#ff5700]/25 bg-[#ff5700]/10 text-[#ffd9c6] hover:bg-[#ff5700]/14'
     : 'border-white/10 bg-white/[0.04] text-white/72 hover:bg-white/[0.07]'
 
   return (
     <article
-      className={`card-lift fade-up fade-delay-1 flex h-full flex-col overflow-hidden rounded-[2rem] border p-5 backdrop-blur-md md:p-6 lg:p-7 ${cardClass} ${inView ? 'visible' : ''}`}
+      className={`card-lift fade-up fade-delay-1 flex h-full flex-col overflow-hidden rounded-[2rem] border backdrop-blur-md ${cardClass} ${inView ? 'visible' : ''}`}
     >
-      <div className="flex items-start justify-between gap-4">
-        <h3
-          className={`font-display leading-none font-extrabold text-white ${pack.featured ? 'text-[2.15rem] md:text-[2.25rem]' : 'text-[1.85rem] md:text-[1.95rem]'}`}
-        >
-          {pack.name}
-        </h3>
+      <div className="relative border-b border-white/8 px-5 py-5 md:px-6 md:py-6">
+        <div className="min-w-0 pr-24">
+          <div className={pack.featured ? 'drop-shadow-[0_0_16px_rgba(255,87,0,0.14)]' : ''}>
+            <h3 className="font-display text-[1.28rem] leading-none font-extrabold tracking-[0.16em] text-[#ff5700] uppercase md:text-[1.42rem]">
+              {pack.name}
+            </h3>
+            <div className="mt-4 flex flex-nowrap items-start gap-x-2 text-white">
+              <p className="font-display whitespace-nowrap text-[3rem] leading-none font-extrabold tracking-[-0.05em] md:text-[3.45rem]">
+                {priceWhole}
+              </p>
+              <div className="flex items-start gap-1 pt-0.5">
+                <p className="whitespace-nowrap text-[1.42rem] leading-none font-medium tracking-[-0.03em] md:text-[1.68rem]">
+                  ,{priceDecimals}
+                </p>
+                <p className="pt-0.5 text-[0.9rem] leading-none font-semibold text-white/82 md:text-[0.98rem]">
+                  €/mes
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
         {pack.badgeLabel ? (
           <span
-            className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-extrabold tracking-[0.08em] ${badgeClass}`}
+            className={`absolute right-4 top-4 inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-[0.68rem] font-extrabold tracking-[0.08em] ${badgeClass}`}
           >
             {pack.badgeLabel}
             {pack.featured ? <CrownIcon /> : null}
@@ -56,75 +99,50 @@ function PackageCard({ pack, inView }) {
         ) : null}
       </div>
 
-      <div className="mt-5 flex flex-wrap items-end gap-x-3 gap-y-1">
-        <p
-          className={`font-display leading-none font-extrabold text-white ${pack.featured ? 'text-[2.9rem] md:text-[3rem]' : 'text-[2.45rem] md:text-[2.6rem]'}`}
-        >
-          {pack.price}
-        </p>
-        <p className="pb-1 text-sm text-white/56 md:text-base">{pack.note}</p>
-      </div>
-
-      <div className="mt-5">
-        <ul className="space-y-2.5 pl-5 text-sm leading-relaxed text-white/78 md:text-[0.96rem]">
-          {pack.summaryFeatures.map((item) => (
-            <li key={item} className="list-disc">
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="mt-5 grid grid-cols-2 gap-3">
-        {pack.summaryCapacity.map((item) => (
-          <div
-            key={item.label}
-            className={`rounded-2xl border p-3 ${pack.featured ? 'border-[#fe5602]/18 bg-[#fe5602]/8' : 'border-white/8 bg-white/[0.03]'}`}
-          >
-            <p className="text-[0.7rem] font-bold tracking-[0.08em] text-white/42 uppercase">
-              {item.label}
-            </p>
-            <p className="mt-1 text-base font-extrabold text-white md:text-lg">{item.value}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-5">
-        <button
-          type="button"
-          aria-expanded={expanded}
-          aria-controls={detailId}
-          onClick={() => setExpanded((current) => !current)}
-          className={`inline-flex items-center justify-center rounded-full border px-4 py-2 text-sm font-bold transition-colors ${toggleClass}`}
-        >
-          {expanded ? 'Ocultar detalles' : 'Ver detalles'}
-        </button>
-      </div>
-
-      {expanded ? (
-        <div
-          id={detailId}
-          className="mt-5 rounded-[1.45rem] border border-white/7 bg-white/[0.03] p-5 md:p-6"
-        >
-          <p className="mb-4 text-base font-bold text-white/86 md:text-lg">{pack.includedTitle}</p>
-          <ul className="space-y-3 pl-5 text-sm leading-relaxed text-white/70 md:text-base">
-            {pack.includedItems.map((item) => (
-              <li key={item} className="list-disc">
-                {item}
-              </li>
-            ))}
-          </ul>
-
-          <p className="mt-7 mb-4 text-base font-bold text-white/86 md:text-lg">{pack.capacityTitle}</p>
-          <ul className="space-y-3 pl-5 text-sm leading-relaxed text-white/70 md:text-base">
-            {pack.capacityItems.map((item) => (
-              <li key={item} className="list-disc">
-                {item}
-              </li>
-            ))}
-          </ul>
+      <div className="flex flex-1 flex-col p-5 md:p-6 lg:p-7">
+        <div>
+          <PlanList items={pack.summaryFeatures} />
         </div>
-      ) : null}
+
+        <div className="mt-5 grid grid-cols-2 gap-3">
+          {pack.summaryCapacity.map((item) => (
+            <div
+              key={item.label}
+              className={`rounded-2xl border p-3 ${pack.featured ? 'border-[#ff5700]/18 bg-[#ff5700]/8' : 'border-white/8 bg-white/[0.03]'}`}
+            >
+              <p className="text-[0.7rem] font-bold tracking-[0.08em] text-white/42 uppercase">
+                {item.label}
+              </p>
+              <p className="mt-1 text-base font-extrabold text-white md:text-lg">{item.value}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-5">
+          <button
+            type="button"
+            aria-expanded={expanded}
+            aria-controls={detailId}
+            onClick={() => setExpanded((current) => !current)}
+            className={`inline-flex items-center justify-center rounded-full border px-4 py-2 text-sm font-bold transition-colors ${toggleClass}`}
+          >
+            {expanded ? 'Ocultar detalles' : 'Ver detalles'}
+          </button>
+        </div>
+
+        {expanded ? (
+          <div
+            id={detailId}
+            className="mt-5 rounded-[1.45rem] border border-white/7 bg-white/[0.03] p-5 md:p-6"
+          >
+            <p className="mb-4 text-base font-bold text-white/86 md:text-lg">{pack.includedTitle}</p>
+            <PlanList items={pack.includedItems} textClassName="text-white/70 md:text-base" />
+
+            <p className="mt-7 mb-4 text-base font-bold text-white/86 md:text-lg">{pack.capacityTitle}</p>
+            <PlanList items={pack.capacityItems} textClassName="text-white/70 md:text-base" />
+          </div>
+        ) : null}
+      </div>
     </article>
   )
 }
@@ -154,6 +172,10 @@ export function PlansSection({ trackingContext = {} }) {
           ))}
         </div>
 
+        <p className={`fade-up mt-6 text-center text-sm font-medium text-white/64 md:text-base ${inView ? 'visible' : ''}`}>
+          {plansSection.pricingNote}
+        </p>
+
         <div className={`fade-up mt-10 flex justify-center ${inView ? 'visible' : ''}`}>
           <a
             href={siteConfig.urls.demo}
@@ -170,6 +192,14 @@ export function PlansSection({ trackingContext = {} }) {
             {plansSection.cta.label}
             <ArrowRightIcon />
           </a>
+        </div>
+
+        <div
+          className={`fade-up mt-8 w-full rounded-[1.75rem] border border-white/12 bg-white/[0.08] px-5 py-4 text-center shadow-[0_18px_42px_rgba(7,10,18,0.16)] backdrop-blur-sm md:px-7 md:py-5 ${inView ? 'visible' : ''}`}
+        >
+          <p className="text-sm leading-relaxed font-medium text-white/78 md:text-base">
+            {plansSection.footnote}
+          </p>
         </div>
       </div>
     </section>
