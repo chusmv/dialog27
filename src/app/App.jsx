@@ -3,11 +3,11 @@ import { HeroSection } from '../components/sections/HeroSection'
 import { ProblemSection } from '../components/sections/ProblemSection'
 import { SolutionSection } from '../components/sections/SolutionSection'
 import { BenefitsSection } from '../components/sections/BenefitsSection'
-import { ProofSection } from '../components/sections/ProofSection'
 import { CtaSection } from '../components/sections/CtaSection'
 import { CampaignHeroSection } from '../components/sections/CampaignHeroSection'
 import { CampaignCtaSection } from '../components/sections/CampaignCtaSection'
 import { HeroFlowSection } from '../components/sections/HeroFlowSection'
+import { PlansSection } from '../components/sections/PlansSection'
 import { FooterSection } from '../components/sections/FooterSection'
 import { siteConfig } from '../config/siteConfig'
 import { getLandingVariant } from '../content/landingVariants'
@@ -34,8 +34,8 @@ function App({ variantKey = 'default' }) {
         <HeroFlowSection />
         <ProblemSection />
         <SolutionSection />
+        <PlansSection trackingContext={variant.tracking} />
         <BenefitsSection />
-        <ProofSection />
         {variant.kind === 'campaign' ? (
           <CampaignCtaSection variant={variant} />
         ) : (

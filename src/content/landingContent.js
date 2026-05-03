@@ -1,8 +1,8 @@
 export const baseLandingContent = {
   navLinks: [
     { href: '#solution', label: 'Cómo funciona' },
+    { href: '#plans', label: 'Planes' },
     { href: '#benefits', label: 'Beneficios' },
-    { href: '#proof', label: 'Clientes' },
   ],
   hero: {
     eyebrow: 'Automatización contable completa',
@@ -52,25 +52,124 @@ export const baseLandingContent = {
       },
     ],
   },
+  plansSection: {
+    eyebrow: 'Planes',
+    title: 'Elige el plan que encaja con tu actividad.',
+    description: 'Tres paquetes pensados para crecer contigo.',
+    cta: {
+      label: 'Solicitar demo',
+    },
+    packages: [
+      {
+        name: 'BASIC',
+        price: '24,90 €',
+        note: 'al mes, sin impuestos incluidos',
+        summaryFeatures: [
+          'Unificación de canales (WhatsApp y correo)',
+          'Tres modelos de IA disponibles',
+          'Extracción automática de información de documentos con IA',
+        ],
+        summaryCapacity: [
+          { label: 'Documentos/mes', value: 'Hasta 500' },
+          { label: 'CLIENTES', value: 'Hasta 50' },
+        ],
+        includedTitle: 'El plan Basic incluye:',
+        includedItems: [
+          'Unificación de canales (WhatsApp y correo)',
+          'Tres modelos de IA disponibles',
+          'Extracción automática de información de documentos con IA',
+        ],
+        capacityTitle: 'Límites del plan:',
+        capacityItems: [
+          '4.000 tokens/mes incluidos (hasta 500 documentos)',
+          '120 días de almacenamiento',
+          '50 clientes/usuarios simultáneos',
+          '2 proyectos simultáneos',
+          'Exportación simultánea de hasta 50 documentos',
+        ],
+      },
+      {
+        name: 'PLUS',
+        price: '99,90 €',
+        note: 'al mes, sin impuestos incluidos',
+        badgeLabel: 'EL MÁS COMPRADO',
+        featured: true,
+        summaryFeatures: [
+          'Todo lo del BASIC y, además:',
+          'Extracción complementada con OCR',
+          'Recordatorios',
+          'Exportaciones personalizadas',
+        ],
+        summaryCapacity: [
+          { label: 'Documentos/mes', value: 'Hasta 5.000' },
+          { label: 'CLIENTES', value: 'Hasta 200' },
+        ],
+        includedTitle: 'Todo lo incluido en Basic y, además:',
+        includedItems: [
+          'Extracción complementada con OCR',
+          'Recordatorios',
+          'Exportaciones personalizadas',
+        ],
+        capacityTitle: 'Mayor capacidad:',
+        capacityItems: [
+          '40.000 tokens/mes incluidos (hasta 5.000 documentos)',
+          '400 días de almacenamiento',
+          '200 clientes/usuarios simultáneos',
+          '5 proyectos simultáneos',
+          'Exportación simultánea de hasta 400 documentos',
+        ],
+      },
+      {
+        name: 'CORPORATE',
+        price: '199,90 €',
+        note: 'al mes, sin impuestos incluidos',
+        summaryFeatures: [
+          'Todo lo del PLUS y, además:',
+          'Recordatorios personalizables',
+          'Exportaciones avanzadas',
+          'Integraciones vía APIs',
+        ],
+        summaryCapacity: [
+          { label: 'Documentos/mes', value: 'Hasta 12.500' },
+          { label: 'CLIENTES', value: 'Hasta 1.000' },
+        ],
+        includedTitle: 'Todo lo incluido en Plus y, además:',
+        includedItems: [
+          'Recordatorios personalizables',
+          'Exportaciones avanzadas',
+          'Trazabilidad y auditoría avanzada',
+          'Integraciones vía APIs',
+        ],
+        capacityTitle: 'Mayor capacidad:',
+        capacityItems: [
+          '100.000 tokens/mes incluidos (hasta 12.500 documentos)',
+          '2.000 días de almacenamiento',
+          '1.000 clientes/usuarios simultáneos',
+          'Proyectos simultáneos ilimitados',
+          'Exportación simultánea de hasta 1.000 documentos',
+        ],
+      },
+    ],
+  },
   problems: [
     {
-      emoji: '📧',
+      iconSrc: '/problem-icons/cajafacturas.png',
       title: 'El caos de las facturas',
       description:
         'Te envían las facturas a última hora, te las dan en una caja, tienes que buscarlas enterradas en hilos de emails de muchos clientes distintos.',
     },
     {
-      emoji: '⌨️',
+      iconSrc: '/problem-icons/contabilidadmanual.png',
       title: 'Introducción manual',
       description: 'Te pasas horas tecleando importes, fechas y NIF a mano. Cada. Maldito. Día.',
     },
     {
-      emoji: '📊',
+      iconSrc: '/problem-icons/escalar.png',
       title: 'Ni idea del estado real',
       description: 'Ni tu cliente ni tu sabéis el estado en el que está la empresa hasta el final del mes o del trimestre.',
     },
     {
-      emoji: '🔀',
+      iconSrc: '/problem-icons/errores.png',
       title: 'Errores de conciliación',
       description: 'Al ser un trabajo tan manual y hacerlo con poco tiempo para el cierre, es normal equivocarse. Cierres de mes que duran días porque nada cuadra a la primera.',
     },
@@ -100,21 +199,8 @@ export const baseLandingContent = {
       accent: '#8b5cf6',
       overlayClass: 'from-violet-500/20 to-purple-500/10',
     },
-    {
-      number: '04',
-      icon: 'approval',
-      title: 'Asiento creado. Tú validas.',
-      description: 'El asiento contable se genera automáticamente. Tu único trabajo: validar y aprobar.',
-      accent: '#10b981',
-      overlayClass: 'from-emerald-500/20 to-green-500/10',
-    },
   ],
-  connectorLabels: [
-    'El cliente envía el documento',
-    'La IA procesa y extrae',
-    'Asiento creado en ERP',
-    'El contable valida',
-  ],
+  connectorLabels: ['El cliente envía el documento', 'La IA procesa y extrae', 'La información entra en tu ERP'],
   benefits: [
     {
       metric: 80,
@@ -148,7 +234,12 @@ export const baseLandingContent = {
       icon: '✅',
     },
   ],
-  erpLogos: ['Odoo', 'Sage', 'Contasol', 'A3', 'Holded', 'Tu ERP'],
+  erpLogos: [
+    { name: 'Odoo', src: '/integrations/odoo.png', alt: 'Logo de Odoo' },
+    { name: 'a3ERP', src: '/integrations/a3erp.png', alt: 'Logo de a3ERP' },
+    { name: 'Holded', src: '/integrations/holded.png', alt: 'Logo de Holded' },
+    { name: 'BORME', src: '/integrations/borme.svg', alt: 'Logo de BORME' },
+  ],
   proofLogos: ['Naumanni SL', 'Gestoría Mas', 'Altagama', 'Asesoría Norte', 'Despacho 21'],
   testimonials: [
     {

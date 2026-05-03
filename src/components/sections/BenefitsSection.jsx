@@ -14,6 +14,7 @@ export function BenefitsSection() {
         <SectionIntro
           eyebrow="El impacto"
           title="Resultados reales, no funcionalidades"
+          titleTone="plain"
           description="Qué cambia de verdad cuando eliminas el trabajo manual de la contabilidad."
           inView={inView}
         />
@@ -38,15 +39,21 @@ export function BenefitsSection() {
           ))}
         </div>
 
-        <div className={`glass fade-up rounded-2xl p-6 text-center ${inView ? 'visible' : ''}`}>
-          <p className="mb-5 text-xs tracking-[0.3em] text-white/40 uppercase">Integraciones nativas</p>
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8">
+        <div
+          className={`fade-up rounded-2xl border border-white/10 bg-white p-6 text-center shadow-[0_24px_54px_rgba(6,10,18,0.14)] ${inView ? 'visible' : ''}`}
+        >
+          <p className="mb-5 text-xs tracking-[0.3em] text-slate-500 uppercase">Integraciones nativas</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-6 sm:gap-x-10">
             {landingContent.erpLogos.map((erp) => (
               <article
-                key={erp}
-                className="glass rounded-xl px-5 py-2.5 text-sm font-bold text-white/60 transition-colors hover:text-orange-400"
+                key={erp.name}
+                className="flex h-12 items-center justify-center rounded-xl px-2"
               >
-                {erp}
+                <img
+                  src={erp.src}
+                  alt={erp.alt}
+                  className="max-h-9 w-auto object-contain sm:max-h-10"
+                />
               </article>
             ))}
           </div>

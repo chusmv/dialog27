@@ -9,7 +9,7 @@ export function SectionIntro({
   const titleToneClass = titleTone === 'plain' ? 'text-white' : 'gradient-text-subtle'
 
   return (
-    <div className={`mb-16 ${centered ? 'text-center' : ''} fade-up ${inView ? 'visible' : ''}`}>
+    <div className={`mb-8 ${centered ? 'text-center' : ''} fade-up ${inView ? 'visible' : ''}`}>
       <div className="glass font-body mb-6 inline-block rounded-full px-4 py-1.5 text-xs tracking-[0.3em] text-white/45 uppercase">
         {eyebrow}
       </div>

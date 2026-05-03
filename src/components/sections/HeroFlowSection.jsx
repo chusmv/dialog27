@@ -4,7 +4,7 @@ import { ArrowDownIcon, ArrowRightIcon, FlowNodeIcon } from '../icons/LandingIco
 function FlowCard({ node, compact = false }) {
   return (
     <article
-      className={`${node.motionClass} hero-flow-card ${node.featured ? 'hero-flow-card-featured' : ''} relative flex w-full flex-col items-center justify-center overflow-hidden rounded-[1.45rem] text-center ${compact ? 'min-h-[8rem] px-4 py-4.5' : 'min-h-[9.3rem] px-4 py-4.5 lg:min-h-[9.75rem] lg:px-4 lg:py-5'}`}
+      className={`hero-flow-card ${node.featured ? 'hero-flow-card-featured' : ''} relative flex w-full flex-col items-center justify-center overflow-hidden rounded-[1.45rem] text-center ${compact ? 'min-h-[8rem] px-4 py-4.5' : 'min-h-[9.3rem] px-4 py-4.5 lg:min-h-[9.75rem] lg:px-4 lg:py-5'}`}
     >
       {node.badgeLabel ? (
         <span
@@ -50,8 +50,10 @@ export function HeroFlowSection() {
 
               {index < landingContent.hero.flowNodes.length - 1 ? (
                 <div className="hero-flow-connector relative z-10 flex w-full items-center justify-center pt-1">
-                  <div className="shimmer-line h-px w-[1.3rem] rounded lg:w-[1.8rem]" />
-                  <ArrowRightIcon className="-ml-0.5 h-[1rem] w-[1rem] text-[#fe5602]" />
+                  <div className="hero-flow-connector__line h-[0.2rem] w-[1.4rem] rounded-full lg:w-[2rem]" />
+                  <span className="hero-flow-connector__arrow-wrap -ml-0.5">
+                    <ArrowRightIcon className="hero-flow-connector__arrow h-[1.15rem] w-[1.15rem] text-[#fe5602] lg:h-[1.35rem] lg:w-[1.35rem]" />
+                  </span>
                 </div>
               ) : null}
             </div>
@@ -67,7 +69,8 @@ export function HeroFlowSection() {
 
               {index < landingContent.hero.flowNodes.length - 1 ? (
                 <div className="hero-flow-connector-mobile flex h-7 items-center justify-center text-[#fe5602]">
-                  <ArrowDownIcon className="h-5 w-5" />
+                  <div className="hero-flow-connector-mobile__line mr-1 h-4 w-[0.2rem] rounded-full" />
+                  <ArrowDownIcon className="hero-flow-connector-mobile__arrow h-5 w-5" />
                 </div>
               ) : null}
             </div>
@@ -75,7 +78,7 @@ export function HeroFlowSection() {
         </div>
 
         <p className="mt-5 text-center text-[1.45rem] leading-tight font-medium tracking-[0.02em] text-white/40 md:text-[1.9rem]">
-          Solo 2 clicks de validación. Todo lo demás, automático.
+          Solo 2 clicks de validación. Todo lo demás, automatizado.
         </p>
       </div>
     </section>

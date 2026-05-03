@@ -4,7 +4,7 @@ export function ArrowRightIcon({ className = 'h-4 w-4' }) {
       <path
         d="M3 8h10M9 4l4 4-4 4"
         stroke="currentColor"
-        strokeWidth="1.5"
+        strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -15,7 +15,7 @@ export function ArrowRightIcon({ className = 'h-4 w-4' }) {
 export function ArrowDownIcon({ className = 'h-6 w-6' }) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 5v14M6 13l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M12 5v14M6 13l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
     </svg>
   )
 }

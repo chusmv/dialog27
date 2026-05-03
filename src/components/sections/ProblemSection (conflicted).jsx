@@ -30,29 +30,16 @@ export function ProblemSection() {
           </p>
         </div>
         
-        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 mt-12">
           {landingContent.problems.map((problem, index) => (
             <article
               key={problem.title}
               className={`card-lift fade-up fade-delay-${index + 1} rounded-2xl border border-white/10 bg-[#2f5da6]/35 p-6 backdrop-blur-md ${inView ? 'visible' : ''}`}
             >
-              <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] items-center gap-4 md:grid-cols-[6.5rem_minmax(0,1fr)] md:gap-5">
-                <div className="flex items-center justify-center">
-                  <div className="h-20 w-20 md:h-24 md:w-24">
-                    <img
-                      src={problem.iconSrc}
-                      alt=""
-                      className="h-full w-full object-contain"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="font-display mb-2 text-lg font-bold text-white">{problem.title}</h3>
-                  <p className="text-sm leading-relaxed text-white/60">{problem.description}</p>
-                  <div className="mt-4 h-0.5 rounded bg-gradient-to-r from-red-500/30 to-transparent" />
-                </div>
-              </div>
+              <div className="mb-4 text-3xl">{problem.emoji}</div>
+              <h3 className="font-display mb-2 text-lg font-bold text-white">{problem.title}</h3>
+              <p className="text-sm leading-relaxed text-white/50">{problem.description}</p>
+              <div className="mt-4 h-0.5 rounded bg-gradient-to-r from-red-500/30 to-transparent" />
             </article>
           ))}
         </div>
