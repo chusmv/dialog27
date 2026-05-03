@@ -139,12 +139,12 @@ export const landingVariants = {
     },
     finalCta: {
       eyebrow: 'Menos trabajo manual',
-      title: ['Reduce el trabajo contable.', 'Mantén el control del despacho.'],
+      title: ['Reduce el trabajo contable.', 'Crece sin más tecleo.'],
       description:
         'El cliente sube el documento, D27 Docs extrae los datos y tu ERP recibe la información lista para validar.',
       primaryLabel: 'Solicitar demo gratis',
       secondaryLabel: 'Ver D27 Docs',
-      helper: 'Orientado a asesorías y gestorías que quieren crecer sin más tecleo.',
+      helper: 'Orientado a asesorías y gestorías que quieren crecer y dejar de hacer contabilidad manual.',
     },
   },
   'automatiza-contabilidad': {

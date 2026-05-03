@@ -10,6 +10,7 @@ export const baseLandingContent = {
     title: ['Del documento de tu cliente', 'a la contabilidad,', 'automáticamente.'],
     description:
       'Tus clientes suben documentos. D27 Docs los procesa y los contabiliza en tu ERP. Tú solo validas.',
+    flowTitle: 'Del documento de tu cliente a la contabilidad en solo 2 clicks.',
     primaryCta: 'Pedir demo',
     secondaryCta: 'Ver cómo funciona',
     flowNodes: [
@@ -174,7 +175,7 @@ export const baseLandingContent = {
     {
       iconSrc: '/problem-icons/escalar.png',
       title: 'Ni idea del estado real',
-      description: 'Ni tu cliente ni tu sabéis el estado en el que está la empresa hasta el final del mes o del trimestre.',
+      description: 'Como no recibes las facturas poco a poco sino casi siempre al final, no tienes actualizado el estado en el que está la empresa.',
     },
     {
       iconSrc: '/problem-icons/errores.png',

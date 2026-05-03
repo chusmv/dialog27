@@ -42,6 +42,10 @@ export function HeroFlowSection() {
     <section id="hero-flow" className="relative px-6 pb-12 pt-10 md:pb-16 md:pt-12">
       <div className="section-divider absolute inset-x-0 top-0" />
       <div className="mx-auto max-w-5xl">
+        <h2 className="font-display mb-8 text-center text-3xl leading-tight font-extrabold text-white md:mb-10 md:text-[2.6rem]">
+          {landingContent.hero.flowTitle}
+        </h2>
+
         <div className="hero-flow-grid hidden md:grid md:grid-cols-[minmax(0,1fr)_2.75rem_minmax(0,1fr)_2.75rem_minmax(0,1fr)_2.75rem_minmax(0,1fr)_2.75rem_minmax(0,1fr)] md:items-center lg:grid-cols-[minmax(0,1fr)_3.25rem_minmax(0,1fr)_3.25rem_minmax(0,1fr)_3.25rem_minmax(0,1fr)_3.25rem_minmax(0,1fr)]">
           {landingContent.hero.flowNodes.map((node, index) => (
             <div key={node.label} className="contents">
@@ -77,10 +81,6 @@ export function HeroFlowSection() {
             </div>
           ))}
         </div>
-
-        <p className="mt-5 text-center text-[1.45rem] leading-tight font-medium tracking-[0.02em] text-white/80 md:text-[1.5rem]">
-          De la foto del documento a tenerlo contabilizado en solo 2 clicks.
-        </p>
       </div>
     </section>
   )

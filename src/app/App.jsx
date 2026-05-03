@@ -7,7 +7,6 @@ import { CtaSection } from '../components/sections/CtaSection'
 import { CampaignHeroSection } from '../components/sections/CampaignHeroSection'
 import { CampaignCtaSection } from '../components/sections/CampaignCtaSection'
 import { HeroPromoStrip } from '../components/sections/HeroPromoStrip'
-import { HeroFlowSection } from '../components/sections/HeroFlowSection'
 import { PlansSection } from '../components/sections/PlansSection'
 import { ProofSection } from '../components/sections/ProofSection'
 import { FooterSection } from '../components/sections/FooterSection'
@@ -39,7 +38,6 @@ function App({ variantKey = 'default' }) {
         <PlansSection trackingContext={variant.tracking} />
         <BenefitsSection />
         <ProofSection />
-        <HeroFlowSection />
         {variant.kind === 'campaign' ? (
           <CampaignCtaSection variant={variant} />
         ) : (

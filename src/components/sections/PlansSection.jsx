@@ -52,13 +52,14 @@ function PlanList({ items, textClassName = 'text-white/78' }) {
 function PackageCard({ pack, inView }) {
   const [expanded, setExpanded] = useState(false)
   const detailId = useId()
-  const [priceWhole, priceDecimals = '00 €'] = pack.price.split(',')
+  const [priceValue, priceCurrency = '€'] = pack.price.split(' ')
+  const [priceWhole, priceDecimals = '00'] = priceValue.split(',')
 
   const cardClass = pack.featured
     ? 'border-2 border-[#ff5700]/80 bg-[#162133]/96 shadow-[0_28px_82px_rgba(255,87,0,0.18)] ring-2 ring-[#ff5700]/34 lg:-mx-2 lg:z-10'
     : 'border-white/8 bg-[#172234]/94 shadow-[0_16px_44px_rgba(7,10,18,0.18)]'
   const badgeClass = pack.featured
-    ? 'border-white/22 bg-[#18315f]/22 text-white'
+    ? 'border-[#ff5700]/75 bg-[#ff5700]/12 text-[#ffd9c6] shadow-[0_0_18px_rgba(255,87,0,0.28)]'
     : 'border-white/18 bg-[#18315f]/18 text-white/86'
   const toggleClass = pack.featured
     ? 'border-[#ff5700]/25 bg-[#ff5700]/10 text-[#ffd9c6] hover:bg-[#ff5700]/14'
@@ -78,13 +79,11 @@ function PackageCard({ pack, inView }) {
               <p className="font-display whitespace-nowrap text-[3rem] leading-none font-extrabold tracking-[-0.05em] md:text-[3.45rem]">
                 {priceWhole}
               </p>
-              <div className="flex items-start gap-1 pt-0.5">
-                <p className="whitespace-nowrap text-[1.42rem] leading-none font-medium tracking-[-0.03em] md:text-[1.68rem]">
-                  ,{priceDecimals}
-                </p>
-                <p className="pt-0.5 text-[0.9rem] leading-none font-semibold text-white/82 md:text-[0.98rem]">
-                  €/mes
-                </p>
+              <div className="flex items-start gap-0.5 pt-0.5 text-[1.42rem] leading-none font-medium tracking-[-0.03em] text-white/92 md:text-[1.68rem]">
+                <span className="relative -top-[0.24em]">,</span>
+                <span className="whitespace-nowrap">{priceDecimals}</span>
+                <span className="whitespace-nowrap">{priceCurrency}</span>
+                <span className="whitespace-nowrap">/mes</span>
               </div>
             </div>
           </div>
