@@ -1,7 +1,7 @@
 import { landingContent } from '../../content/landingContent'
 import { siteConfig } from '../../config/siteConfig'
 import { trackEvent, withTrackingContext } from '../../lib/analytics'
-import { ArrowDownIcon, ArrowRightIcon } from '../icons/LandingIcons'
+import { ArrowRightIcon } from '../icons/LandingIcons'
 
 export function HeroSection({ trackingContext = {} }) {
   return (
@@ -58,13 +58,6 @@ export function HeroSection({ trackingContext = {} }) {
         </div>
       </div>
 
-      <a
-        href="#hero-flow"
-        className="scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 text-white/20"
-        aria-label="Ir a la siguiente sección"
-      >
-        <ArrowDownIcon />
-      </a>
     </section>
   )
 }

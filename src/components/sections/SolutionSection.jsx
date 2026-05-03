@@ -15,10 +15,11 @@ export function SolutionSection() {
           eyebrow="Cómo funciona"
           title={
             <>
-              Cuatro pasos hacia <span className="gradient-text">cero trabajo manual</span>
+              Cuatro pasos hacia cero trabajo manual
             </>
           }
-          description="El flujo contable completo, automatizado de principio a fin."
+          description="Automatizamos el proceso contable para que tú te centres en lo importante."
+          titleTone="plain"
           inView={inView}
         />
 

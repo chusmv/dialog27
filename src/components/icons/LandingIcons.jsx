@@ -28,23 +28,63 @@ export function StarIcon({ className = 'h-4 w-4' }) {
   )
 }
 
-export function FlowNodeIcon({ type, compact = false }) {
-  const icons = {
-    user: '/icons/hero-flow/17-usuario.png',
-    document: '/icons/hero-flow/01-documento.png',
-    'ai-flow': '/icons/hero-flow/14-ia.png',
-    integration: '/icons/hero-flow/19-integracion.png',
-    done: '/icons/hero-flow/20-hecho.png',
+const flowIconSources = {
+  user: '/icons/hero-flow/svg/17-usuario.svg',
+  document: '/icons/hero-flow/svg/01-documento.svg',
+  'ai-flow': '/icons/hero-flow/svg/14-ia.svg',
+  integration: '/icons/hero-flow/svg/19-integracion.svg',
+  done: '/icons/hero-flow/svg/20-hecho.svg',
+}
+
+function normalizeFlowIcon(icon) {
+  if (typeof icon === 'string') {
+    return { kind: 'single', src: flowIconSources[icon] ?? flowIconSources.user }
   }
+
+  return icon ?? { kind: 'single', src: flowIconSources.user }
+}
+
+export function FlowNodeIcon({ icon, compact = false }) {
+  const normalizedIcon = normalizeFlowIcon(icon)
 
   const sizeClass = compact
     ? 'h-[2.85rem] w-[2.85rem]'
     : 'h-[3rem] w-[3rem] lg:h-[3.15rem] lg:w-[3.15rem]'
+  const overlaySizeClass = compact
+    ? 'h-[1.4rem] w-[1.4rem]'
+    : 'h-[1.5rem] w-[1.5rem] lg:h-[1.65rem] lg:w-[1.65rem]'
+
+  if (normalizedIcon.kind === 'stack') {
+    return (
+      <span className={`relative flex shrink-0 items-center justify-center ${sizeClass}`} aria-hidden="true">
+        <img
+          src={normalizedIcon.baseSrc}
+          alt=""
+          width="400"
+          height="400"
+          decoding="async"
+          className="h-full w-full object-contain"
+        />
+        <span
+          className={`absolute -right-[0.18rem] -bottom-[0.12rem] flex items-center justify-center rounded-full bg-[#fe5602] shadow-[0_8px_18px_rgba(254,86,2,0.28)] ring-1 ring-white/12 ${overlaySizeClass}`}
+        >
+          <img
+            src={normalizedIcon.overlaySrc}
+            alt=""
+            width="400"
+            height="400"
+            decoding="async"
+            className="h-full w-full scale-[1.08] object-contain"
+          />
+        </span>
+      </span>
+    )
+  }
 
   return (
     <span className={`flex shrink-0 items-center justify-center ${sizeClass}`} aria-hidden="true">
       <img
-        src={icons[type] ?? icons.user}
+        src={normalizedIcon.src}
         alt=""
         width="400"
         height="400"

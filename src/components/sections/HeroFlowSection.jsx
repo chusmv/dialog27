@@ -4,18 +4,32 @@ import { ArrowDownIcon, ArrowRightIcon, FlowNodeIcon } from '../icons/LandingIco
 function FlowCard({ node, compact = false }) {
   return (
     <article
-      className={`${node.motionClass} hero-flow-card ${node.featured ? 'hero-flow-card-featured' : ''} flex w-full flex-col items-center justify-center rounded-[1.45rem] text-center ${compact ? 'min-h-[8rem] px-4 py-4.5' : 'min-h-[9.3rem] px-4 py-4.5 lg:min-h-[9.75rem] lg:px-4 lg:py-5'}`}
+      className={`${node.motionClass} hero-flow-card ${node.featured ? 'hero-flow-card-featured' : ''} relative flex w-full flex-col items-center justify-center overflow-hidden rounded-[1.45rem] text-center ${compact ? 'min-h-[8rem] px-4 py-4.5' : 'min-h-[9.3rem] px-4 py-4.5 lg:min-h-[9.75rem] lg:px-4 lg:py-5'}`}
     >
+      {node.badgeLabel ? (
+        <span
+          className={`absolute rounded-full border border-[#fe5602]/35 bg-[#fe5602]/10 px-2.5 py-1 text-[0.62rem] font-extrabold tracking-[0.08em] whitespace-nowrap text-[#ffd9c6] shadow-[0_8px_22px_rgba(254,86,2,0.14)] backdrop-blur-sm ${compact ? 'right-2.5 top-2.5 text-[0.58rem]' : 'right-3 top-3'}`}
+        >
+          {node.badgeLabel}
+        </span>
+      ) : null}
       <div className="mb-2.5 flex min-h-[3rem] items-center justify-center lg:min-h-[3.15rem]">
-        <FlowNodeIcon type={node.icon} compact={compact} />
+        <FlowNodeIcon icon={node.icon} compact={compact} />
       </div>
       <h3
-        className={`font-display font-extrabold text-white ${compact ? 'text-[1.38rem] leading-none' : 'text-[1.42rem] leading-none lg:text-[1.55rem]'}`}
+        className={`font-display font-extrabold text-white ${compact ? 'text-[1.22rem] leading-none' : 'text-[1.26rem] leading-none lg:text-[1.38rem]'}`}
       >
         {node.label}
       </h3>
+      {node.supportingText ? (
+        <p
+          className={`mt-1.5 font-semibold text-white/58 ${compact ? 'max-w-[11rem] text-[0.74rem] leading-[1.15]' : 'max-w-[10.75rem] text-[0.74rem] leading-[1.14] lg:max-w-[11.4rem] lg:text-[0.78rem]'}`}
+        >
+          {node.supportingText}
+        </p>
+      ) : null}
       <p
-        className={`mt-2 font-medium text-white/42 ${compact ? 'max-w-[10rem] text-[0.82rem] leading-[1.18]' : 'max-w-[9.5rem] text-[0.82rem] leading-[1.16] lg:max-w-[10.2rem] lg:text-[0.86rem]'}`}
+        className={`${node.supportingText ? 'mt-1.5' : 'mt-2'} font-medium text-white/42 ${compact ? 'max-w-[11rem] text-[0.82rem] leading-[1.18]' : 'max-w-[10.75rem] text-[0.82rem] leading-[1.16] lg:max-w-[11.4rem] lg:text-[0.86rem]'}`}
       >
         {node.sublabel}
       </p>
@@ -61,7 +75,7 @@ export function HeroFlowSection() {
         </div>
 
         <p className="mt-5 text-center text-[1.45rem] leading-tight font-medium tracking-[0.02em] text-white/40 md:text-[1.9rem]">
-          Automatización total. Cero introducción manual de datos.
+          Solo 2 clicks de validación. Todo lo demás, automático.
         </p>
       </div>
     </section>

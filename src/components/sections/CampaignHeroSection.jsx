@@ -1,6 +1,5 @@
 import { siteConfig } from '../../config/siteConfig'
 import { trackEvent, withTrackingContext } from '../../lib/analytics'
-import { ArrowDownIcon } from '../icons/LandingIcons'
 
 function CheckMarkIcon() {
   return (
@@ -291,13 +290,6 @@ export function CampaignHeroSection({ variant }) {
         </div>
       </div>
 
-      <a
-        href="#hero-flow"
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-white/60"
-        aria-label="Ir a la siguiente sección"
-      >
-        <ArrowDownIcon className="h-7 w-7" />
-      </a>
     </section>
   )
 }
