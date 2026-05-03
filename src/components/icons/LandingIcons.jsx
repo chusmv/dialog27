@@ -28,6 +28,33 @@ export function StarIcon({ className = 'h-4 w-4' }) {
   )
 }
 
+export function FlowNodeIcon({ type, compact = false }) {
+  const icons = {
+    user: '/icons/hero-flow/17-usuario.png',
+    document: '/icons/hero-flow/01-documento.png',
+    'ai-flow': '/icons/hero-flow/14-ia.png',
+    integration: '/icons/hero-flow/19-integracion.png',
+    done: '/icons/hero-flow/20-hecho.png',
+  }
+
+  const sizeClass = compact
+    ? 'h-[2.85rem] w-[2.85rem]'
+    : 'h-[3rem] w-[3rem] lg:h-[3.15rem] lg:w-[3.15rem]'
+
+  return (
+    <span className={`flex shrink-0 items-center justify-center ${sizeClass}`} aria-hidden="true">
+      <img
+        src={icons[type] ?? icons.user}
+        alt=""
+        width="400"
+        height="400"
+        decoding="async"
+        className="h-full w-full object-contain"
+      />
+    </span>
+  )
+}
+
 function UploadIcon() {
   return (
     <svg viewBox="0 0 40 40" fill="none" className="h-8 w-8" aria-hidden="true">

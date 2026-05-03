@@ -1,13 +1,13 @@
 import { landingContent } from '../../content/landingContent'
-import { ArrowDownIcon, ArrowRightIcon } from '../icons/LandingIcons'
+import { ArrowDownIcon, ArrowRightIcon, FlowNodeIcon } from '../icons/LandingIcons'
 
 function FlowCard({ node, compact = false }) {
   return (
     <article
       className={`${node.motionClass} hero-flow-card ${node.featured ? 'hero-flow-card-featured' : ''} flex w-full flex-col items-center justify-center rounded-[1.45rem] text-center ${compact ? 'min-h-[8rem] px-4 py-4.5' : 'min-h-[9.3rem] px-4 py-4.5 lg:min-h-[9.75rem] lg:px-4 lg:py-5'}`}
     >
-      <div className={`leading-none ${compact ? 'mb-2.5 text-[2rem]' : 'mb-2.5 text-[2.2rem] lg:text-[2.35rem]'}`}>
-        {node.icon}
+      <div className="mb-2.5 flex min-h-[3rem] items-center justify-center lg:min-h-[3.15rem]">
+        <FlowNodeIcon type={node.icon} compact={compact} />
       </div>
       <h3
         className={`font-display font-extrabold text-white ${compact ? 'text-[1.38rem] leading-none' : 'text-[1.42rem] leading-none lg:text-[1.55rem]'}`}

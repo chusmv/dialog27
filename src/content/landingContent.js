@@ -12,17 +12,17 @@ export const baseLandingContent = {
     primaryCta: 'Pedir demo',
     secondaryCta: 'Ver cómo funciona',
     flowNodes: [
-      { label: 'Cliente', sublabel: 'WhatsApp / Email', icon: '👤', motionClass: 'float-1' },
-      { label: 'Documento', sublabel: 'Factura / Ticket / PDF', icon: '📄', motionClass: 'float-2' },
+      { label: 'Cliente', sublabel: 'WhatsApp / Email', icon: 'user', motionClass: 'float-1' },
+      { label: 'Documento', sublabel: 'Factura / Ticket / PDF', icon: 'document', motionClass: 'float-2' },
       {
         label: 'D27 Docs IA',
         sublabel: 'Extrae y valida',
-        icon: '⚡',
+        icon: 'ai-flow',
         motionClass: 'float-3',
         featured: true,
       },
-      { label: 'ERP', sublabel: 'Odoo y otros', icon: '🔗', motionClass: 'float-1' },
-      { label: 'Contabilizado', sublabel: 'Tú validas', icon: '✅', motionClass: 'float-2' },
+      { label: 'ERP', sublabel: 'Odoo y otros', icon: 'integration', motionClass: 'float-1' },
+      { label: 'Contabilizado', sublabel: 'Tú validas', icon: 'done', motionClass: 'float-2' },
     ],
   },
   problems: [

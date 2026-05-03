@@ -1,0 +1,123 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" width="400" height="400">
+  <defs>
+    <!-- Horizontal pasa por delante arriba -->
+    <clipPath id="h-top">
+      <rect x="0" y="0" width="400" height="200"/>
+    </clipPath>
+    <!-- Vertical pasa por delante abajo -->
+    <clipPath id="v-bot">
+      <rect x="0" y="200" width="400" height="200"/>
+    </clipPath>
+    <!-- Solo la zona de cruce, para las sombras de entrelazado -->
+    <clipPath id="cross-zone">
+      <rect x="146" y="148" width="108" height="104"/>
+    </clipPath>
+  </defs>
+
+  <!-- ══════════════════════════════════════════
+       ESLABÓN HORIZONTAL — sombra + aro blanco
+       Píldora 240×104 centrada en (200, 200)
+       ══════════════════════════════════════════ -->
+  <path fill="#000000" opacity="0.42" fill-rule="evenodd" transform="translate(4,5)"
+    d="M134,148 C106,148 80,163 80,200 C80,237 106,252 134,252 L266,252
+       C294,252 320,237 320,200 C320,163 294,148 266,148 Z
+       M134,175 L266,175 C287,175 293,186 293,200 C293,214 287,225 266,225
+       L134,225 C113,225 107,214 107,200 C107,186 113,175 134,175 Z"/>
+
+  <path fill="#FFFFFF" fill-rule="evenodd"
+    d="M134,148 C106,148 80,163 80,200 C80,237 106,252 134,252 L266,252
+       C294,252 320,237 320,200 C320,163 294,148 266,148 Z
+       M134,175 L266,175 C287,175 293,186 293,200 C293,214 287,225 266,225
+       L134,225 C113,225 107,214 107,200 C107,186 113,175 134,175 Z"/>
+
+  <!-- ══════════════════════════════════════════
+       ESLABÓN VERTICAL mitad inferior — pasa encima del horizontal
+       Píldora 104×240 centrada en (200, 200)
+       ══════════════════════════════════════════ -->
+  <path fill="#000000" opacity="0.42" fill-rule="evenodd" transform="translate(4,5)"
+    clip-path="url(#v-bot)"
+    d="M200,80 C148,80 146,112 146,136 L146,264 C146,288 148,320 200,320
+       C252,320 254,288 254,264 L254,136 C254,112 252,80 200,80 Z
+       M200,107 C227,107 227,118 227,136 L227,264 C227,282 227,293 200,293
+       C173,293 173,282 173,264 L173,136 C173,118 173,107 200,107 Z"/>
+
+  <path fill="#FFFFFF" fill-rule="evenodd" clip-path="url(#v-bot)"
+    d="M200,80 C148,80 146,112 146,136 L146,264 C146,288 148,320 200,320
+       C252,320 254,288 254,264 L254,136 C254,112 252,80 200,80 Z
+       M200,107 C227,107 227,118 227,136 L227,264 C227,282 227,293 200,293
+       C173,293 173,282 173,264 L173,136 C173,118 173,107 200,107 Z"/>
+
+  <!-- ══════════════════════════════════════════
+       ESLABÓN VERTICAL mitad superior — detrás del horizontal
+       Dibujamos solo los extremos del aro que asoman fuera del horizontal
+       ══════════════════════════════════════════ -->
+  <!-- Solo la parte que sobresale arriba (fuera del área del horizontal) -->
+  <path fill="#FFFFFF" fill-rule="evenodd"
+    d="M200,80 C148,80 146,112 146,136 L146,148 L254,148 L254,136
+       C254,112 252,80 200,80 Z
+       M200,107 C227,107 227,118 227,136 L227,148 L173,148 L173,136
+       C173,118 173,107 200,107 Z"/>
+
+  <!-- Redibujar horizontal encima para tapar la zona de cruce limpiamente -->
+  <path fill="#FFFFFF" fill-rule="evenodd" clip-path="url(#h-top)"
+    d="M134,148 C106,148 80,163 80,200 C80,237 106,252 134,252 L266,252
+       C294,252 320,237 320,200 C320,163 294,148 266,148 Z
+       M134,175 L266,175 C287,175 293,186 293,200 C293,214 287,225 266,225
+       L134,225 C113,225 107,214 107,200 C107,186 113,175 134,175 Z"/>
+
+  <!-- ══════════════════════════════════════════
+       TRAZOS NEGROS SECUNDARIOS — volumen y curvatura
+       ══════════════════════════════════════════ -->
+
+  <!-- Sombra curva interna — brazo derecho del horizontal -->
+  <path d="M292,177 Q300,200 292,223"
+        fill="none" stroke="#000000" stroke-width="3.5" stroke-linecap="round" opacity="0.48"/>
+  <!-- Sombra inferior del agujero horizontal -->
+  <path d="M140,223 Q200,230 260,223"
+        fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" opacity="0.42"/>
+  <!-- Sombra sutil brazo izquierdo del horizontal -->
+  <path d="M108,177 Q100,200 108,223"
+        fill="none" stroke="#000000" stroke-width="2.5" stroke-linecap="round" opacity="0.30"/>
+
+  <!-- Sombra curva interna — brazo inferior del vertical -->
+  <path d="M177,292 Q200,300 223,292"
+        fill="none" stroke="#000000" stroke-width="3.5" stroke-linecap="round" opacity="0.48"/>
+  <!-- Sombra lateral derecha del agujero vertical -->
+  <path d="M226,210 Q233,236 226,263"
+        fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" opacity="0.42"/>
+
+  <!-- Línea de cruce — marca el plano de entrelazado (horizontal encima) -->
+  <line x1="146" y1="200" x2="175" y2="200"
+        stroke="#000000" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+  <line x1="225" y1="200" x2="254" y2="200"
+        stroke="#000000" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+
+  <!-- ══════════════════════════════════════════
+       HATCHING BLANCO — brazos de los aros
+       ══════════════════════════════════════════ -->
+  <!-- Brazo izquierdo del horizontal -->
+  <line x1="88" y1="189" x2="128" y2="189" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" opacity="0.26"/>
+  <line x1="88" y1="200" x2="128" y2="200" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" opacity="0.26"/>
+  <line x1="88" y1="211" x2="128" y2="211" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" opacity="0.26"/>
+  <!-- Brazo derecho del horizontal -->
+  <line x1="272" y1="189" x2="312" y2="189" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" opacity="0.26"/>
+  <line x1="272" y1="200" x2="312" y2="200" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" opacity="0.26"/>
+  <line x1="272" y1="211" x2="312" y2="211" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" opacity="0.26"/>
+  <!-- Brazo superior del vertical -->
+  <line x1="189" y1="88" x2="189" y2="128" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" opacity="0.26"/>
+  <line x1="200" y1="88" x2="200" y2="128" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" opacity="0.26"/>
+  <line x1="211" y1="88" x2="211" y2="128" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" opacity="0.26"/>
+  <!-- Brazo inferior del vertical -->
+  <line x1="189" y1="272" x2="189" y2="312" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" opacity="0.26"/>
+  <line x1="200" y1="272" x2="200" y2="312" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" opacity="0.26"/>
+  <line x1="211" y1="272" x2="211" y2="312" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" opacity="0.26"/>
+
+  <!-- ══════════════════════════════════════════
+       MARCAS DE ENERGÍA
+       ══════════════════════════════════════════ -->
+  <line x1="66" y1="96" x2="80" y2="84" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="52" y1="110" x2="63" y2="102" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="322" y1="84" x2="336" y2="98" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="320" y1="308" x2="336" y2="294" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+
+</svg>
