@@ -75,6 +75,7 @@ Notas:
 - `hubspot:css:watch` recompila estilos al cambiar templates o módulos
 - `hubspot:watch` sube automáticamente cambios a la theme en HubSpot
 - si cambias assets, conviene revisar que el watcher los haya sincronizado
+- en HubSpot CLI `8.x`, estos scripts usan `hs cms watch` en lugar del comando legacy
 
 ## 5. Primera subida al sandbox
 
@@ -83,6 +84,10 @@ Comando:
 ```bash
 npm run hubspot:upload
 ```
+
+Nota:
+
+- En HubSpot CLI `8.x`, este script usa `hs cms upload`.
 
 Sube la theme local:
 

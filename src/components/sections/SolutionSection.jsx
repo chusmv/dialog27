@@ -60,7 +60,10 @@ export function SolutionSection() {
                 }}
               />
               <div className="relative z-10">
-                <div className="aspect-square overflow-hidden border-b border-white/8 sm:aspect-[5/4]">
+                <div
+                  className="aspect-square overflow-hidden border-b border-white/8 sm:aspect-[5/4]"
+                  style={step.number === '03' ? { backgroundColor: '#0f2044' } : undefined}
+                >
                   <img
                     src={step.imageSrc}
                     alt={step.imageAlt}

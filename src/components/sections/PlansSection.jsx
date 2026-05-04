@@ -180,7 +180,7 @@ export function PlansSection({ trackingContext = {} }) {
             href={siteConfig.urls.demo}
             target="_blank"
             rel="noreferrer"
-            className="btn-primary glow-orange inline-flex items-center justify-center gap-2 rounded-2xl px-10 py-4 text-base font-bold text-white no-underline"
+            className="btn-primary inline-flex items-center justify-center gap-2 rounded-2xl px-10 py-4 text-base font-bold text-white no-underline"
             onClick={() =>
               trackEvent(
                 'plans_primary_cta_click',

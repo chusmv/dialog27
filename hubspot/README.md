@@ -20,6 +20,10 @@ Para trabajo iterativo:
 1. Terminal A: `npm run hubspot:css:watch`
 2. Terminal B: `npm run hubspot:watch`
 
+Nota:
+
+- Con HubSpot CLI `8.x`, estos scripts usan internamente `hs cms upload` y `hs cms watch`.
+
 ## Decisión técnica
 
 - El runtime productivo en HubSpot será `HubL + módulos + JS ligero`.

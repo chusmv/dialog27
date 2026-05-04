@@ -58,29 +58,32 @@ export const landingVariants = {
       ],
       bullets: [
         buildBullet(
-          'dot',
+          'check',
           { text: 'Tus clientes envían documentos' },
           { text: 'WhatsApp', tone: 'badge-whatsapp' },
           { text: 'Email', tone: 'badge-mail' },
         ),
         buildBullet(
-          'dot',
+          'check',
           { text: 'El sistema los recibe y extrae la información automáticamente.' },
         ),
         buildBullet(
-          'dot',
+          'check',
           { text: 'Tú solo validas.', tone: 'accent' },
           { text: ' Nada de picar datos.' },
         ),
         buildBullet(
-          'dot',
+          'check',
           { text: 'Y además, contabiliza automáticamente en tu ERP.' },
         ),
       ],
       primaryCta: 'SOLICITAR DEMO',
       secondaryCta: 'VER CÓMO FUNCIONA',
       art: {
-        type: 'erp-card',
+        type: 'image',
+        src: '/supervisar-hero.png',
+        alt: 'Ilustración de una persona tirando el teclado para dejar de procesar y empezar a supervisar.',
+        layout: 'supervisar-hero',
       },
     },
     finalCta: {
@@ -184,6 +187,7 @@ export const landingVariants = {
         type: 'image',
         src: '/automatiza-contabilidad-hero.png',
         alt: 'Ilustración de una persona fotografiando un ticket con el mensaje EN 2 CLICKS.',
+        layout: 'camera-hero',
       },
     },
     finalCta: {

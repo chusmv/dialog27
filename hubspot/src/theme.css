@@ -116,7 +116,7 @@
 }
 
 .hubspot-form-shell .hs-button:hover {
-  box-shadow: 0 8px 32px color-mix(in srgb, var(--cta-accent) 50%, transparent);
+  box-shadow: none;
 }
 
 .hubspot-form-shell .submitted-message {

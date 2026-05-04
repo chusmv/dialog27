@@ -1,5 +1,6 @@
 {% set fallback_art = get_asset_url("../../images/reduce-trabajo-contable-hero.png") %}
-<section class="relative overflow-hidden bg-[#0f2044] px-6 pt-28 text-white sm:pt-32 lg:pt-36 {% if module.trial_offer_enabled %}pb-16 sm:pb-20 lg:pb-24{% else %}pb-10 sm:pb-12{% endif %}">
+{% set is_supervisar_hero = module.art_layout == "supervisar-hero" %}
+<section class="relative overflow-hidden bg-[#0f2044] px-6 pt-28 text-white sm:pt-32 lg:pt-36 {% if module.trial_offer_enabled %}pb-16 sm:pb-20 lg:pb-24{% elif is_supervisar_hero %}pb-12 sm:pb-14 lg:pb-10{% else %}pb-10 sm:pb-12{% endif %}">
   <div
     class="pointer-events-none absolute inset-x-0 bottom-0 h-[48%] bg-[#4269af]"
     style="clip-path: polygon(0 34%, 100% 0, 100% 100%, 0 100%);"
@@ -10,9 +11,9 @@
       {{ module.title_html }}
     </div>
 
-    <div class="mt-6 grid gap-8 lg:mt-5 lg:grid-cols-[minmax(0,1.08fr)_minmax(16rem,0.82fr)] lg:items-start">
+    <div class="mt-6 grid gap-8 lg:mt-5 lg:items-start {% if is_supervisar_hero %}lg:gap-2 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,1fr)]{% else %}lg:grid-cols-[minmax(0,1.08fr)_minmax(16rem,0.82fr)]{% endif %}">
       <div class="max-w-3xl">
-        <div class="landing-richtext text-[1.28rem] leading-[1.08] font-bold tracking-[-0.01em] text-white sm:text-[1.4rem] lg:text-[1.5rem]">
+        <div class="landing-richtext leading-[1.08] font-bold tracking-[-0.01em] text-white {% if is_supervisar_hero %}text-[1.16rem] sm:text-[1.26rem] lg:text-[1.34rem]{% else %}text-[1.28rem] sm:text-[1.4rem] lg:text-[1.5rem]{% endif %}">
           {{ module.bullets_html }}
         </div>
 
@@ -27,11 +28,11 @@
           </div>
         {% endif %}
 
-        <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+        <div class="flex flex-col gap-4 sm:flex-row {% if is_supervisar_hero %}mt-9 lg:mt-11{% else %}mt-10{% endif %}">
           <a
             href="{{ module.primary_cta_anchor }}"
             data-scroll-link
-            class="btn-primary glow-orange inline-flex items-center justify-center gap-2 rounded-[999px] px-8 py-4 text-lg font-extrabold text-white no-underline"
+            class="btn-primary inline-flex items-center justify-center gap-2 rounded-[999px] px-8 py-4 text-lg font-extrabold text-white no-underline"
           >
             {{ module.primary_cta_label }}
           </a>
@@ -45,12 +46,12 @@
         </div>
       </div>
 
-      <div class="min-h-[14rem] lg:min-h-[20rem]">
-        <div class="relative mx-auto flex h-full w-full max-w-[25rem] items-center justify-center">
+      <div class="min-h-[14rem] {% if is_supervisar_hero %}lg:min-h-[21rem]{% else %}lg:min-h-[20rem]{% endif %}">
+        <div class="relative mx-auto flex h-full w-full items-start justify-center {% if is_supervisar_hero %}max-w-[24rem] lg:mt-5 lg:max-w-[34rem] lg:-translate-x-10 lg:justify-end{% else %}max-w-[24rem] lg:mt-8 lg:max-w-[30rem] lg:translate-x-4 lg:justify-end{% endif %}">
           <img
             src="{{ module.art_image.src or fallback_art }}"
             alt="{{ module.art_image.alt or module.art_alt }}"
-            class="relative z-10 h-auto w-full max-w-[24rem] object-contain drop-shadow-[0_18px_40px_rgba(6,10,18,0.28)]"
+            class="relative z-10 h-auto w-full object-contain drop-shadow-[0_18px_40px_rgba(6,10,18,0.28)] {% if is_supervisar_hero %}max-w-[24rem] lg:max-w-[33rem]{% else %}max-w-[23rem] lg:max-w-[29rem]{% endif %}"
           />
         </div>
       </div>

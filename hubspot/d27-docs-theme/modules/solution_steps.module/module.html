@@ -17,8 +17,8 @@
   },
   {
     "step_number": "03",
-    "image_src": get_asset_url("../../images/solution-steps/gestor.jpeg"),
-    "image_alt": "Gestor validando la información antes de enviarla al ERP",
+    "image_src": get_asset_url("../../images/solution-steps/gestor-valida.png"),
+    "image_alt": "Gestor supervisando la validación final antes de contabilizar en el ERP",
     "title": "Tú validas y envías al ERP.",
     "description_html": "<p>Recibes un resumen claro, organizado y trazable. Información extraída, lista para revisar y contabilizar. Sin buscar, sin descargar, sin reorganizar. Integración nativa con a3ERP, Holded y Odoo.</p>",
     "accent_color": "#C0392B"
@@ -71,7 +71,7 @@
           {% set accent_color = step.accent_color or "#0796A3" %}
           <div class="absolute inset-0 opacity-60" style="background: linear-gradient(135deg, color-mix(in srgb, {{ accent_color }} 22%, transparent), color-mix(in srgb, {{ accent_color }} 6%, transparent));"></div>
           <div class="relative z-10">
-            <div class="aspect-square overflow-hidden border-b border-white/8 sm:aspect-[5/4]">
+            <div class="aspect-square overflow-hidden border-b border-white/8 sm:aspect-[5/4]" {% if step.step_number == "03" %}style="background-color:#0f2044;"{% endif %}>
               {% if step.image and step.image.src %}
                 <img src="{{ step.image.src }}" alt="{{ step.image.alt or step.image_alt }}" class="h-full w-full object-cover" loading="lazy" />
               {% else %}

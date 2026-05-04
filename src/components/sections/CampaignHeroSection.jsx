@@ -170,13 +170,30 @@ function CameraArt({ bubbleLines }) {
   )
 }
 
-function ImageArt({ src, alt }) {
+function ImageArt({ src, alt, layout }) {
+  const isCameraHero = layout === 'camera-hero'
+  const isSupervisarHero = layout === 'supervisar-hero'
+
   return (
-    <div className="relative mx-auto flex h-full w-full max-w-[25rem] items-center justify-center">
+    <div
+      className={`relative mx-auto flex h-full w-full items-start justify-center ${
+        isCameraHero
+          ? 'max-w-[24rem] lg:max-w-[30rem] lg:mt-8 lg:translate-x-4 lg:justify-end'
+          : isSupervisarHero
+            ? 'max-w-[24rem] lg:max-w-[34rem] lg:mt-5 lg:-translate-x-10 lg:justify-end'
+            : 'max-w-[25rem] lg:max-w-[27rem] lg:-mt-4 lg:justify-end'
+      }`}
+    >
       <img
         src={src}
         alt={alt}
-        className="relative z-10 h-auto w-full max-w-[24rem] object-contain drop-shadow-[0_18px_40px_rgba(6,10,18,0.28)]"
+        className={`relative z-10 h-auto w-full object-contain drop-shadow-[0_18px_40px_rgba(6,10,18,0.28)] ${
+          isCameraHero
+            ? 'max-w-[23rem] lg:max-w-[29rem]'
+            : isSupervisarHero
+              ? 'max-w-[24rem] lg:max-w-[33rem]'
+              : 'max-w-[24rem] lg:max-w-[26rem]'
+        }`}
       />
     </div>
   )
@@ -200,7 +217,7 @@ function CampaignHeroArt({ art }) {
   }
 
   if (art.type === 'image') {
-    return <ImageArt src={art.src} alt={art.alt} />
+    return <ImageArt src={art.src} alt={art.alt} layout={art.layout} />
   }
 
   return null
@@ -209,11 +226,16 @@ function CampaignHeroArt({ art }) {
 export function CampaignHeroSection({ variant }) {
   const { hero, tracking } = variant
   const hasTrialOffer = Boolean(hero.trialOffer)
+  const isSupervisarHero = hero.art?.layout === 'supervisar-hero'
 
   return (
     <section
       className={`relative overflow-hidden bg-[#0f2044] px-6 pt-28 text-white sm:pt-32 lg:pt-36 ${
-        hasTrialOffer ? 'pb-16 sm:pb-20 lg:pb-24' : 'pb-10 sm:pb-12'
+        hasTrialOffer
+          ? 'pb-16 sm:pb-20 lg:pb-24'
+          : isSupervisarHero
+            ? 'pb-12 sm:pb-14 lg:pb-10'
+            : 'pb-10 sm:pb-12'
       }`}
     >
       <div
@@ -230,9 +252,21 @@ export function CampaignHeroSection({ variant }) {
           ))}
         </h1>
 
-        <div className="mt-6 grid gap-8 lg:mt-5 lg:grid-cols-[minmax(0,1.08fr)_minmax(16rem,0.82fr)] lg:items-start">
+        <div
+          className={`mt-6 grid gap-8 lg:mt-5 lg:items-start ${
+            isSupervisarHero
+              ? 'lg:gap-2 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,1fr)]'
+              : 'lg:grid-cols-[minmax(0,1.08fr)_minmax(16rem,0.82fr)]'
+          }`}
+        >
           <div className="max-w-3xl">
-            <ul className="space-y-3 text-[1.28rem] leading-[1.08] font-bold tracking-[-0.01em] text-white sm:text-[1.4rem] lg:text-[1.5rem]">
+            <ul
+              className={`space-y-3 leading-[1.08] font-bold tracking-[-0.01em] text-white ${
+                isSupervisarHero
+                  ? 'text-[1.16rem] sm:text-[1.26rem] lg:text-[1.34rem]'
+                  : 'text-[1.28rem] sm:text-[1.4rem] lg:text-[1.5rem]'
+              }`}
+            >
               {hero.bullets.map((bullet, index) => (
                 <li key={`${bullet.type}-${index}`} className="flex items-start gap-3">
                   {bullet.type === 'check' ? (
@@ -259,7 +293,7 @@ export function CampaignHeroSection({ variant }) {
               </div>
             ) : null}
 
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <div className={`flex flex-col gap-4 sm:flex-row ${isSupervisarHero ? 'mt-9 lg:mt-11' : 'mt-10'}`}>
               <a
                 href={siteConfig.urls.demo}
                 target="_blank"
@@ -289,7 +323,7 @@ export function CampaignHeroSection({ variant }) {
             </div>
           </div>
 
-          <div className="min-h-[14rem] lg:min-h-[20rem]">
+          <div className={`min-h-[14rem] ${isSupervisarHero ? 'lg:min-h-[21rem]' : 'lg:min-h-[20rem]'}`}>
             <CampaignHeroArt art={hero.art} />
           </div>
         </div>

@@ -62,7 +62,7 @@ export function NavBar({ trackingContext = {} }) {
             href={siteConfig.urls.demo}
             target="_blank"
             rel="noreferrer"
-            className="btn-primary glow-orange rounded-xl px-5 py-2.5 text-sm font-semibold text-white no-underline"
+            className="btn-primary rounded-xl px-5 py-2.5 text-sm font-semibold text-white no-underline"
             onClick={() =>
               trackEvent(
                 'nav_demo_click',
