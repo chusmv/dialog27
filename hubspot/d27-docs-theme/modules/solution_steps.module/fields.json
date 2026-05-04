@@ -1,0 +1,106 @@
+[
+  {
+    "type": "text",
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "default": "Cómo funciona"
+  },
+  {
+    "type": "text",
+    "name": "title",
+    "label": "Título",
+    "default": "Tres pasos hacia cero trabajo manual"
+  },
+  {
+    "type": "textarea",
+    "name": "description",
+    "label": "Descripción",
+    "default": "Automatizamos el proceso contable para que tú te centres en lo importante."
+  },
+  {
+    "type": "group",
+    "name": "steps",
+    "label": "Pasos",
+    "occurrence": {
+      "min": 1,
+      "max": 5,
+      "sorting_label_field": "steps.title",
+      "default": 3
+    },
+    "children": [
+      {
+        "id": "steps.step_number",
+        "type": "text",
+        "name": "step_number",
+        "label": "Número de paso"
+      },
+      {
+        "id": "steps.image",
+        "type": "image",
+        "name": "image",
+        "label": "Imagen"
+      },
+      {
+        "id": "steps.image_alt",
+        "type": "text",
+        "name": "image_alt",
+        "label": "Alt de imagen"
+      },
+      {
+        "id": "steps.title",
+        "type": "text",
+        "name": "title",
+        "label": "Título"
+      },
+      {
+        "id": "steps.description_html",
+        "type": "richtext",
+        "name": "description_html",
+        "label": "Descripción"
+      },
+      {
+        "id": "steps.accent_color",
+        "type": "color",
+        "name": "accent_color",
+        "label": "Color de acento"
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "name": "integrations_title",
+    "label": "Título de integraciones",
+    "default": "Integraciones nativas"
+  },
+  {
+    "type": "group",
+    "name": "integration_logos",
+    "label": "Logos de integraciones",
+    "occurrence": {
+      "min": 1,
+      "max": 8,
+      "sorting_label_field": "integration_logos.name",
+      "default": 4
+    },
+    "children": [
+      {
+        "id": "integration_logos.name",
+        "type": "text",
+        "name": "name",
+        "label": "Nombre"
+      },
+      {
+        "id": "integration_logos.logo",
+        "type": "image",
+        "name": "logo",
+        "label": "Logo"
+      },
+      {
+        "id": "integration_logos.logo_alt",
+        "type": "text",
+        "name": "logo_alt",
+        "label": "Alt del logo"
+      }
+    ]
+  }
+]

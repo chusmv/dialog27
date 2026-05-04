@@ -53,7 +53,12 @@ export function SolutionSection() {
               key={step.number}
               className={`card-lift glass fade-up fade-delay-${index + 1} relative overflow-hidden rounded-3xl border border-white/5 ${inView ? 'visible' : ''}`}
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${step.overlayClass} opacity-60`} />
+              <div
+                className="absolute inset-0 opacity-60"
+                style={{
+                  background: `linear-gradient(135deg, ${step.overlayFrom}, ${step.overlayTo})`,
+                }}
+              />
               <div className="relative z-10">
                 <div className="aspect-square overflow-hidden border-b border-white/8 sm:aspect-[5/4]">
                   <img

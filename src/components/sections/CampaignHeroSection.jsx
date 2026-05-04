@@ -208,9 +208,14 @@ function CampaignHeroArt({ art }) {
 
 export function CampaignHeroSection({ variant }) {
   const { hero, tracking } = variant
+  const hasTrialOffer = Boolean(hero.trialOffer)
 
   return (
-    <section className="relative overflow-hidden bg-[#0f2044] px-6 pb-10 pt-28 text-white sm:pb-12 sm:pt-32 lg:pt-36">
+    <section
+      className={`relative overflow-hidden bg-[#0f2044] px-6 pt-28 text-white sm:pt-32 lg:pt-36 ${
+        hasTrialOffer ? 'pb-16 sm:pb-20 lg:pb-24' : 'pb-10 sm:pb-12'
+      }`}
+    >
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 h-[48%] bg-[#4269af]"
         style={{ clipPath: 'polygon(0 34%, 100% 0, 100% 100%, 0 100%)' }}

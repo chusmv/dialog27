@@ -1,0 +1,39 @@
+<section id="{{ module.anchor_id }}" class="relative scroll-mt-28 px-6 pb-20 pt-12">
+  <div class="section-divider absolute inset-x-0 top-0"></div>
+  <div class="mesh-bg absolute inset-0"></div>
+
+  <div class="fade-up visible relative z-10 mx-auto max-w-5xl text-center">
+    <p class="mb-6 text-xs tracking-[0.3em] text-orange-300/70 uppercase">
+      {{ module.eyebrow }}
+    </p>
+
+    <div class="landing-richtext font-display mb-5 text-4xl leading-tight font-extrabold text-white md:text-5xl">
+      {{ module.title_html }}
+    </div>
+
+    <p class="mx-auto mb-10 max-w-2xl text-lg text-white/[0.55]">
+      {{ module.description }}
+    </p>
+
+    <div class="hubspot-form-shell glass mx-auto max-w-3xl rounded-[2rem] border border-white/8 p-6 text-left md:p-8">
+      {% if module.form_config.form_id %}
+        {% form
+          form_to_use="{{ module.form_config.form_id }}"
+          response_response_type="{{ module.form_config.response_type }}"
+          response_message="{{ module.form_config.message }}"
+          response_redirect_id="{{ module.form_config.redirect_id }}"
+          response_redirect_url="{{ module.form_config.redirect_url }}"
+          gotowebinar_webinar_key="{{ module.form_config.gotowebinar_webinar_key }}"
+        %}
+      {% else %}
+        <div class="rounded-2xl border border-dashed border-white/15 bg-white/[0.03] p-6 text-center text-white/65">
+          Selecciona un formulario HubSpot en el editor para activar la captación.
+        </div>
+      {% endif %}
+    </div>
+
+    <p class="mt-6 text-sm text-white/42">
+      {{ module.helper }}
+    </p>
+  </div>
+</section>

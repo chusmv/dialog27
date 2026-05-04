@@ -76,8 +76,30 @@ npm run build
 ## Documentación
 
 - Arquitectura: [docs/architecture.md](./docs/architecture.md)
+- Migración HubSpot:
+  - [docs/hubspot-migration-plan.md](./docs/hubspot-migration-plan.md)
+  - [docs/hubspot-deployment-guide.md](./docs/hubspot-deployment-guide.md)
+  - [docs/hubspot-authoring-guide.md](./docs/hubspot-authoring-guide.md)
+  - [docs/hubspot-content-matrix.md](./docs/hubspot-content-matrix.md)
 - ADRs:
   - [0001-standalone-vite-react.md](./docs/adr/0001-standalone-vite-react.md)
   - [0002-tailwind-and-global-css.md](./docs/adr/0002-tailwind-and-global-css.md)
   - [0003-external-cta-without-backend.md](./docs/adr/0003-external-cta-without-backend.md)
   - [0004-local-first-static-ready.md](./docs/adr/0004-local-first-static-ready.md)
+
+## HubSpot workspace
+
+El repo incluye un workspace preparado para migración a HubSpot CMS en:
+
+```text
+hubspot/
+  d27-docs-theme/
+  src/theme.css
+```
+
+Scripts disponibles:
+
+- `npm run hubspot:css:build`
+- `npm run hubspot:css:watch`
+- `npm run hubspot:upload`
+- `npm run hubspot:watch`

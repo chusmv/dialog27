@@ -1,0 +1,59 @@
+{% set default_items = [
+  {
+    "icon_src": get_asset_url("../../images/problem-icons/cajafacturas.png"),
+    "title": "El caos de las facturas",
+    "description": "Te envían las facturas a última hora, te las dan en una caja, tienes que buscarlas enterradas en hilos de emails de muchos clientes distintos."
+  },
+  {
+    "icon_src": get_asset_url("../../images/problem-icons/contabilidadmanual.png"),
+    "title": "Introducción manual",
+    "description": "Te pasas horas tecleando importes, fechas y NIF a mano. Cada. Maldito. Día."
+  },
+  {
+    "icon_src": get_asset_url("../../images/problem-icons/escalar.png"),
+    "title": "Ni idea del estado real",
+    "description": "Como no recibes las facturas poco a poco sino casi siempre al final, no tienes actualizado el estado en el que está la empresa."
+  },
+  {
+    "icon_src": get_asset_url("../../images/problem-icons/errores.png"),
+    "title": "Errores de conciliación",
+    "description": "Al ser un trabajo tan manual y hacerlo con poco tiempo para el cierre, es normal equivocarse. Cierres de mes que duran días porque nada cuadra a la primera."
+  }
+] %}
+{% set items = module.items if module.items and module.items|length else default_items %}
+
+<section id="problem" class="relative scroll-mt-28 overflow-hidden bg-[#4269af] px-6 py-20">
+  <div class="mx-auto max-w-6xl">
+    <div class="mb-12 text-center fade-up visible">
+      <div class="glass font-body mb-6 inline-block rounded-full px-4 py-1.5 text-xs tracking-[0.3em] text-white/45 uppercase">
+        {{ module.eyebrow }}
+      </div>
+      <h2 class="font-display mb-4 text-4xl font-extrabold text-white md:text-5xl">
+        {{ module.title }}
+      </h2>
+      <p class="font-body mx-auto max-w-3xl text-lg leading-relaxed text-white/70">
+        {{ module.description }}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+      {% for item in items %}
+        <article class="card-lift glass fade-up fade-delay-{{ loop.index }} visible rounded-3xl border border-white/5 p-6">
+          <div class="grid grid-cols-[5.25rem_minmax(0,1fr)] items-center gap-5">
+            <div class="flex h-20 w-20 items-center justify-center rounded-2xl bg-white/5 p-3">
+              {% if item.icon and item.icon.src %}
+                <img src="{{ item.icon.src }}" alt="{{ item.icon.alt or item.title }}" class="h-full w-full object-contain" loading="lazy" />
+              {% else %}
+                <img src="{{ item.icon_src }}" alt="{{ item.title }}" class="h-full w-full object-contain" loading="lazy" />
+              {% endif %}
+            </div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-white">{{ item.title }}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-white/65">{{ item.description }}</p>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

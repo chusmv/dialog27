@@ -1,0 +1,51 @@
+[
+  {
+    "type": "text",
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "default": "El problema real"
+  },
+  {
+    "type": "text",
+    "name": "title",
+    "label": "Título",
+    "default": "La mayor parte del tiempo se va en trabajo que debería hacer una máquina."
+  },
+  {
+    "type": "text",
+    "name": "description",
+    "label": "Descripción",
+    "default": "Un gestor pasa la mayor parte del tiempo haciendo un trabajo que debería hacer una máquina."
+  },
+  {
+    "type": "group",
+    "name": "items",
+    "label": "Cards del problema",
+    "occurrence": {
+      "min": 1,
+      "max": 6,
+      "sorting_label_field": "items.title",
+      "default": 4
+    },
+    "children": [
+      {
+        "id": "items.icon",
+        "type": "image",
+        "name": "icon",
+        "label": "Icono"
+      },
+      {
+        "id": "items.title",
+        "type": "text",
+        "name": "title",
+        "label": "Título"
+      },
+      {
+        "id": "items.description",
+        "type": "textarea",
+        "name": "description",
+        "label": "Descripción"
+      }
+    ]
+  }
+]

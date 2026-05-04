@@ -1,0 +1,15 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#1A2E63"/>
+  <path d="M0 420L1200 90V630H0V420Z" fill="#4269AF"/>
+  <text x="84" y="154" fill="#FF640A" font-family="Arial, sans-serif" font-size="58" font-weight="700">D27 Docs</text>
+  <text x="355" y="154" fill="white" font-family="Arial, sans-serif" font-size="58" font-weight="700">Automatiza tu contabilidad</text>
+  <text x="84" y="220" fill="white" font-family="Arial, sans-serif" font-size="58" font-weight="700">sin esfuerzo</text>
+  <text x="110" y="320" fill="#FF640A" font-family="Arial, sans-serif" font-size="38" font-weight="700">✓</text>
+  <text x="158" y="320" fill="white" font-family="Arial, sans-serif" font-size="34" font-weight="700">Tu cliente sube el documento</text>
+  <text x="110" y="376" fill="#FF640A" font-family="Arial, sans-serif" font-size="38" font-weight="700">✓</text>
+  <text x="158" y="376" fill="white" font-family="Arial, sans-serif" font-size="34" font-weight="700">La IA recibe y extrae la información</text>
+  <ellipse cx="942" cy="250" rx="178" ry="82" transform="rotate(8 942 250)" stroke="#FF640A" stroke-width="12"/>
+  <text x="840" y="238" fill="white" font-family="Arial, sans-serif" font-size="30" font-weight="700">De la foto de un ticket</text>
+  <text x="832" y="278" fill="white" font-family="Arial, sans-serif" font-size="30" font-weight="700">a tenerlo contabilizado</text>
+  <text x="914" y="320" fill="white" font-family="Arial, sans-serif" font-size="34" font-weight="700">EN 2 CLICKS</text>
+</svg>

@@ -6,6 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "hubspot:css:build": "tailwindcss -i hubspot/src/theme.css -o hubspot/d27-docs-theme/css/main.css --minify",
+    "hubspot:css:watch": "tailwindcss -i hubspot/src/theme.css -o hubspot/d27-docs-theme/css/main.css --watch",
+    "hubspot:upload": "npm run hubspot:css:build && hs upload hubspot/d27-docs-theme d27-docs-theme",
+    "hubspot:watch": "hs watch hubspot/d27-docs-theme d27-docs-theme",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run"
@@ -16,6 +20,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@tailwindcss/cli": "^4.2.4",
     "@tailwindcss/vite": "^4.2.4",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",

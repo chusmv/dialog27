@@ -34,8 +34,10 @@ describe('Dialog27 docs landing', () => {
     expect(screen.getByAltText(/logo de a3erp/i)).toBeInTheDocument()
     expect(screen.getByAltText(/logo de holded/i)).toBeInTheDocument()
     expect(screen.getByAltText(/logo de borme/i)).toBeInTheDocument()
-    expect(screen.getByText(/solo 2 clicks de validación/i)).toBeInTheDocument()
     expect(screen.getByText(/bolsas de tokens adicionales/i)).toBeInTheDocument()
+    expect(
+      screen.queryByText(/del documento de tu cliente a la contabilidad en solo 2 clicks/i),
+    ).not.toBeInTheDocument()
 
     const ctaLinks = screen.getAllByRole('link', { name: /pedir demo/i })
     expect(ctaLinks.length).toBeGreaterThan(0)
@@ -104,8 +106,10 @@ describe('Dialog27 docs landing', () => {
       expect(screen.getByAltText(/logo de a3erp/i)).toBeInTheDocument()
       expect(screen.getByAltText(/logo de holded/i)).toBeInTheDocument()
       expect(screen.getByAltText(/logo de borme/i)).toBeInTheDocument()
-      expect(screen.getByText(/solo 2 clicks de validación/i)).toBeInTheDocument()
       expect(screen.getByText(/bolsas de tokens adicionales/i)).toBeInTheDocument()
+      expect(
+        screen.queryByText(/del documento de tu cliente a la contabilidad en solo 2 clicks/i),
+      ).not.toBeInTheDocument()
       const packageCtaLinks = screen.getAllByRole('link', { name: /solicitar demo/i })
       expect(packageCtaLinks.length).toBeGreaterThan(0)
 

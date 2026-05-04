@@ -1,0 +1,16 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#1A2E63"/>
+  <path d="M0 420L1200 90V630H0V420Z" fill="#4269AF"/>
+  <text x="84" y="150" fill="white" font-family="Arial, sans-serif" font-size="58" font-weight="700">
+    <tspan>Deja de procesar, empieza a </tspan>
+    <tspan fill="#FF640A">supervisar</tspan>
+  </text>
+  <text x="84" y="215" fill="#FF640A" font-family="Arial, sans-serif" font-size="58" font-weight="700">con D27 Docs</text>
+  <text x="112" y="310" fill="white" font-family="Arial, sans-serif" font-size="34" font-weight="700">• Tus clientes envían documentos</text>
+  <text x="112" y="365" fill="white" font-family="Arial, sans-serif" font-size="34" font-weight="700">• El sistema recibe y extrae la información</text>
+  <text x="112" y="420" fill="#FF640A" font-family="Arial, sans-serif" font-size="34" font-weight="700">• Tú solo validas</text>
+  <rect x="856" y="298" width="222" height="132" rx="28" transform="rotate(6 856 298)" fill="white"/>
+  <text x="894" y="360" fill="#8C8392" font-family="Arial, sans-serif" font-size="30" font-weight="700">odoo</text>
+  <text x="984" y="360" fill="#222222" font-family="Arial, sans-serif" font-size="30" font-weight="700">a3<tspan fill="#E1007A">ERP</tspan></text>
+  <text x="920" y="405" fill="#111111" font-family="Arial, sans-serif" font-size="34" font-weight="700">holded</text>
+</svg>

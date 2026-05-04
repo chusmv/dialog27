@@ -1,0 +1,58 @@
+[
+  {
+    "type": "text",
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "default": "Lo que dicen nuestros clientes"
+  },
+  {
+    "type": "text",
+    "name": "title",
+    "label": "Título",
+    "default": "La confianza de los profesionales contables"
+  },
+  {
+    "type": "textarea",
+    "name": "quote",
+    "label": "Cita",
+    "default": "En el despacho gestionamos cientos de facturas y recibos cada trimestre, y D27 Docs nos ha simplificado el trabajo de una forma brutal. Nuestros clientes solo van enviando la documentación por WhatsApp a lo largo del trimestre, y el sistema se encarga de clasificarla, comprobar si es válida y extraer la información clave. Hemos reducido muchísimo el tiempo dedicado a tareas manuales. Ahora podemos centrarnos en asesorar mejor a nuestros clientes y no en perseguir papeles."
+  },
+  {
+    "type": "text",
+    "name": "author",
+    "label": "Autor",
+    "default": "Manuel Pérez"
+  },
+  {
+    "type": "text",
+    "name": "role",
+    "label": "Cargo",
+    "default": "Asesoría fiscal, contable y laboral · Naumanni SL"
+  },
+  {
+    "type": "text",
+    "name": "initials",
+    "label": "Iniciales",
+    "default": "MP"
+  },
+  {
+    "type": "number",
+    "name": "rating",
+    "label": "Rating",
+    "min": 1,
+    "max": 5,
+    "step": 1,
+    "default": 5
+  },
+  {
+    "type": "image",
+    "name": "company_logo",
+    "label": "Logo de empresa"
+  },
+  {
+    "type": "text",
+    "name": "company_logo_alt",
+    "label": "Alt logo",
+    "default": "Logo de Naumanni SL"
+  }
+]

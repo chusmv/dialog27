@@ -1,0 +1,43 @@
+[
+  {
+    "type": "image",
+    "name": "footer_logo",
+    "label": "Logo footer"
+  },
+  {
+    "type": "text",
+    "name": "footer_logo_alt",
+    "label": "Alt logo footer",
+    "default": "Logo de D27 Docs"
+  },
+  {
+    "type": "text",
+    "name": "home_label",
+    "label": "Label home",
+    "default": "dialog27.com"
+  },
+  {
+    "type": "text",
+    "name": "contact_label",
+    "label": "Label contacto",
+    "default": "Contacto"
+  },
+  {
+    "type": "text",
+    "name": "privacy_label",
+    "label": "Label privacidad",
+    "default": "Privacidad"
+  },
+  {
+    "type": "text",
+    "name": "legal_label",
+    "label": "Label aviso legal",
+    "default": "Aviso legal"
+  },
+  {
+    "type": "text",
+    "name": "cookies_label",
+    "label": "Label cookies",
+    "default": "Cookies"
+  }
+]

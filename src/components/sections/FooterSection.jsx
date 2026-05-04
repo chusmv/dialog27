@@ -14,15 +14,11 @@ export function FooterSection() {
   return (
     <footer className="border-t border-white/5 px-6 py-10">
       <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 md:flex-row">
-        <div className="flex items-center gap-2">
-          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-orange-500">
-            <span className="font-display text-xs font-bold text-white">D</span>
-          </div>
-          <span className="font-display text-sm font-bold tracking-wide text-white/60">
-            D27 <span className="text-orange-400/80">Docs</span>
-          </span>
-          <span className="ml-2 text-xs text-white/20">by Dialog27</span>
-        </div>
+        <img
+          src="/logo_d27docs_oscuro.png"
+          alt="Logo de D27 Docs"
+          className="h-9 w-auto object-contain sm:h-10"
+        />
 
         <div className="flex flex-wrap justify-center gap-6 text-xs text-white/30">
           {footerLinks.map((link) => (

@@ -1,0 +1,23 @@
+{% set fallback_footer_logo = get_asset_url("../../images/logo_d27docs_oscuro.png") %}
+<footer class="border-t border-white/5 px-6 py-10">
+  <div class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 md:flex-row">
+    <img
+      src="{{ module.footer_logo.src or fallback_footer_logo }}"
+      alt="{{ module.footer_logo.alt or module.footer_logo_alt }}"
+      class="h-9 w-auto object-contain sm:h-10"
+      loading="lazy"
+    />
+
+    <div class="flex flex-wrap justify-center gap-6 text-xs text-white/30">
+      <a href="{{ theme.urls.home_url }}" target="_blank" rel="noreferrer" class="transition-colors hover:text-white/60">{{ module.home_label }}</a>
+      <a href="{{ theme.urls.contact_url }}" target="_blank" rel="noreferrer" class="transition-colors hover:text-white/60">{{ module.contact_label }}</a>
+      <a href="{{ theme.urls.privacy_url }}" target="_blank" rel="noreferrer" class="transition-colors hover:text-white/60">{{ module.privacy_label }}</a>
+      <a href="{{ theme.urls.legal_url }}" target="_blank" rel="noreferrer" class="transition-colors hover:text-white/60">{{ module.legal_label }}</a>
+      <a href="{{ theme.urls.cookies_url }}" target="_blank" rel="noreferrer" class="transition-colors hover:text-white/60">{{ module.cookies_label }}</a>
+    </div>
+
+    <p class="text-xs text-white/20">
+      © {{ local_dt|datetimeformat('%Y') }} {{ theme.brand.legal_name }}. Todos los derechos reservados.
+    </p>
+  </div>
+</footer>

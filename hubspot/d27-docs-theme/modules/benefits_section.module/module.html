@@ -1,0 +1,61 @@
+{% set default_items = [
+  {
+    "metric": "80",
+    "suffix": "%",
+    "label": "Menos tiempo en introducción de datos",
+    "description": "Libera a tu equipo de tareas repetitivas y redirige ese tiempo a asesoramiento de alto valor.",
+    "icon": "⚡"
+  },
+  {
+    "metric": "99",
+    "suffix": "%",
+    "label": "Precisión en los datos",
+    "description": "La extracción por IA elimina los errores tipográficos y de transposición del trabajo manual.",
+    "icon": "🎯"
+  },
+  {
+    "metric": "3",
+    "suffix": "×",
+    "label": "Más clientes, mismo equipo",
+    "description": "Escala tu despacho sin aumentar plantilla. Crecimiento sin contrataciones.",
+    "icon": "📈"
+  }
+] %}
+{% set items = module.items if module.items and module.items|length else default_items %}
+
+<section id="benefits" class="relative scroll-mt-28 px-6 py-24">
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-orange-950/5 to-transparent"></div>
+
+  <div class="relative z-10 mx-auto max-w-6xl">
+    <div class="mb-8 text-center fade-up visible">
+      <div class="glass font-body mb-6 inline-block rounded-full px-4 py-1.5 text-xs tracking-[0.3em] text-white/45 uppercase">
+        {{ module.eyebrow }}
+      </div>
+      <h2 class="font-display mb-4 text-4xl font-extrabold text-white md:text-5xl">
+        {{ module.title }}
+      </h2>
+      <p class="font-body mx-auto max-w-xl text-lg leading-relaxed text-white/[0.55]">
+        {{ module.description }}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-5 lg:grid-cols-3">
+      {% for item in items %}
+        <article class="card-lift glass fade-up fade-delay-{{ loop.index }} visible rounded-3xl border border-white/5 p-7">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">{{ item.icon }}</div>
+            <div>
+              <div class="font-display mb-1 text-4xl leading-none font-extrabold text-orange-400 md:text-5xl">
+                <span data-counter-end="{{ item.metric }}" data-counter-suffix="{{ item.suffix }}" data-counter-duration="1800">
+                  {{ item.metric }}{{ item.suffix }}
+                </span>
+              </div>
+              <div class="font-display mb-2 text-base font-bold text-white">{{ item.label }}</div>
+              <p class="text-sm leading-relaxed text-white/[0.45]">{{ item.description }}</p>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

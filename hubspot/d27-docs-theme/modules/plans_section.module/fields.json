@@ -1,0 +1,141 @@
+[
+  {
+    "type": "text",
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "default": "Planes"
+  },
+  {
+    "type": "text",
+    "name": "title",
+    "label": "Título",
+    "default": "Elige el plan que encaja con tu actividad."
+  },
+  {
+    "type": "textarea",
+    "name": "description",
+    "label": "Descripción",
+    "default": "Tres paquetes pensados para crecer contigo."
+  },
+  {
+    "type": "text",
+    "name": "pricing_note",
+    "label": "Nota de precio",
+    "default": "Precios mensuales, sin impuestos incluidos."
+  },
+  {
+    "type": "text",
+    "name": "cta_label",
+    "label": "CTA",
+    "default": "Solicitar demo"
+  },
+  {
+    "type": "text",
+    "name": "cta_anchor",
+    "label": "Anchor CTA",
+    "default": "#demo-form"
+  },
+  {
+    "type": "textarea",
+    "name": "footnote",
+    "label": "Cintillo inferior",
+    "default": "Desde cualquier plan puedes contratar bolsas de tokens adicionales. Los tokens adicionales se consumen solo cuando se agotan los tokens mensuales del plan contratado."
+  },
+  {
+    "type": "group",
+    "name": "packages",
+    "label": "Paquetes",
+    "occurrence": {
+      "min": 1,
+      "max": 5,
+      "sorting_label_field": "packages.name",
+      "default": 3
+    },
+    "children": [
+      {
+        "id": "packages.name",
+        "type": "text",
+        "name": "name",
+        "label": "Nombre"
+      },
+      {
+        "id": "packages.badge_label",
+        "type": "text",
+        "name": "badge_label",
+        "label": "Badge"
+      },
+      {
+        "id": "packages.featured",
+        "type": "boolean",
+        "name": "featured",
+        "label": "Destacado"
+      },
+      {
+        "id": "packages.price_major",
+        "type": "text",
+        "name": "price_major",
+        "label": "Precio entero"
+      },
+      {
+        "id": "packages.price_minor",
+        "type": "text",
+        "name": "price_minor",
+        "label": "Decimales"
+      },
+      {
+        "id": "packages.summary_features_html",
+        "type": "richtext",
+        "name": "summary_features_html",
+        "label": "Resumen visible"
+      },
+      {
+        "id": "packages.metric_one_label",
+        "type": "text",
+        "name": "metric_one_label",
+        "label": "Métrica 1 label"
+      },
+      {
+        "id": "packages.metric_one_value",
+        "type": "text",
+        "name": "metric_one_value",
+        "label": "Métrica 1 valor"
+      },
+      {
+        "id": "packages.metric_two_label",
+        "type": "text",
+        "name": "metric_two_label",
+        "label": "Métrica 2 label"
+      },
+      {
+        "id": "packages.metric_two_value",
+        "type": "text",
+        "name": "metric_two_value",
+        "label": "Métrica 2 valor"
+      },
+      {
+        "id": "packages.details_title",
+        "type": "text",
+        "name": "details_title",
+        "label": "Título de incluidos"
+      },
+      {
+        "id": "packages.details_html",
+        "type": "richtext",
+        "name": "details_html",
+        "label": "Incluidos"
+      },
+      {
+        "id": "packages.capacity_title",
+        "type": "text",
+        "name": "capacity_title",
+        "label": "Título de capacidad"
+      },
+      {
+        "id": "packages.capacity_html",
+        "type": "richtext",
+        "name": "capacity_html",
+        "label": "Capacidad y límites"
+      }
+    ]
+  }
+]

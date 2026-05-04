@@ -1,0 +1,37 @@
+{% set fallback_logo = get_asset_url("../../images/d27-docs-logo-landscape.webp") %}
+<nav class="landing-nav" data-landing-nav aria-label="Principal">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6">
+    <a href="#" class="flex items-center text-white no-underline" aria-label="Ir al inicio de D27 Docs">
+      <img
+        src="{{ theme.brand.logo.src or fallback_logo }}"
+        alt="{{ theme.brand.logo.alt or theme.brand.logo_alt }}"
+        class="h-10 w-auto rounded-sm object-contain sm:h-11"
+      />
+    </a>
+
+    <div class="hidden items-center gap-8 text-sm text-white/60 md:flex">
+      <a href="#solution" data-scroll-link class="transition-colors hover:text-white">Cómo funciona</a>
+      <a href="#plans" data-scroll-link class="transition-colors hover:text-white">Planes</a>
+      <a href="#benefits" data-scroll-link class="transition-colors hover:text-white">Beneficios</a>
+      <a href="#proof" data-scroll-link class="transition-colors hover:text-white">Clientes</a>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <a
+        href="{{ theme.urls.product_url }}"
+        target="_blank"
+        rel="noreferrer"
+        class="btn-ghost hidden rounded-lg px-4 py-2 text-sm text-white/70 no-underline md:block"
+      >
+        Ver producto
+      </a>
+      <a
+        href="#demo-form"
+        data-scroll-link
+        class="btn-primary glow-orange rounded-xl px-5 py-2.5 text-sm font-semibold text-white no-underline"
+      >
+        Pedir demo
+      </a>
+    </div>
+  </div>
+</nav>

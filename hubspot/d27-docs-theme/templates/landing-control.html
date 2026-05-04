@@ -1,0 +1,21 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: D27 Docs · Landing Control
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+  {% include "./partials/nav.html" %}
+  <main id="main-content" class="relative z-10">
+    {% module "hero_control" path="../modules/hero_control.module" %}
+    {% module "promo_strip" path="../modules/promo_strip.module" %}
+    {% module "problem_section" path="../modules/problem_section.module" %}
+    {% module "solution_steps" path="../modules/solution_steps.module" %}
+    {% module "plans_section" path="../modules/plans_section.module" %}
+    {% module "benefits_section" path="../modules/benefits_section.module" %}
+    {% module "testimonial_single" path="../modules/testimonial_single.module" %}
+    {% module "lead_capture_section" path="../modules/lead_capture_section.module" %}
+  </main>
+  {% module "footer_landing" path="../modules/footer_landing.module" %}
+{% endblock body %}

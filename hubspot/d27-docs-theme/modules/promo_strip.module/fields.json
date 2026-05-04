@@ -1,0 +1,14 @@
+[
+  {
+    "type": "text",
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "default": "Promoción por tiempo limitado"
+  },
+  {
+    "type": "text",
+    "name": "title",
+    "label": "Título",
+    "default": "Pruébalo 1 mes gratis"
+  }
+]

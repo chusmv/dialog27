@@ -1,0 +1,43 @@
+[
+  {
+    "type": "text",
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "default": "Empieza ahora"
+  },
+  {
+    "type": "richtext",
+    "name": "title_html",
+    "label": "Título",
+    "default": "<h2>Deja de hacer contabilidad manual.<br><span style=\"color:#ff5700;\">Empieza a supervisar.</span></h2>"
+  },
+  {
+    "type": "textarea",
+    "name": "description",
+    "label": "Descripción",
+    "default": "Únete a las asesorías y gestorías que ya han automatizado su flujo documental. La puesta en marcha lleva días, no meses."
+  },
+  {
+    "type": "text",
+    "name": "helper",
+    "label": "Helper",
+    "default": "Sin tarjeta de crédito · Alta en 48h · Cancela cuando quieras"
+  },
+  {
+    "type": "text",
+    "name": "anchor_id",
+    "label": "ID del bloque",
+    "default": "demo-form"
+  },
+  {
+    "type": "form",
+    "name": "form_config",
+    "label": "Formulario HubSpot",
+    "disable_inline_form_editing": true,
+    "required_property_types": ["CONTACT"],
+    "default": {
+      "response_type": "inline",
+      "message": "Gracias. Hemos recibido tu solicitud."
+    }
+  }
+]

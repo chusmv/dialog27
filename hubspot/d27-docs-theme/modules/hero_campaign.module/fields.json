@@ -1,0 +1,67 @@
+[
+  {
+    "type": "richtext",
+    "name": "title_html",
+    "label": "Título",
+    "default": "<h1>Reduce un <span style=\"color:#ff5700;\">80%</span> el trabajo contable con <span style=\"color:#ff5700;\">D27 Docs</span></h1>"
+  },
+  {
+    "type": "richtext",
+    "name": "bullets_html",
+    "label": "Bullets",
+    "default": "<ul><li>Tu cliente sube el documento.</li><li>El sistema lo recibe y extrae la información automáticamente.</li><li><strong>Tú solo validas.</strong> Nada de picar datos.</li><li>Y manda la información a tu ERP.</li></ul>"
+  },
+  {
+    "type": "text",
+    "name": "primary_cta_label",
+    "label": "CTA primario",
+    "default": "SOLICITAR DEMO"
+  },
+  {
+    "type": "text",
+    "name": "primary_cta_anchor",
+    "label": "Anchor CTA primario",
+    "default": "#demo-form"
+  },
+  {
+    "type": "text",
+    "name": "secondary_cta_label",
+    "label": "CTA secundario",
+    "default": "VER CÓMO FUNCIONA"
+  },
+  {
+    "type": "text",
+    "name": "secondary_cta_anchor",
+    "label": "Anchor CTA secundario",
+    "default": "#solution"
+  },
+  {
+    "type": "image",
+    "name": "art_image",
+    "label": "Imagen hero"
+  },
+  {
+    "type": "text",
+    "name": "art_alt",
+    "label": "Alt imagen hero",
+    "default": "Arte del hero de campaña"
+  },
+  {
+    "type": "boolean",
+    "name": "trial_offer_enabled",
+    "label": "Mostrar oferta de prueba",
+    "default": false
+  },
+  {
+    "type": "text",
+    "name": "trial_offer_title",
+    "label": "Título de oferta",
+    "default": "Pruébalo 1 mes GRATIS"
+  },
+  {
+    "type": "text",
+    "name": "trial_offer_description",
+    "label": "Descripción de oferta",
+    "default": "Sin compromiso ni permanencia"
+  }
+]

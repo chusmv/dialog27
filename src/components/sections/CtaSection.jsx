@@ -17,10 +17,10 @@ export function CtaSection({ trackingContext = {} }) {
         className={`fade-up relative z-10 mx-auto max-w-3xl text-center ${inView ? 'visible' : ''}`}
       >
         <p className="mb-6 text-xs tracking-[0.3em] text-orange-300/70 uppercase">{landingContent.cta.eyebrow}</p>
-        <h2 className="font-display mb-5 text-4xl leading-tight font-extrabold md:text-5xl">
+        <h2 className="font-display mb-5 text-4xl leading-tight font-extrabold text-white md:text-5xl">
           {landingContent.cta.title[0]}
           <br />
-          <span className="gradient-text">{landingContent.cta.title[1]}</span>
+          <span className="text-[#ff5700]">{landingContent.cta.title[1]}</span>
         </h2>
         <p className="mx-auto mb-10 max-w-lg text-lg text-white/[0.55]">{landingContent.cta.description}</p>
 
@@ -29,7 +29,7 @@ export function CtaSection({ trackingContext = {} }) {
             href={siteConfig.urls.demo}
             target="_blank"
             rel="noreferrer"
-            className="btn-primary glow-orange inline-flex items-center justify-center gap-2 rounded-2xl px-10 py-4 text-base font-bold text-white no-underline"
+            className="campaign-btn-primary inline-flex items-center justify-center gap-2 rounded-[999px] px-10 py-4 text-base font-extrabold text-white no-underline"
             onClick={() =>
               trackEvent(
                 'final_cta_primary_click',
@@ -44,7 +44,7 @@ export function CtaSection({ trackingContext = {} }) {
             href={siteConfig.urls.product}
             target="_blank"
             rel="noreferrer"
-            className="btn-ghost inline-flex items-center justify-center gap-2 rounded-2xl px-10 py-4 text-base text-white/60 no-underline"
+            className="campaign-btn-secondary inline-flex items-center justify-center gap-2 rounded-[999px] px-10 py-4 text-base font-extrabold text-white no-underline"
             onClick={() =>
               trackEvent(
                 'final_cta_secondary_click',

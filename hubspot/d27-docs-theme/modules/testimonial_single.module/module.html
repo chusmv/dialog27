@@ -1,0 +1,59 @@
+<section id="proof" class="relative scroll-mt-28 px-6 py-24">
+  <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+  <div class="mx-auto max-w-5xl">
+    <div class="mb-8 text-center fade-up visible">
+      <div class="glass font-body mb-6 inline-block rounded-full px-4 py-1.5 text-xs tracking-[0.3em] text-white/45 uppercase">
+        {{ module.eyebrow }}
+      </div>
+      <h2 class="font-display mb-4 text-4xl font-extrabold text-white md:text-5xl">
+        {{ module.title }}
+      </h2>
+    </div>
+
+    <article class="card-lift glass fade-up visible rounded-[2rem] border border-white/5 p-7 md:p-8">
+      <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
+          <div class="hubspot-testimonial-stars text-sm text-orange-400">
+            {% for _ in range(module.rating or 5) %}
+              ★
+            {% endfor %}
+          </div>
+
+          {% if module.company_logo.src %}
+            <div class="inline-flex items-center rounded-2xl border border-white/8 bg-white/[0.04] px-4 py-3">
+              <img src="{{ module.company_logo.src }}" alt="{{ module.company_logo.alt or module.company_logo_alt }}" class="max-h-10 w-auto object-contain" loading="lazy" />
+            </div>
+          {% else %}
+            <div class="inline-flex items-center gap-3 rounded-2xl border border-white/8 bg-white/[0.04] px-4 py-3">
+              <div class="relative h-8 w-10">
+                <span class="absolute left-0 top-1 h-6 w-1 rounded-full bg-[#ff5700]"></span>
+                <span class="absolute left-2 top-3 h-4 w-1 rounded-full bg-[#7fa6e8]"></span>
+                <span class="absolute left-4 top-0 h-7 w-1 rounded-full bg-[#7fa6e8]"></span>
+                <span class="absolute left-6 top-2 h-5 w-1 rounded-full bg-[#7fa6e8]"></span>
+                <span class="absolute left-8 top-4 h-3 w-1 rounded-full bg-[#7fa6e8]"></span>
+                <span class="absolute left-[0.35rem] top-4 h-1 w-4 rounded-full bg-[#7fa6e8]"></span>
+                <span class="absolute left-[1.4rem] top-3 h-1 w-4 rounded-full bg-[#7fa6e8]"></span>
+              </div>
+              <span class="font-display text-sm font-bold tracking-[0.18em] text-white/78 uppercase">Naumanni</span>
+            </div>
+          {% endif %}
+        </div>
+
+        <p class="font-display text-lg leading-relaxed text-white/[0.78] italic md:text-[1.15rem]">
+          "{{ module.quote }}"
+        </p>
+
+        <div class="flex items-center gap-4 border-t border-white/6 pt-5">
+          <div class="flex h-11 w-11 items-center justify-center rounded-full border border-orange-500/30 bg-orange-500/20 text-sm font-bold text-orange-400">
+            {{ module.initials }}
+          </div>
+          <div>
+            <p class="font-display text-base font-bold text-white">{{ module.author }}</p>
+            <p class="text-sm text-white/45">{{ module.role }}</p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

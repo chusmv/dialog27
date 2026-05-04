@@ -1,0 +1,21 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#1A2E63"/>
+  <path d="M0 420L1200 90V630H0V420Z" fill="#4269AF"/>
+  <text x="84" y="150" fill="white" font-family="Arial, sans-serif" font-size="58" font-weight="700">
+    <tspan>Reduce un </tspan>
+    <tspan fill="#FF640A">80%</tspan>
+    <tspan> el trabajo contable</tspan>
+  </text>
+  <text x="84" y="215" fill="#FF640A" font-family="Arial, sans-serif" font-size="58" font-weight="700">con D27 Docs</text>
+  <text x="110" y="320" fill="#FF640A" font-family="Arial, sans-serif" font-size="38" font-weight="700">✓</text>
+  <text x="158" y="320" fill="white" font-family="Arial, sans-serif" font-size="34" font-weight="700">Tu cliente sube el documento</text>
+  <text x="110" y="376" fill="#FF640A" font-family="Arial, sans-serif" font-size="38" font-weight="700">✓</text>
+  <text x="158" y="376" fill="white" font-family="Arial, sans-serif" font-size="34" font-weight="700">La IA extrae la información automáticamente</text>
+  <text x="110" y="432" fill="#FF640A" font-family="Arial, sans-serif" font-size="38" font-weight="700">✓</text>
+  <text x="158" y="432" fill="white" font-family="Arial, sans-serif" font-size="34" font-weight="700">Tú solo validas</text>
+  <circle cx="952" cy="390" r="96" stroke="#FF640A" stroke-width="10"/>
+  <circle cx="952" cy="390" r="120" stroke="#FF640A" stroke-width="6" stroke-dasharray="14 12"/>
+  <rect x="854" y="360" width="196" height="60" rx="10" fill="#1A2E63" stroke="#FF640A" stroke-width="6"/>
+  <text x="884" y="400" fill="white" font-family="Arial, sans-serif" font-size="28" font-weight="700">AUTOMATIZADO</text>
+  <text x="910" y="432" fill="#FF640A" font-family="Arial, sans-serif" font-size="28" font-weight="700">CON IA</text>
+</svg>

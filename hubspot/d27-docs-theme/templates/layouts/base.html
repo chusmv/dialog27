@@ -1,0 +1,27 @@
+<!--
+  templateType: none
+  isAvailableForNewContent: false
+-->
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {{ require_css(get_asset_url("../../css/main.css")) }}
+    {{ standard_header_includes }}
+  </head>
+  <body
+    class="landing-body {{ builtin_body_classes }}"
+    style="
+      --page-bg: {{ theme.global_colors.page_background.color }};
+      --cta-accent: {{ theme.global_colors.cta_accent.color }};
+      --cta-accent-hover: {{ theme.global_colors.cta_accent_hover.color }};
+    "
+  >
+    <a href="#main-content" class="skip-link">Saltar al contenido</a>
+    <div class="noise"></div>
+    {% block body %}{% endblock body %}
+    <script src="{{ get_asset_url('../../js/landing.js') }}" defer></script>
+    {{ standard_footer_includes }}
+  </body>
+ </html>
