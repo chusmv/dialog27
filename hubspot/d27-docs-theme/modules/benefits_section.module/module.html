@@ -2,26 +2,26 @@
   {
     "metric": "80",
     "suffix": "%",
-    "label": "Menos tiempo en introducción de datos",
+    "benefit_label": "Menos tiempo en introducción de datos",
     "description": "Libera a tu equipo de tareas repetitivas y redirige ese tiempo a asesoramiento de alto valor.",
     "icon": "⚡"
   },
   {
     "metric": "99",
     "suffix": "%",
-    "label": "Precisión en los datos",
+    "benefit_label": "Precisión en los datos",
     "description": "La extracción por IA elimina los errores tipográficos y de transposición del trabajo manual.",
     "icon": "🎯"
   },
   {
     "metric": "3",
     "suffix": "×",
-    "label": "Más clientes, mismo equipo",
+    "benefit_label": "Más clientes, mismo equipo",
     "description": "Escala tu despacho sin aumentar plantilla. Crecimiento sin contrataciones.",
     "icon": "📈"
   }
 ] %}
-{% set items = module.items if module.items and module.items|length else default_items %}
+{% set items = module.items if module.items and module.items|length and module.items[0].metric else default_items %}
 
 <section id="benefits" class="relative scroll-mt-28 px-6 py-24">
   <div class="absolute inset-0 bg-gradient-to-b from-transparent via-orange-950/5 to-transparent"></div>
@@ -50,7 +50,7 @@
                   {{ item.metric }}{{ item.suffix }}
                 </span>
               </div>
-              <div class="font-display mb-2 text-base font-bold text-white">{{ item.label }}</div>
+              <div class="font-display mb-2 text-base font-bold text-white">{{ item.benefit_label }}</div>
               <p class="text-sm leading-relaxed text-white/[0.45]">{{ item.description }}</p>
             </div>
           </div>

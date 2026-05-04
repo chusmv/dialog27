@@ -1,6 +1,6 @@
 {% set default_packages = [
   {
-    "name": "BASIC",
+    "package_name": "BASIC",
     "badge_label": "",
     "featured": false,
     "price_major": "24",
@@ -16,7 +16,7 @@
     "capacity_html": "<ul><li>4.000 tokens/mes incluidos (hasta 500 documentos)</li><li>120 días de almacenamiento</li><li>50 clientes/usuarios simultáneos</li><li>2 proyectos simultáneos</li><li>Exportación simultánea de hasta 50 documentos</li></ul>"
   },
   {
-    "name": "PLUS",
+    "package_name": "PLUS",
     "badge_label": "MAS COMPRADO",
     "featured": true,
     "price_major": "99",
@@ -32,7 +32,7 @@
     "capacity_html": "<ul><li>40.000 tokens/mes incluidos (hasta 5.000 documentos)</li><li>400 días de almacenamiento</li><li>200 clientes/usuarios simultáneos</li><li>5 proyectos simultáneos</li><li>Exportación simultánea de hasta 400 documentos</li></ul>"
   },
   {
-    "name": "CORPORATE",
+    "package_name": "CORPORATE",
     "badge_label": "",
     "featured": false,
     "price_major": "199",
@@ -48,7 +48,7 @@
     "capacity_html": "<ul><li>100.000 tokens/mes incluidos (hasta 12.500 documentos)</li><li>2.000 días de almacenamiento</li><li>1.000 clientes/usuarios simultáneos</li><li>Proyectos simultáneos ilimitados</li><li>Exportación simultánea de hasta 1.000 documentos</li></ul>"
   }
 ] %}
-{% set packages = module.packages if module.packages and module.packages|length else default_packages %}
+{% set packages = module.packages if module.packages and module.packages|length and module.packages[0].package_name else default_packages %}
 
 <section id="plans" class="relative scroll-mt-28 overflow-hidden bg-[#0f2044] px-6 pb-20 pt-16">
   <div
@@ -76,7 +76,7 @@
           <div class="relative border-b border-white/8 px-5 py-5 md:px-6 md:py-6">
             <div class="min-w-0 pr-24 {{ 'drop-shadow-[0_0_16px_rgba(255,87,0,0.14)]' if pack.featured }}">
               <h3 class="font-display text-[1.28rem] leading-none font-extrabold tracking-[0.16em] text-[#ff5700] uppercase md:text-[1.42rem]">
-                {{ pack.name }}
+                {{ pack.package_name }}
               </h3>
               <div class="mt-4 flex flex-nowrap items-start gap-x-2 text-white">
                 <p class="font-display whitespace-nowrap text-[3rem] leading-none font-extrabold tracking-[-0.05em] md:text-[3.45rem]">

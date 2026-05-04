@@ -8,30 +8,6 @@
         "type": "image",
         "name": "logo",
         "label": "Logo"
-      },
-      {
-        "type": "text",
-        "name": "logo_alt",
-        "label": "Logo alt",
-        "default": "D27 Docs"
-      },
-      {
-        "type": "text",
-        "name": "product_name",
-        "label": "Product name",
-        "default": "D27 Docs"
-      },
-      {
-        "type": "text",
-        "name": "company_name",
-        "label": "Company name",
-        "default": "Dialog27"
-      },
-      {
-        "type": "text",
-        "name": "legal_name",
-        "label": "Legal name",
-        "default": "Zona Soluciones S.L."
       }
     ]
   },
@@ -71,49 +47,6 @@
         "default": {
           "color": "#4269af"
         }
-      }
-    ]
-  },
-  {
-    "type": "group",
-    "name": "urls",
-    "label": "Global URLs",
-    "children": [
-      {
-        "type": "text",
-        "name": "home_url",
-        "label": "Home URL",
-        "default": "https://www.dialog27.com"
-      },
-      {
-        "type": "text",
-        "name": "product_url",
-        "label": "Product URL",
-        "default": "https://www.dialog27.com/docs"
-      },
-      {
-        "type": "text",
-        "name": "contact_url",
-        "label": "Contact URL",
-        "default": "https://www.dialog27.com/contacto"
-      },
-      {
-        "type": "text",
-        "name": "privacy_url",
-        "label": "Privacy URL",
-        "default": "https://www.dialog27.com/politica-de-privacidad"
-      },
-      {
-        "type": "text",
-        "name": "legal_url",
-        "label": "Legal URL",
-        "default": "https://www.dialog27.com/aviso-legal"
-      },
-      {
-        "type": "text",
-        "name": "cookies_url",
-        "label": "Cookies URL",
-        "default": "https://www.dialog27.com/politica-de-cookies"
       }
     ]
   }

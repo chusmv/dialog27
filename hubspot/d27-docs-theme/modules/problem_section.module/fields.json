@@ -42,9 +42,10 @@
       },
       {
         "id": "items.description",
-        "type": "textarea",
+        "type": "text",
         "name": "description",
-        "label": "Descripción"
+        "label": "Descripción",
+        "allow_new_line": true
       }
     ]
   }

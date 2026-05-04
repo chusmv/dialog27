@@ -12,9 +12,10 @@
     "default": "Resultados reales, no funcionalidades"
   },
   {
-    "type": "textarea",
+    "type": "text",
     "name": "description",
     "label": "Descripción",
+    "allow_new_line": true,
     "default": "Qué cambia de verdad cuando eliminas el trabajo manual de la contabilidad."
   },
   {
@@ -24,7 +25,7 @@
     "occurrence": {
       "min": 1,
       "max": 6,
-      "sorting_label_field": "items.label",
+      "sorting_label_field": "items.benefit_label",
       "default": 3
     },
     "children": [
@@ -41,16 +42,17 @@
         "label": "Sufijo"
       },
       {
-        "id": "items.label",
+        "id": "items.benefit_label",
         "type": "text",
-        "name": "label",
+        "name": "benefit_label",
         "label": "Label"
       },
       {
         "id": "items.description",
-        "type": "textarea",
+        "type": "text",
         "name": "description",
-        "label": "Descripción"
+        "label": "Descripción",
+        "allow_new_line": true
       },
       {
         "id": "items.icon",

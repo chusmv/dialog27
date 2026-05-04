@@ -26,28 +26,28 @@
 ] %}
 {% set default_logos = [
   {
-    "name": "Odoo",
+    "logo_name": "Odoo",
     "logo_src": get_asset_url("../../images/integrations/odoo.png"),
     "logo_alt": "Logo de Odoo"
   },
   {
-    "name": "a3ERP",
+    "logo_name": "a3ERP",
     "logo_src": get_asset_url("../../images/integrations/a3erp.png"),
     "logo_alt": "Logo de a3ERP"
   },
   {
-    "name": "Holded",
+    "logo_name": "Holded",
     "logo_src": get_asset_url("../../images/integrations/holded.png"),
     "logo_alt": "Logo de Holded"
   },
   {
-    "name": "BORME",
+    "logo_name": "BORME",
     "logo_src": get_asset_url("../../images/integrations/borme.svg"),
     "logo_alt": "Logo de BORME"
   }
 ] %}
-{% set steps = module.steps if module.steps and module.steps|length else default_steps %}
-{% set integration_logos = module.integration_logos if module.integration_logos and module.integration_logos|length else default_logos %}
+{% set steps = module.steps if module.steps and module.steps|length and module.steps[0].title else default_steps %}
+{% set integration_logos = module.integration_logos if module.integration_logos and module.integration_logos|length and module.integration_logos[0].logo_name else default_logos %}
 
 <section id="solution" class="relative scroll-mt-28 px-6 pb-16 pt-16">
   <div class="section-divider absolute inset-x-0 top-0"></div>

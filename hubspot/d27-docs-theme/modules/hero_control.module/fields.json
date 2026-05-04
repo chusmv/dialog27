@@ -12,9 +12,10 @@
     "default": "<h1>Del documento de tu cliente<br>a la contabilidad,<br>automáticamente.</h1>"
   },
   {
-    "type": "textarea",
+    "type": "text",
     "name": "description",
     "label": "Descripción",
+    "allow_new_line": true,
     "default": "Tus clientes suben documentos. D27 Docs los procesa y los contabiliza en tu ERP. Tú solo validas."
   },
   {

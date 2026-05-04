@@ -12,9 +12,10 @@
     "default": "Elige el plan que encaja con tu actividad."
   },
   {
-    "type": "textarea",
+    "type": "text",
     "name": "description",
     "label": "Descripción",
+    "allow_new_line": true,
     "default": "Tres paquetes pensados para crecer contigo."
   },
   {
@@ -36,9 +37,10 @@
     "default": "#demo-form"
   },
   {
-    "type": "textarea",
+    "type": "text",
     "name": "footnote",
     "label": "Cintillo inferior",
+    "allow_new_line": true,
     "default": "Desde cualquier plan puedes contratar bolsas de tokens adicionales. Los tokens adicionales se consumen solo cuando se agotan los tokens mensuales del plan contratado."
   },
   {
@@ -48,14 +50,14 @@
     "occurrence": {
       "min": 1,
       "max": 5,
-      "sorting_label_field": "packages.name",
+      "sorting_label_field": "packages.package_name",
       "default": 3
     },
     "children": [
       {
-        "id": "packages.name",
+        "id": "packages.package_name",
         "type": "text",
-        "name": "name",
+        "name": "package_name",
         "label": "Nombre"
       },
       {

@@ -1,10 +1,11 @@
-{% set fallback_logo = get_asset_url("../../images/d27-docs-logo-landscape.webp") %}
+{% set fallback_logo = get_asset_url("../../images/logo_d27docs_oscuro.png") %}
+{% set product_url = "https://www.dialog27.com/docs" %}
 <nav class="landing-nav" data-landing-nav aria-label="Principal">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-6">
     <a href="#" class="flex items-center text-white no-underline" aria-label="Ir al inicio de D27 Docs">
       <img
         src="{{ theme.brand.logo.src or fallback_logo }}"
-        alt="{{ theme.brand.logo.alt or theme.brand.logo_alt }}"
+        alt="{{ theme.brand.logo.alt or 'D27 Docs' }}"
         class="h-10 w-auto rounded-sm object-contain sm:h-11"
       />
     </a>
@@ -18,7 +19,7 @@
 
     <div class="flex items-center gap-3">
       <a
-        href="{{ theme.urls.product_url }}"
+        href="{{ product_url }}"
         target="_blank"
         rel="noreferrer"
         class="btn-ghost hidden rounded-lg px-4 py-2 text-sm text-white/70 no-underline md:block"

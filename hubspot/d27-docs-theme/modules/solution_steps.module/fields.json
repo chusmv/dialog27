@@ -12,9 +12,10 @@
     "default": "Tres pasos hacia cero trabajo manual"
   },
   {
-    "type": "textarea",
+    "type": "text",
     "name": "description",
     "label": "Descripción",
+    "allow_new_line": true,
     "default": "Automatizamos el proceso contable para que tú te centres en lo importante."
   },
   {
@@ -79,14 +80,14 @@
     "occurrence": {
       "min": 1,
       "max": 8,
-      "sorting_label_field": "integration_logos.name",
+      "sorting_label_field": "integration_logos.logo_name",
       "default": 4
     },
     "children": [
       {
-        "id": "integration_logos.name",
+        "id": "integration_logos.logo_name",
         "type": "text",
-        "name": "name",
+        "name": "logo_name",
         "label": "Nombre"
       },
       {

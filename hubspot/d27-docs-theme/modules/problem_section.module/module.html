@@ -20,7 +20,7 @@
     "description": "Al ser un trabajo tan manual y hacerlo con poco tiempo para el cierre, es normal equivocarse. Cierres de mes que duran días porque nada cuadra a la primera."
   }
 ] %}
-{% set items = module.items if module.items and module.items|length else default_items %}
+{% set items = module.items if module.items and module.items|length and module.items[0].title else default_items %}
 
 <section id="problem" class="relative scroll-mt-28 overflow-hidden bg-[#4269af] px-6 py-20">
   <div class="mx-auto max-w-6xl">

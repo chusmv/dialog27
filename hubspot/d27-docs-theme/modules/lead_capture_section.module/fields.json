@@ -12,9 +12,10 @@
     "default": "<h2>Deja de hacer contabilidad manual.<br><span style=\"color:#ff5700;\">Empieza a supervisar.</span></h2>"
   },
   {
-    "type": "textarea",
+    "type": "text",
     "name": "description",
     "label": "Descripción",
+    "allow_new_line": true,
     "default": "Únete a las asesorías y gestorías que ya han automatizado su flujo documental. La puesta en marcha lleva días, no meses."
   },
   {
@@ -30,14 +31,22 @@
     "default": "demo-form"
   },
   {
-    "type": "form",
-    "name": "form_config",
-    "label": "Formulario HubSpot",
-    "disable_inline_form_editing": true,
-    "required_property_types": ["CONTACT"],
-    "default": {
-      "response_type": "inline",
-      "message": "Gracias. Hemos recibido tu solicitud."
-    }
+    "type": "text",
+    "name": "form_id",
+    "label": "ID del formulario HubSpot",
+    "default": ""
+  },
+  {
+    "type": "text",
+    "name": "response_type",
+    "label": "Tipo de respuesta",
+    "default": "inline"
+  },
+  {
+    "type": "text",
+    "name": "response_message",
+    "label": "Mensaje de respuesta",
+    "allow_new_line": true,
+    "default": "Gracias. Hemos recibido tu solicitud."
   }
 ]

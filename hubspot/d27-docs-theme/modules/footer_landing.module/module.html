@@ -1,4 +1,10 @@
 {% set fallback_footer_logo = get_asset_url("../../images/logo_d27docs_oscuro.png") %}
+{% set home_url = "https://www.dialog27.com" %}
+{% set contact_url = "https://www.dialog27.com/contacto" %}
+{% set privacy_url = "https://www.dialog27.com/politica-de-privacidad" %}
+{% set legal_url = "https://www.dialog27.com/aviso-legal" %}
+{% set cookies_url = "https://www.dialog27.com/politica-de-cookies" %}
+{% set legal_name = "Zona Soluciones S.L." %}
 <footer class="border-t border-white/5 px-6 py-10">
   <div class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 md:flex-row">
     <img
@@ -9,15 +15,15 @@
     />
 
     <div class="flex flex-wrap justify-center gap-6 text-xs text-white/30">
-      <a href="{{ theme.urls.home_url }}" target="_blank" rel="noreferrer" class="transition-colors hover:text-white/60">{{ module.home_label }}</a>
-      <a href="{{ theme.urls.contact_url }}" target="_blank" rel="noreferrer" class="transition-colors hover:text-white/60">{{ module.contact_label }}</a>
-      <a href="{{ theme.urls.privacy_url }}" target="_blank" rel="noreferrer" class="transition-colors hover:text-white/60">{{ module.privacy_label }}</a>
-      <a href="{{ theme.urls.legal_url }}" target="_blank" rel="noreferrer" class="transition-colors hover:text-white/60">{{ module.legal_label }}</a>
-      <a href="{{ theme.urls.cookies_url }}" target="_blank" rel="noreferrer" class="transition-colors hover:text-white/60">{{ module.cookies_label }}</a>
+      <a href="{{ home_url }}" target="_blank" rel="noreferrer" class="transition-colors hover:text-white/60">{{ module.home_label }}</a>
+      <a href="{{ contact_url }}" target="_blank" rel="noreferrer" class="transition-colors hover:text-white/60">{{ module.contact_label }}</a>
+      <a href="{{ privacy_url }}" target="_blank" rel="noreferrer" class="transition-colors hover:text-white/60">{{ module.privacy_label }}</a>
+      <a href="{{ legal_url }}" target="_blank" rel="noreferrer" class="transition-colors hover:text-white/60">{{ module.legal_label }}</a>
+      <a href="{{ cookies_url }}" target="_blank" rel="noreferrer" class="transition-colors hover:text-white/60">{{ module.cookies_label }}</a>
     </div>
 
     <p class="text-xs text-white/20">
-      © {{ local_dt|datetimeformat('%Y') }} {{ theme.brand.legal_name }}. Todos los derechos reservados.
+      © {{ local_dt|datetimeformat('%Y') }} {{ legal_name }}. Todos los derechos reservados.
     </p>
   </div>
 </footer>

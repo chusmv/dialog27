@@ -12,9 +12,10 @@
     "default": "La confianza de los profesionales contables"
   },
   {
-    "type": "textarea",
+    "type": "text",
     "name": "quote",
     "label": "Cita",
+    "allow_new_line": true,
     "default": "En el despacho gestionamos cientos de facturas y recibos cada trimestre, y D27 Docs nos ha simplificado el trabajo de una forma brutal. Nuestros clientes solo van enviando la documentación por WhatsApp a lo largo del trimestre, y el sistema se encarga de clasificarla, comprobar si es válida y extraer la información clave. Hemos reducido muchísimo el tiempo dedicado a tareas manuales. Ahora podemos centrarnos en asesorar mejor a nuestros clientes y no en perseguir papeles."
   },
   {
