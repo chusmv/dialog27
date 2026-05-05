@@ -210,8 +210,8 @@ export const baseLandingContent = {
     {
       number: '03',
       icon: 'erp',
-      imageSrc: '/solution-steps/gestor-valida.png',
-      imageAlt: 'Gestor supervisando la validación final antes de contabilizar en el ERP',
+      imageSrc: '/solution-steps/gestor-valida-20260504.png',
+      imageAlt: 'Persona validando la información en pantalla antes de enviarla al ERP',
       title: 'Tú validas y envías al ERP.',
       description: 'Recibes un resumen claro, organizado y trazable. Información extraída, lista para revisar y contabilizar. Sin buscar, sin descargar, sin reorganizar. Integración nativa con a3ERP, Holded y Odoo. Envía la información directamente, sin teclear nada, sin exportar nada manualmente.',
       accent: '#C0392B',

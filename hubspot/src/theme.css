@@ -93,6 +93,20 @@
   margin-bottom: 1rem;
 }
 
+.hubspot-form-shell .hs-form fieldset {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+.hubspot-form-shell .hs-form .hs-form-field,
+.hubspot-form-shell .hs-form .input {
+  width: 100% !important;
+}
+
+.hubspot-form-shell .hs-form .input {
+  margin-right: 0 !important;
+}
+
 .hubspot-form-shell .hs-input,
 .hubspot-form-shell textarea,
 .hubspot-form-shell select {
