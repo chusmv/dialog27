@@ -19,6 +19,24 @@
     "default": "Automatizamos el proceso contable para que tú te centres en lo importante."
   },
   {
+    "type": "text",
+    "name": "video_title",
+    "label": "Título del vídeo",
+    "default": "Descubre D27 Docs: así funciona"
+  },
+  {
+    "type": "text",
+    "name": "video_youtube_id",
+    "label": "ID de YouTube",
+    "default": "93QC-7r3rNs"
+  },
+  {
+    "type": "text",
+    "name": "video_iframe_title",
+    "label": "Título accesible del iframe",
+    "default": "Vídeo demostración de D27 Docs"
+  },
+  {
     "type": "group",
     "name": "steps",
     "label": "Pasos",

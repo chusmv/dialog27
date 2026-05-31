@@ -58,6 +58,11 @@ export const baseLandingContent = {
     eyebrow: 'Promoción por tiempo limitado',
     title: 'Pruébalo 1 mes gratis',
   },
+  solutionVideo: {
+    title: 'Descubre D27 Docs: así funciona',
+    youtubeId: '93QC-7r3rNs',
+    iframeTitle: 'Vídeo demostración de D27 Docs',
+  },
   plansSection: {
     eyebrow: 'Planes',
     title: 'Elige el plan que encaja con tu actividad.',

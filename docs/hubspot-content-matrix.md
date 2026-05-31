@@ -108,6 +108,21 @@ Se recomienda unificar la conversión en un único formulario HubSpot inline par
   - por URL de página
   - opcionalmente por propiedad oculta adicional
 
+## Cómo funciona
+
+- Eyebrow:
+  - `Cómo funciona`
+- Título del vídeo:
+  - `Descubre D27 Docs: así funciona`
+- ID de YouTube:
+  - `93QC-7r3rNs`
+- Título accesible del iframe:
+  - `Vídeo demostración de D27 Docs`
+- Título del bloque de pasos:
+  - `Tres pasos hacia cero trabajo manual`
+- Descripción del bloque de pasos:
+  - `Automatizamos el proceso contable para que tú te centres en lo importante.`
+
 ## Testimonio actual
 
 - Autor: `Manuel Pérez`

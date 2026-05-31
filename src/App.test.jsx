@@ -2,6 +2,7 @@ import { cleanup, render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import App from './app/App'
 import { siteConfig } from './config/siteConfig'
+import { landingContent } from './content/landingContent'
 import { landingVariants } from './content/landingVariants'
 
 describe('Dialog27 docs landing', () => {
@@ -20,6 +21,18 @@ describe('Dialog27 docs landing', () => {
     expect(screen.getByText(/promoción por tiempo limitado/i)).toBeInTheDocument()
     expect(screen.getByText(/pruébalo 1 mes gratis/i)).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /planes/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', {
+        name: /^descubre d27 docs: así funciona$/i,
+      }),
+    ).toBeInTheDocument()
+    expect(screen.getByTitle(/vídeo demostración de d27 docs/i)).toHaveAttribute(
+      'src',
+      `https://www.youtube-nocookie.com/embed/${landingContent.solutionVideo.youtubeId}?rel=0`,
+    )
+    expect(
+      screen.getByRole('heading', { name: /tres pasos hacia cero trabajo manual/i }),
+    ).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /basic/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /plus/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /corporate/i })).toBeInTheDocument()
@@ -47,8 +60,15 @@ describe('Dialog27 docs landing', () => {
       siteConfig.urls.demo,
     )
 
+    const secondaryCtaLinks = screen.getAllByRole('link', { name: /ver cómo funciona/i })
+    expect(secondaryCtaLinks.length).toBeGreaterThan(0)
+
     for (const link of ctaLinks) {
       expect(link).toHaveAttribute('href', siteConfig.urls.demo)
+    }
+
+    for (const link of secondaryCtaLinks) {
+      expect(link).toHaveAttribute('href', '#solution')
     }
 
     expect(screen.getByRole('link', { name: /privacidad/i })).toHaveAttribute(
@@ -92,6 +112,18 @@ describe('Dialog27 docs landing', () => {
 
       expect(screen.getByText(/promoción por tiempo limitado/i)).toBeInTheDocument()
       expect(screen.getByText(/pruébalo 1 mes gratis/i)).toBeInTheDocument()
+      expect(
+        screen.getByRole('heading', {
+          name: /^descubre d27 docs: así funciona$/i,
+        }),
+      ).toBeInTheDocument()
+      expect(screen.getByTitle(/vídeo demostración de d27 docs/i)).toHaveAttribute(
+        'src',
+        `https://www.youtube-nocookie.com/embed/${landingContent.solutionVideo.youtubeId}?rel=0`,
+      )
+      expect(
+        screen.getByRole('heading', { name: /tres pasos hacia cero trabajo manual/i }),
+      ).toBeInTheDocument()
       expect(screen.getByRole('heading', { name: /basic/i })).toBeInTheDocument()
       expect(screen.getByRole('heading', { name: /plus/i })).toBeInTheDocument()
       expect(screen.getByRole('heading', { name: /corporate/i })).toBeInTheDocument()
@@ -112,9 +144,15 @@ describe('Dialog27 docs landing', () => {
       ).not.toBeInTheDocument()
       const packageCtaLinks = screen.getAllByRole('link', { name: /solicitar demo/i })
       expect(packageCtaLinks.length).toBeGreaterThan(0)
+      const secondaryCtaLinks = screen.getAllByRole('link', { name: /ver cómo funciona/i })
+      expect(secondaryCtaLinks.length).toBeGreaterThan(0)
 
       for (const link of packageCtaLinks) {
         expect(link).toHaveAttribute('href', siteConfig.urls.demo)
+      }
+
+      for (const link of secondaryCtaLinks) {
+        expect(link).toHaveAttribute('href', '#solution')
       }
 
       expect(

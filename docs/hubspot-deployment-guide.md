@@ -177,6 +177,7 @@ Usa la matriz de contenido para mantener equivalencia con el sitio actual.
 
 - hero correcto
 - promo strip visible
+- vídeo de `Cómo funciona` visible antes de los pasos
 - spacing correcto entre secciones
 - cards de planes alineadas
 - logos e imágenes cargando
@@ -186,6 +187,7 @@ Usa la matriz de contenido para mantener equivalencia con el sitio actual.
 
 - CTA principal hace scroll a `#demo-form`
 - CTA secundaria hace scroll a `#solution`
+- el vídeo reproduce correctamente y permite pantalla completa
 - acordeón de planes abre y cierra
 - formulario envía correctamente
 - navbar sticky responde al scroll

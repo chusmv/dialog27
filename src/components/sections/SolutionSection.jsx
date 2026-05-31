@@ -2,6 +2,10 @@ import { SectionIntro } from '../common/SectionIntro'
 import { landingContent } from '../../content/landingContent'
 import { useInView } from '../../hooks/useInView'
 
+function buildYouTubeEmbedUrl(videoId) {
+  return `https://www.youtube-nocookie.com/embed/${videoId}?rel=0`
+}
+
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 }
@@ -29,6 +33,7 @@ function renderDescription(description, highlightTerms = []) {
 
 export function SolutionSection() {
   const [sectionRef, inView] = useInView()
+  const videoEmbedUrl = buildYouTubeEmbedUrl(landingContent.solutionVideo.youtubeId)
 
   return (
     <section id="solution" className="relative scroll-mt-28 px-6 pb-16 pt-16">
@@ -37,6 +42,28 @@ export function SolutionSection() {
       <div ref={sectionRef} className="mx-auto max-w-5xl">
         <SectionIntro
           eyebrow="Cómo funciona"
+          title={landingContent.solutionVideo.title}
+          titleTone="plain"
+          inView={inView}
+        />
+
+        <div
+          className={`glass fade-up fade-delay-1 mb-12 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] shadow-[0_24px_54px_rgba(6,10,18,0.18)] ${inView ? 'visible' : ''}`}
+        >
+          <div className="aspect-video">
+            <iframe
+              src={videoEmbedUrl}
+              title={landingContent.solutionVideo.iframeTitle}
+              className="h-full w-full"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+        </div>
+
+        <SectionIntro
           title={
             <>
               Tres pasos hacia cero trabajo manual

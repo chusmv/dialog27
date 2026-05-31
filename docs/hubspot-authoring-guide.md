@@ -32,7 +32,11 @@
 
 ### Cómo funciona
 
-- título y subtítulo
+- eyebrow
+- título del vídeo
+- ID de YouTube
+- título accesible del iframe
+- título y subtítulo del bloque de pasos
 - 3 pasos
   - número
   - imagen
@@ -128,6 +132,12 @@ No editar estos campos desde código para cambios cotidianos.
 
 - sustituye la imagen del paso correspondiente
 
+### Vídeo de cómo funciona
+
+- actualiza el título del vídeo desde el módulo `solution_steps`
+- pega el ID de YouTube del vídeo compartido
+- ajusta el título accesible del iframe si cambia el enfoque del vídeo
+
 ### Testimonio
 
 - sustituye el logo del cliente
@@ -137,6 +147,7 @@ No editar estos campos desde código para cambios cotidianos.
 - no usar títulos excesivamente largos en planes
 - mantener 3 pasos en `Cómo funciona`
 - mantener 3 planes salvo cambio de producto real
+- mantener el vídeo de `Cómo funciona` por encima del bloque de pasos
 - no romper el patrón de una sola conversión principal por landing
 - revisar móvil antes de publicar cambios fuertes de copy
 

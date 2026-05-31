@@ -10,9 +10,11 @@ export function SectionIntro({
 
   return (
     <div className={`mb-8 ${centered ? 'text-center' : ''} fade-up ${inView ? 'visible' : ''}`}>
-      <div className="glass font-body mb-6 inline-block rounded-full px-4 py-1.5 text-xs tracking-[0.3em] text-white/45 uppercase">
-        {eyebrow}
-      </div>
+      {eyebrow ? (
+        <div className="glass font-body mb-6 inline-block rounded-full px-4 py-1.5 text-xs tracking-[0.3em] text-white/45 uppercase">
+          {eyebrow}
+        </div>
+      ) : null}
       <h2 className={`font-display mb-4 text-4xl font-extrabold md:text-5xl ${titleToneClass}`}>
         {title}
       </h2>

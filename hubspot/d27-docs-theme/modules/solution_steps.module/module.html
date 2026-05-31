@@ -48,6 +48,10 @@
 ] %}
 {% set steps = module.steps if module.steps and module.steps|length and module.steps[0].title else default_steps %}
 {% set integration_logos = module.integration_logos if module.integration_logos and module.integration_logos|length and module.integration_logos[0].logo_name else default_logos %}
+{% set video_title = module.video_title or "Descubre D27 Docs: así funciona" %}
+{% set video_youtube_id = module.video_youtube_id or "93QC-7r3rNs" %}
+{% set video_iframe_title = module.video_iframe_title or "Vídeo demostración de D27 Docs" %}
+{% set video_embed_url = "https://www.youtube-nocookie.com/embed/" ~ video_youtube_id ~ "?rel=0" %}
 
 <section id="solution" class="relative scroll-mt-28 px-6 pb-16 pt-16">
   <div class="section-divider absolute inset-x-0 top-0"></div>
@@ -57,6 +61,26 @@
       <div class="glass font-body mb-6 inline-block rounded-full px-4 py-1.5 text-xs tracking-[0.3em] text-white/45 uppercase">
         {{ module.eyebrow }}
       </div>
+      <h2 class="font-display mb-4 text-4xl font-extrabold text-white md:text-5xl">
+        {{ video_title }}
+      </h2>
+    </div>
+
+    <div class="glass fade-up fade-delay-1 visible mb-12 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] shadow-[0_24px_54px_rgba(6,10,18,0.18)]">
+      <div class="aspect-video">
+        <iframe
+          src="{{ video_embed_url }}"
+          title="{{ video_iframe_title }}"
+          class="h-full w-full"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+
+    <div class="mb-8 text-center fade-up visible">
       <h2 class="font-display mb-4 text-4xl font-extrabold text-white md:text-5xl">
         {{ module.title }}
       </h2>
