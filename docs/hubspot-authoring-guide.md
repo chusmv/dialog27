@@ -47,13 +47,20 @@
 ### Planes
 
 - copy de cabecera
+- promoción temporal global del bloque:
+  - activar/desactivar
+  - prefijo del banner
+  - descuento
+  - duración en meses
+  - etiqueta de estado
 - CTA
 - nota de precios
 - cintillo de tokens adicionales
 - contenido completo de cada plan:
   - nombre
   - badge
-  - precio
+  - precio normal
+  - precio promocional y ahorro calculados automáticamente
   - resumen
   - métricas
   - detalle expandible
@@ -156,8 +163,13 @@ No editar estos campos desde código para cambios cotidianos.
 1. editar en sandbox
 2. revisar en preview desktop
 3. revisar en preview móvil
-4. validar formulario
-5. publicar
+4. comprobar promo activa/inactiva si se ha tocado `Planes`
+5. validar formulario
+6. publicar
+
+Nota:
+
+- al actualizar módulos `plans_section` ya existentes, revisar que cada plan tenga rellenado `precio normal`, porque el modelo antiguo de `precio entero + decimales` se ha sustituido por un solo campo numérico
 
 ## Cuándo pedir soporte de código
 

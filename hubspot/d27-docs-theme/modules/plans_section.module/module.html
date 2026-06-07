@@ -1,51 +1,68 @@
+{% set default_promotion = {
+  "enabled": true,
+  "banner_prefix": "Promoción por tiempo limitado",
+  "discount_percent": 50,
+  "duration_months": 6,
+  "status_label": "OFERTA ACTIVA"
+} %}
+{% set promotion = module.promotion if module.promotion and module.promotion.banner_prefix else default_promotion %}
+{% set discount_percent = promotion.discount_percent|float %}
+{% set duration_months = promotion.duration_months|int %}
+{% set month_label_text = "meses" %}
+{% if duration_months == 1 %}
+  {% set month_label_text = "mes" %}
+{% endif %}
+{% set show_promotion = promotion.enabled and discount_percent > 0 and discount_percent < 100 and duration_months > 0 %}
+{% set discount_label = discount_percent|format_number('es-ES', 2)|replace(',00', '') %}
+{% set promotion_banner_body = discount_label ~ "% de descuento durante los primeros " ~ duration_months ~ " " ~ month_label_text %}
+{% set promotion_offer_label = "Con oferta -" ~ discount_label ~ "%" %}
+{% set promotion_savings_label = "Ahorro en " ~ duration_months ~ " " ~ month_label_text %}
+
 {% set default_packages = [
   {
     "package_name": "BASIC",
     "badge_label": "",
     "featured": false,
-    "price_major": "24",
-    "price_minor": "90",
+    "regular_price": 49.9,
     "summary_features_html": "<ul><li>Unificación de canales (WhatsApp y correo)</li><li>Tres modelos de IA disponibles</li><li>Extracción automática de información de documentos con IA</li></ul>",
     "metric_one_label": "Documentos/mes",
-    "metric_one_value": "Hasta 500",
+    "metric_one_value": "Hasta 250",
     "metric_two_label": "CLIENTES",
     "metric_two_value": "Hasta 50",
     "details_title": "El plan Basic incluye:",
     "details_html": "<ul><li>Unificación de canales (WhatsApp y correo)</li><li>Tres modelos de IA disponibles</li><li>Extracción automática de información de documentos con IA</li></ul>",
     "capacity_title": "Límites del plan:",
-    "capacity_html": "<ul><li>4.000 tokens/mes incluidos (hasta 500 documentos)</li><li>120 días de almacenamiento</li><li>50 clientes/usuarios simultáneos</li><li>2 proyectos simultáneos</li><li>Exportación simultánea de hasta 50 documentos</li></ul>"
+    "capacity_html": "<ul><li>2.000 tokens/mes incluidos (hasta 250 documentos)</li><li>120 días de almacenamiento</li><li>50 clientes/usuarios simultáneos</li><li>2 proyectos simultáneos</li><li>Exportación simultánea de hasta 50 documentos</li></ul>"
   },
   {
     "package_name": "PLUS",
     "badge_label": "MAS COMPRADO",
     "featured": true,
-    "price_major": "99",
-    "price_minor": "90",
+    "regular_price": 199.9,
     "summary_features_html": "<ul><li>Todo lo del BASIC y, además:</li><li>Extracción complementada con OCR</li><li>Recordatorios automáticos</li><li>Exportaciones personalizadas</li></ul>",
     "metric_one_label": "Documentos/mes",
-    "metric_one_value": "Hasta 5.000",
+    "metric_one_value": "Hasta 2.500",
     "metric_two_label": "CLIENTES",
     "metric_two_value": "Hasta 200",
     "details_title": "Todo lo incluido en Basic y, además:",
     "details_html": "<ul><li>Extracción complementada con OCR</li><li>Recordatorios</li><li>Exportaciones personalizadas</li></ul>",
     "capacity_title": "Mayor capacidad:",
-    "capacity_html": "<ul><li>40.000 tokens/mes incluidos (hasta 5.000 documentos)</li><li>400 días de almacenamiento</li><li>200 clientes/usuarios simultáneos</li><li>5 proyectos simultáneos</li><li>Exportación simultánea de hasta 400 documentos</li></ul>"
+    "capacity_html": "<ul><li>20.000 tokens/mes incluidos (hasta 2.500 documentos)</li><li>400 días de almacenamiento</li><li>200 clientes/usuarios simultáneos</li><li>5 proyectos simultáneos</li><li>Exportación simultánea de hasta 400 documentos</li></ul>"
   },
   {
     "package_name": "CORPORATE",
     "badge_label": "",
     "featured": false,
-    "price_major": "199",
-    "price_minor": "90",
+    "regular_price": 399.9,
     "summary_features_html": "<ul><li>Todo lo del PLUS y, además:</li><li>Recordatorios personalizables</li><li>Exportaciones avanzadas</li><li>Integraciones vía APIs</li></ul>",
     "metric_one_label": "Documentos/mes",
-    "metric_one_value": "Hasta 12.500",
+    "metric_one_value": "Hasta 6.250",
     "metric_two_label": "CLIENTES",
     "metric_two_value": "Hasta 1.000",
     "details_title": "Todo lo incluido en Plus y, además:",
     "details_html": "<ul><li>Recordatorios personalizables</li><li>Exportaciones avanzadas</li><li>Trazabilidad y auditoría avanzada</li><li>Integraciones vía APIs</li></ul>",
     "capacity_title": "Mayor capacidad:",
-    "capacity_html": "<ul><li>100.000 tokens/mes incluidos (hasta 12.500 documentos)</li><li>2.000 días de almacenamiento</li><li>1.000 clientes/usuarios simultáneos</li><li>Proyectos simultáneos ilimitados</li><li>Exportación simultánea de hasta 1.000 documentos</li></ul>"
+    "capacity_html": "<ul><li>50.000 tokens/mes incluidos (hasta 6.250 documentos)</li><li>2.000 días de almacenamiento</li><li>1.000 clientes/usuarios simultáneos</li><li>Proyectos simultáneos ilimitados</li><li>Exportación simultánea de hasta 1.000 documentos</li></ul>"
   }
 ] %}
 {% set packages = module.packages if module.packages and module.packages|length and module.packages[0].package_name else default_packages %}
@@ -69,26 +86,151 @@
       </p>
     </div>
 
+    {% if show_promotion %}
+      <div class="fade-up visible mb-8 rounded-[1.6rem] border border-[#ff5700]/40 bg-[linear-gradient(135deg,rgba(74,41,58,0.92),rgba(37,31,58,0.78))] px-5 py-4 shadow-[0_18px_36px_rgba(12,16,28,0.22)] backdrop-blur-sm md:px-6 md:py-5">
+        <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:gap-6">
+          <div class="flex items-start gap-3">
+            <span class="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-[#ff5700]" aria-hidden="true"></span>
+            <p class="max-w-3xl text-lg leading-snug font-bold text-white md:text-[1.18rem]">
+              <span class="text-[#ff9f6d]">{{ promotion.banner_prefix }}</span>
+              <span class="text-white/84"> — </span>
+              <span>{{ promotion_banner_body }}</span>
+            </p>
+          </div>
+
+          <span class="inline-flex shrink-0 items-center justify-center rounded-full border border-[#ff5700]/50 bg-[#5a3648]/70 px-5 py-2 text-sm font-extrabold tracking-[0.04em] text-[#ff7b2f]">
+            {{ promotion.status_label }}
+          </span>
+        </div>
+      </div>
+    {% endif %}
+
     <div class="grid grid-cols-1 gap-5 lg:grid-cols-3 lg:gap-6">
       {% for pack in packages %}
         {% set detail_id = "plan-details-" ~ loop.index %}
+        {% set pack_regular_price = pack.regular_price|float %}
+
+        {% if not pack_regular_price %}
+          {% set legacy_price_major = pack.price_major|float %}
+          {% set legacy_price_minor = pack.price_minor|float %}
+          {% set legacy_promo_price = legacy_price_major + (legacy_price_minor / 100) %}
+
+          {% if legacy_promo_price > 0 %}
+            {% if show_promotion %}
+              {% set pack_regular_price = legacy_promo_price / ((100 - discount_percent) / 100) %}
+            {% else %}
+              {% set pack_regular_price = legacy_promo_price %}
+            {% endif %}
+          {% else %}
+            {% set pack_regular_price = default_packages[loop.index0].regular_price %}
+          {% endif %}
+        {% endif %}
+
+        {% set current_price = pack_regular_price %}
+        {% set total_savings = 0 %}
+        {% if show_promotion %}
+          {% set current_price = (pack_regular_price * ((100 - discount_percent) / 100))|round(2) %}
+          {% set total_savings = ((pack_regular_price - current_price) * duration_months)|round(2) %}
+        {% endif %}
+
+        {% set current_price_cents = (current_price * 100)|round(0)|int %}
+        {% set current_price_whole_number = (current_price_cents / 100)|int %}
+        {% set current_price_decimal_number = current_price_cents - (current_price_whole_number * 100) %}
+        {% set current_price_whole = current_price_whole_number|format_number('es-ES', 0) %}
+        {% set current_price_decimals = current_price_decimal_number ~ "" %}
+        {% if current_price_decimal_number < 10 %}
+          {% set current_price_decimals = "0" ~ current_price_decimal_number %}
+        {% endif %}
+
+        {% set regular_price_cents = (pack_regular_price * 100)|round(0)|int %}
+        {% set regular_price_whole_number = (regular_price_cents / 100)|int %}
+        {% set regular_price_decimal_number = regular_price_cents - (regular_price_whole_number * 100) %}
+        {% set regular_price_whole = regular_price_whole_number|format_number('es-ES', 0) %}
+        {% set regular_price_decimals = regular_price_decimal_number ~ "" %}
+        {% if regular_price_decimal_number < 10 %}
+          {% set regular_price_decimals = "0" ~ regular_price_decimal_number %}
+        {% endif %}
+
+        {% set total_savings_cents = (total_savings * 100)|round(0)|int %}
+        {% set total_savings_whole_number = (total_savings_cents / 100)|int %}
+        {% set total_savings_decimal_number = total_savings_cents - (total_savings_whole_number * 100) %}
+        {% set total_savings_whole = total_savings_whole_number|format_number('es-ES', 0) %}
+        {% set total_savings_decimals = total_savings_decimal_number ~ "" %}
+        {% if total_savings_decimal_number < 10 %}
+          {% set total_savings_decimals = "0" ~ total_savings_decimal_number %}
+        {% endif %}
+
+        {% set total_savings_display = total_savings_whole ~ "," ~ total_savings_decimals ~ "€" %}
+        {% set regular_price_display = regular_price_whole ~ "," ~ regular_price_decimals ~ "€" %}
+
         <article class="card-lift fade-up fade-delay-{{ loop.index }} visible flex h-full flex-col overflow-hidden rounded-[2rem] border backdrop-blur-md {{ 'border-2 border-[#ff5700]/80 bg-[#162133]/96 shadow-[0_28px_82px_rgba(255,87,0,0.18)] ring-2 ring-[#ff5700]/34 lg:-mx-2 lg:z-10' if pack.featured else 'border-white/8 bg-[#172234]/94 shadow-[0_16px_44px_rgba(7,10,18,0.18)]' }}">
           <div class="relative border-b border-white/8 px-5 py-5 md:px-6 md:py-6">
-            <div class="min-w-0 pr-24 {{ 'drop-shadow-[0_0_16px_rgba(255,87,0,0.14)]' if pack.featured }}">
-              <h3 class="font-display text-[1.28rem] leading-none font-extrabold tracking-[0.16em] text-[#ff5700] uppercase md:text-[1.42rem]">
-                {{ pack.package_name }}
-              </h3>
-              <div class="mt-4 flex flex-nowrap items-start gap-x-2 text-white">
-                <p class="font-display whitespace-nowrap text-[3rem] leading-none font-extrabold tracking-[-0.05em] md:text-[3.45rem]">
-                  {{ pack.price_major }}
-                </p>
-                <div class="flex items-start gap-0.5 pt-0.5 text-[1.42rem] leading-none font-medium tracking-[-0.03em] text-white/92 md:text-[1.68rem]">
-                  <span class="relative -top-[0.24em]">,</span>
-                  <span class="whitespace-nowrap">{{ pack.price_minor }}</span>
-                  <span class="whitespace-nowrap">€</span>
-                  <span class="whitespace-nowrap">/mes</span>
-                </div>
+            <div class="min-w-0 {{ 'drop-shadow-[0_0_16px_rgba(255,87,0,0.14)]' if pack.featured }}">
+              <div class="{{ 'pr-24 sm:pr-32' if pack.badge_label }}">
+                <h3 class="font-display text-[1.28rem] leading-none font-extrabold tracking-[0.16em] text-[#ff5700] uppercase md:text-[1.42rem]">
+                  {{ pack.package_name }}
+                </h3>
               </div>
+
+              {% if show_promotion %}
+                <div class="mt-3">
+                  <div class="grid gap-3 sm:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] sm:gap-4 md:gap-5 sm:items-end">
+                    <div class="min-w-0">
+                      <p class="text-[0.8rem] leading-tight font-medium text-white/38 md:text-[0.9rem]">
+                        Precio normal
+                      </p>
+                      <div class="mt-1 flex flex-nowrap items-end gap-x-1.5 text-white/34">
+                        <p class="font-display whitespace-nowrap text-[1.9rem] leading-none font-extrabold tracking-[-0.05em] line-through decoration-white/22 decoration-2 md:text-[2.2rem]">
+                          {{ regular_price_whole }}
+                        </p>
+                        <div class="flex items-start gap-0.5 pt-0.5 text-[0.92rem] leading-none font-medium tracking-[-0.03em] md:text-[1.02rem]">
+                          <span class="relative -top-[0.22em]">,</span>
+                          <span class="whitespace-nowrap line-through decoration-white/22 decoration-2">{{ regular_price_decimals }}</span>
+                          <span class="whitespace-nowrap line-through decoration-white/22 decoration-2">€</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="min-w-0">
+                      <p class="text-[0.84rem] leading-tight font-extrabold tracking-[-0.01em] text-[#ff8d57] md:text-[0.96rem]">
+                        {{ promotion_offer_label }}
+                      </p>
+                      <div class="mt-1 flex flex-nowrap items-start gap-x-1.5 text-white">
+                        <p class="font-display whitespace-nowrap text-[2.65rem] leading-none font-extrabold tracking-[-0.05em] md:text-[3.05rem]">
+                          {{ current_price_whole }}
+                        </p>
+                        <div class="flex items-start gap-0.5 pt-0.5 text-[1rem] leading-none font-medium tracking-[-0.03em] text-white/92 md:text-[1.2rem]">
+                          <span class="relative -top-[0.22em]">,</span>
+                          <span class="whitespace-nowrap">{{ current_price_decimals }}</span>
+                          <span class="whitespace-nowrap">€</span>
+                          <span class="whitespace-nowrap">/mes</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-3 flex w-full items-center justify-between gap-3 rounded-[1.1rem] border px-3.5 py-2 text-[0.84rem] font-bold md:px-4 md:text-[0.96rem] {{ 'border-[#ff5700]/28 bg-[#51354a]/80 text-[#ffbf95]' if pack.featured else 'border-[#6f4561]/70 bg-[#4d3244]/78 text-[#ffb487]' }}">
+                    <span class="min-w-0 whitespace-nowrap">{{ promotion_savings_label }}</span>
+                    <span class="shrink-0 whitespace-nowrap text-[#ff7b2f]">{{ total_savings_display }}</span>
+                  </div>
+
+                  <p class="mt-2 text-[0.92rem] font-medium text-white/42 md:text-[0.96rem]">
+                    Después, {{ regular_price_display }}/mes
+                  </p>
+                </div>
+              {% else %}
+                <div class="mt-4 flex flex-nowrap items-start gap-x-2 text-white">
+                  <p class="font-display whitespace-nowrap text-[3rem] leading-none font-extrabold tracking-[-0.05em] md:text-[3.45rem]">
+                    {{ current_price_parts[0] }}
+                  </p>
+                  <div class="flex items-start gap-0.5 pt-0.5 text-[1.42rem] leading-none font-medium tracking-[-0.03em] text-white/92 md:text-[1.68rem]">
+                    <span class="relative -top-[0.24em]">,</span>
+                    <span class="whitespace-nowrap">{{ current_price_parts[1] }}</span>
+                    <span class="whitespace-nowrap">€</span>
+                    <span class="whitespace-nowrap">/mes</span>
+                  </div>
+                </div>
+              {% endif %}
             </div>
 
             {% if pack.badge_label %}

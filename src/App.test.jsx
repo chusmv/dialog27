@@ -18,8 +18,13 @@ describe('Dialog27 docs landing', () => {
     expect(
       screen.getByText(/menos tiempo en introducción de datos/i),
     ).toBeInTheDocument()
-    expect(screen.getByText(/promoción por tiempo limitado/i)).toBeInTheDocument()
+    expect(screen.getAllByText(/promoción por tiempo limitado/i)).toHaveLength(2)
     expect(screen.getByText(/pruébalo 1 mes gratis/i)).toBeInTheDocument()
+    expect(
+      screen.getByText(/50% de descuento durante los primeros 6 meses/i),
+    ).toBeInTheDocument()
+    expect(screen.getAllByText(/con oferta -50%/i)).toHaveLength(3)
+    expect(screen.getAllByText(/ahorro en 6 meses/i)).toHaveLength(3)
     expect(screen.getByRole('link', { name: /planes/i })).toBeInTheDocument()
     expect(
       screen.getByRole('heading', {
@@ -36,7 +41,7 @@ describe('Dialog27 docs landing', () => {
     expect(screen.getByRole('heading', { name: /basic/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /plus/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /corporate/i })).toBeInTheDocument()
-    expect(screen.getByText(/hasta 500/i)).toBeInTheDocument()
+    expect(screen.getByText(/hasta 250/i)).toBeInTheDocument()
     expect(screen.getByText((_, element) => element?.textContent === 'Hasta 50')).toBeInTheDocument()
     expect(screen.getAllByRole('button', { name: /ver detalles/i }).length).toBeGreaterThan(0)
     expect(
@@ -110,8 +115,13 @@ describe('Dialog27 docs landing', () => {
         expect(link).toHaveAttribute('href', siteConfig.urls.demo)
       }
 
-      expect(screen.getByText(/promoción por tiempo limitado/i)).toBeInTheDocument()
+      expect(screen.getAllByText(/promoción por tiempo limitado/i)).toHaveLength(2)
       expect(screen.getByText(/pruébalo 1 mes gratis/i)).toBeInTheDocument()
+      expect(
+        screen.getByText(/50% de descuento durante los primeros 6 meses/i),
+      ).toBeInTheDocument()
+      expect(screen.getAllByText(/con oferta -50%/i)).toHaveLength(3)
+      expect(screen.getAllByText(/ahorro en 6 meses/i)).toHaveLength(3)
       expect(
         screen.getByRole('heading', {
           name: /^descubre d27 docs: así funciona$/i,
@@ -127,7 +137,7 @@ describe('Dialog27 docs landing', () => {
       expect(screen.getByRole('heading', { name: /basic/i })).toBeInTheDocument()
       expect(screen.getByRole('heading', { name: /plus/i })).toBeInTheDocument()
       expect(screen.getByRole('heading', { name: /corporate/i })).toBeInTheDocument()
-      expect(screen.getByText(/hasta 500/i)).toBeInTheDocument()
+      expect(screen.getByText(/hasta 250/i)).toBeInTheDocument()
       expect(screen.getByText((_, element) => element?.textContent === 'Hasta 50')).toBeInTheDocument()
       expect(screen.getAllByRole('button', { name: /ver detalles/i }).length).toBeGreaterThan(0)
       expect(

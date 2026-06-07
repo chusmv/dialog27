@@ -49,11 +49,95 @@ function PlanList({ items, textClassName = 'text-white/78' }) {
   )
 }
 
-function PackageCard({ pack, inView }) {
+const priceFormatter = new Intl.NumberFormat('es-ES', {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+})
+
+const percentFormatter = new Intl.NumberFormat('es-ES', {
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 2,
+})
+
+function roundCurrency(value) {
+  return Math.round((value + Number.EPSILON) * 100) / 100
+}
+
+function formatPriceParts(value) {
+  const [whole, decimals = '00'] = priceFormatter.format(value).split(',')
+  return { whole, decimals }
+}
+
+function formatAmountWithCurrency(value) {
+  return `${priceFormatter.format(value)}€`
+}
+
+function getMonthLabel(months) {
+  return months === 1 ? 'mes' : 'meses'
+}
+
+function isPromotionEnabled(promotion) {
+  const discountPercent = Number(promotion?.discountPercent ?? 0)
+  const durationMonths = Number(promotion?.durationMonths ?? 0)
+
+  return Boolean(
+    promotion?.enabled &&
+      Number.isFinite(discountPercent) &&
+      discountPercent > 0 &&
+      discountPercent < 100 &&
+      Number.isFinite(durationMonths) &&
+      durationMonths > 0,
+  )
+}
+
+function buildPromotionCopy(promotion) {
+  const discountLabel = percentFormatter.format(Number(promotion.discountPercent))
+  const durationMonths = Number(promotion.durationMonths)
+  const monthLabel = getMonthLabel(durationMonths)
+  const bannerBody = `${discountLabel}% de descuento durante los primeros ${durationMonths} ${monthLabel}`
+
+  return {
+    bannerMessage: `${promotion.bannerPrefix} — ${bannerBody}`,
+    bannerBody,
+    offerLabel: `Con oferta -${discountLabel}%`,
+    savingsLabel: `Ahorro en ${durationMonths} ${monthLabel}`,
+  }
+}
+
+function getPromotionPricing(regularPrice, promotion) {
+  const showPromotion = isPromotionEnabled(promotion)
+
+  if (!showPromotion) {
+    return {
+      showPromotion: false,
+      currentPrice: regularPrice,
+      regularPrice,
+      totalSavings: 0,
+      copy: null,
+    }
+  }
+
+  const discountRatio = Number(promotion.discountPercent) / 100
+  const currentPrice = roundCurrency(regularPrice * (1 - discountRatio))
+  const totalSavings = roundCurrency((regularPrice - currentPrice) * Number(promotion.durationMonths))
+
+  return {
+    showPromotion: true,
+    currentPrice,
+    regularPrice,
+    totalSavings,
+    copy: buildPromotionCopy(promotion),
+  }
+}
+
+function PackageCard({ pack, promotion, inView }) {
   const [expanded, setExpanded] = useState(false)
   const detailId = useId()
-  const [priceValue, priceCurrency = '€'] = pack.price.split(' ')
-  const [priceWhole, priceDecimals = '00'] = priceValue.split(',')
+  const pricing = getPromotionPricing(Number(pack.regularPrice), promotion)
+  const { whole: priceWhole, decimals: priceDecimals } = formatPriceParts(pricing.currentPrice)
+  const { whole: regularPriceWhole, decimals: regularPriceDecimals } = formatPriceParts(
+    pricing.regularPrice,
+  )
 
   const cardClass = pack.featured
     ? 'border-2 border-[#ff5700]/80 bg-[#162133]/96 shadow-[0_28px_82px_rgba(255,87,0,0.18)] ring-2 ring-[#ff5700]/34 lg:-mx-2 lg:z-10'
@@ -70,22 +154,84 @@ function PackageCard({ pack, inView }) {
       className={`card-lift fade-up fade-delay-1 flex h-full flex-col overflow-hidden rounded-[2rem] border backdrop-blur-md ${cardClass} ${inView ? 'visible' : ''}`}
     >
       <div className="relative border-b border-white/8 px-5 py-5 md:px-6 md:py-6">
-        <div className="min-w-0 pr-24">
+        <div className="min-w-0">
           <div className={pack.featured ? 'drop-shadow-[0_0_16px_rgba(255,87,0,0.14)]' : ''}>
-            <h3 className="font-display text-[1.28rem] leading-none font-extrabold tracking-[0.16em] text-[#ff5700] uppercase md:text-[1.42rem]">
-              {pack.name}
-            </h3>
-            <div className="mt-4 flex flex-nowrap items-start gap-x-2 text-white">
-              <p className="font-display whitespace-nowrap text-[3rem] leading-none font-extrabold tracking-[-0.05em] md:text-[3.45rem]">
-                {priceWhole}
-              </p>
-              <div className="flex items-start gap-0.5 pt-0.5 text-[1.42rem] leading-none font-medium tracking-[-0.03em] text-white/92 md:text-[1.68rem]">
-                <span className="relative -top-[0.24em]">,</span>
-                <span className="whitespace-nowrap">{priceDecimals}</span>
-                <span className="whitespace-nowrap">{priceCurrency}</span>
-                <span className="whitespace-nowrap">/mes</span>
-              </div>
+            <div className={pack.badgeLabel ? 'pr-24 sm:pr-32' : ''}>
+              <h3 className="font-display text-[1.28rem] leading-none font-extrabold tracking-[0.16em] text-[#ff5700] uppercase md:text-[1.42rem]">
+                {pack.name}
+              </h3>
             </div>
+            {pricing.showPromotion ? (
+              <div className="mt-3">
+                <div className="grid gap-3 sm:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] sm:gap-4 md:gap-5 sm:items-end">
+                  <div className="min-w-0">
+                    <p className="text-[0.8rem] leading-tight font-medium text-white/38 md:text-[0.9rem]">
+                      Precio normal
+                    </p>
+                    <div className="mt-1 flex flex-nowrap items-end gap-x-1.5 text-white/34">
+                      <p className="font-display whitespace-nowrap text-[1.9rem] leading-none font-extrabold tracking-[-0.05em] line-through decoration-white/22 decoration-2 md:text-[2.2rem]">
+                        {regularPriceWhole}
+                      </p>
+                      <div className="flex items-start gap-0.5 pt-0.5 text-[0.92rem] leading-none font-medium tracking-[-0.03em] md:text-[1.02rem]">
+                        <span className="relative -top-[0.22em]">,</span>
+                        <span className="whitespace-nowrap line-through decoration-white/22 decoration-2">
+                          {regularPriceDecimals}
+                        </span>
+                        <span className="whitespace-nowrap line-through decoration-white/22 decoration-2">
+                          €
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="min-w-0">
+                    <p className="text-[0.84rem] leading-tight font-extrabold tracking-[-0.01em] text-[#ff8d57] md:text-[0.96rem]">
+                      {pricing.copy.offerLabel}
+                    </p>
+                    <div className="mt-1 flex flex-nowrap items-start gap-x-1.5 text-white">
+                      <p className="font-display whitespace-nowrap text-[2.65rem] leading-none font-extrabold tracking-[-0.05em] md:text-[3.05rem]">
+                        {priceWhole}
+                      </p>
+                      <div className="flex items-start gap-0.5 pt-0.5 text-[1rem] leading-none font-medium tracking-[-0.03em] text-white/92 md:text-[1.2rem]">
+                        <span className="relative -top-[0.22em]">,</span>
+                        <span className="whitespace-nowrap">{priceDecimals}</span>
+                        <span className="whitespace-nowrap">€</span>
+                        <span className="whitespace-nowrap">/mes</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  className={`mt-3 flex w-full items-center justify-between gap-3 rounded-[1.1rem] border px-3.5 py-2 text-[0.84rem] font-bold md:px-4 md:text-[0.96rem] ${
+                    pack.featured
+                      ? 'border-[#ff5700]/28 bg-[#51354a]/80 text-[#ffbf95]'
+                      : 'border-[#6f4561]/70 bg-[#4d3244]/78 text-[#ffb487]'
+                  }`}
+                >
+                  <span className="min-w-0 whitespace-nowrap">{pricing.copy.savingsLabel}</span>
+                  <span className="shrink-0 whitespace-nowrap text-[#ff7b2f]">
+                    {formatAmountWithCurrency(pricing.totalSavings)}
+                  </span>
+                </div>
+
+                <p className="mt-2 text-[0.92rem] font-medium text-white/42 md:text-[0.96rem]">
+                  Después, {formatAmountWithCurrency(pricing.regularPrice)}/mes
+                </p>
+              </div>
+            ) : (
+              <div className="mt-4 flex flex-nowrap items-start gap-x-2 text-white">
+                <p className="font-display whitespace-nowrap text-[3rem] leading-none font-extrabold tracking-[-0.05em] md:text-[3.45rem]">
+                  {priceWhole}
+                </p>
+                <div className="flex items-start gap-0.5 pt-0.5 text-[1.42rem] leading-none font-medium tracking-[-0.03em] text-white/92 md:text-[1.68rem]">
+                  <span className="relative -top-[0.24em]">,</span>
+                  <span className="whitespace-nowrap">{priceDecimals}</span>
+                  <span className="whitespace-nowrap">€</span>
+                  <span className="whitespace-nowrap">/mes</span>
+                </div>
+              </div>
+            )}
           </div>
         </div>
         {pack.badgeLabel ? (
@@ -149,6 +295,8 @@ function PackageCard({ pack, inView }) {
 export function PlansSection({ trackingContext = {} }) {
   const [sectionRef, inView] = useInView()
   const { plansSection } = landingContent
+  const showPromotion = isPromotionEnabled(plansSection.promotion)
+  const promotionCopy = showPromotion ? buildPromotionCopy(plansSection.promotion) : null
 
   return (
     <section id="plans" className="relative scroll-mt-28 overflow-hidden bg-[#0f2044] px-6 pb-20 pt-16">
@@ -165,9 +313,35 @@ export function PlansSection({ trackingContext = {} }) {
           inView={inView}
         />
 
+        {showPromotion ? (
+          <div
+            className={`fade-up mb-8 rounded-[1.6rem] border border-[#ff5700]/40 bg-[linear-gradient(135deg,rgba(74,41,58,0.92),rgba(37,31,58,0.78))] px-5 py-4 shadow-[0_18px_36px_rgba(12,16,28,0.22)] backdrop-blur-sm md:px-6 md:py-5 ${inView ? 'visible' : ''}`}
+          >
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:gap-6">
+              <div className="flex items-start gap-3">
+                <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-[#ff5700]" aria-hidden="true" />
+                <p className="max-w-3xl text-lg leading-snug font-bold text-white md:text-[1.18rem]">
+                  <span className="text-[#ff9f6d]">{plansSection.promotion.bannerPrefix}</span>
+                  <span className="text-white/84"> — </span>
+                  <span>{promotionCopy.bannerBody}</span>
+                </p>
+              </div>
+
+              <span className="inline-flex shrink-0 items-center justify-center rounded-full border border-[#ff5700]/50 bg-[#5a3648]/70 px-5 py-2 text-sm font-extrabold tracking-[0.04em] text-[#ff7b2f]">
+                {plansSection.promotion.statusLabel}
+              </span>
+            </div>
+          </div>
+        ) : null}
+
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-3 lg:gap-6">
           {plansSection.packages.map((pack) => (
-            <PackageCard key={pack.name} pack={pack} inView={inView} />
+            <PackageCard
+              key={pack.name}
+              pack={pack}
+              promotion={plansSection.promotion}
+              inView={inView}
+            />
           ))}
         </div>
 

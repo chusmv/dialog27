@@ -67,6 +67,13 @@ export const baseLandingContent = {
     eyebrow: 'Planes',
     title: 'Elige el plan que encaja con tu actividad.',
     description: 'Tres paquetes pensados para crecer contigo.',
+    promotion: {
+      enabled: true,
+      bannerPrefix: 'Promoción por tiempo limitado',
+      discountPercent: 50,
+      durationMonths: 6,
+      statusLabel: 'OFERTA ACTIVA',
+    },
     pricingNote: 'Precios mensuales, sin impuestos incluidos.',
     cta: {
       label: 'Solicitar demo',
@@ -76,15 +83,14 @@ export const baseLandingContent = {
     packages: [
       {
         name: 'BASIC',
-        price: '24,90 €',
-        note: 'al mes, sin impuestos incluidos',
+        regularPrice: 49.9,
         summaryFeatures: [
           'Unificación de canales (WhatsApp y correo)',
           'Tres modelos de IA disponibles',
           'Extracción automática de información de documentos con IA',
         ],
         summaryCapacity: [
-          { label: 'Documentos/mes', value: 'Hasta 500' },
+          { label: 'Documentos/mes', value: 'Hasta 250' },
           { label: 'CLIENTES', value: 'Hasta 50' },
         ],
         includedTitle: 'El plan Basic incluye:',
@@ -95,7 +101,7 @@ export const baseLandingContent = {
         ],
         capacityTitle: 'Límites del plan:',
         capacityItems: [
-          '4.000 tokens/mes incluidos (hasta 500 documentos)',
+          '2.000 tokens/mes incluidos (hasta 250 documentos)',
           '120 días de almacenamiento',
           '50 clientes/usuarios simultáneos',
           '2 proyectos simultáneos',
@@ -104,8 +110,7 @@ export const baseLandingContent = {
       },
       {
         name: 'PLUS',
-        price: '99,90 €',
-        note: 'al mes, sin impuestos incluidos',
+        regularPrice: 199.9,
         badgeLabel: 'MAS COMPRADO',
         featured: true,
         summaryFeatures: [
@@ -115,7 +120,7 @@ export const baseLandingContent = {
           'Exportaciones personalizadas',
         ],
         summaryCapacity: [
-          { label: 'Documentos/mes', value: 'Hasta 5.000' },
+          { label: 'Documentos/mes', value: 'Hasta 2.500' },
           { label: 'CLIENTES', value: 'Hasta 200' },
         ],
         includedTitle: 'Todo lo incluido en Basic y, además:',
@@ -126,7 +131,7 @@ export const baseLandingContent = {
         ],
         capacityTitle: 'Mayor capacidad:',
         capacityItems: [
-          '40.000 tokens/mes incluidos (hasta 5.000 documentos)',
+          '20.000 tokens/mes incluidos (hasta 2.500 documentos)',
           '400 días de almacenamiento',
           '200 clientes/usuarios simultáneos',
           '5 proyectos simultáneos',
@@ -135,8 +140,7 @@ export const baseLandingContent = {
       },
       {
         name: 'CORPORATE',
-        price: '199,90 €',
-        note: 'al mes, sin impuestos incluidos',
+        regularPrice: 399.9,
         summaryFeatures: [
           'Todo lo del PLUS y, además:',
           'Recordatorios personalizables',
@@ -144,7 +148,7 @@ export const baseLandingContent = {
           'Integraciones vía APIs',
         ],
         summaryCapacity: [
-          { label: 'Documentos/mes', value: 'Hasta 12.500' },
+          { label: 'Documentos/mes', value: 'Hasta 6.250' },
           { label: 'CLIENTES', value: 'Hasta 1.000' },
         ],
         includedTitle: 'Todo lo incluido en Plus y, además:',
@@ -156,7 +160,7 @@ export const baseLandingContent = {
         ],
         capacityTitle: 'Mayor capacidad:',
         capacityItems: [
-          '100.000 tokens/mes incluidos (hasta 12.500 documentos)',
+          '50.000 tokens/mes incluidos (hasta 6.250 documentos)',
           '2.000 días de almacenamiento',
           '1.000 clientes/usuarios simultáneos',
           'Proyectos simultáneos ilimitados',

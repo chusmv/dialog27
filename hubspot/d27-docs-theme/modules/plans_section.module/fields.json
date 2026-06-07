@@ -19,6 +19,54 @@
     "default": "Tres paquetes pensados para crecer contigo."
   },
   {
+    "type": "group",
+    "name": "promotion",
+    "label": "Promoción temporal",
+    "children": [
+      {
+        "id": "promotion.enabled",
+        "type": "boolean",
+        "name": "enabled",
+        "label": "Activar promoción",
+        "default": true
+      },
+      {
+        "id": "promotion.banner_prefix",
+        "type": "text",
+        "name": "banner_prefix",
+        "label": "Prefijo del banner",
+        "default": "Promoción por tiempo limitado"
+      },
+      {
+        "id": "promotion.discount_percent",
+        "type": "number",
+        "name": "discount_percent",
+        "label": "Descuento (%)",
+        "min": 0,
+        "max": 99.99,
+        "step": 0.01,
+        "default": 50
+      },
+      {
+        "id": "promotion.duration_months",
+        "type": "number",
+        "name": "duration_months",
+        "label": "Duración (meses)",
+        "min": 1,
+        "max": 36,
+        "step": 1,
+        "default": 6
+      },
+      {
+        "id": "promotion.status_label",
+        "type": "text",
+        "name": "status_label",
+        "label": "Etiqueta de estado",
+        "default": "OFERTA ACTIVA"
+      }
+    ]
+  },
+  {
     "type": "text",
     "name": "pricing_note",
     "label": "Nota de precio",
@@ -73,16 +121,12 @@
         "label": "Destacado"
       },
       {
-        "id": "packages.price_major",
-        "type": "text",
-        "name": "price_major",
-        "label": "Precio entero"
-      },
-      {
-        "id": "packages.price_minor",
-        "type": "text",
-        "name": "price_minor",
-        "label": "Decimales"
+        "id": "packages.regular_price",
+        "type": "number",
+        "name": "regular_price",
+        "label": "Precio normal",
+        "min": 0,
+        "step": 0.01
       },
       {
         "id": "packages.summary_features_html",
