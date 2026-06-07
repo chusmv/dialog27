@@ -65,6 +65,14 @@
   - métricas
   - detalle expandible
 
+Ruta de edición:
+
+- `Content > Landing Pages`
+- abrir la landing
+- seleccionar el módulo `Plans Section`
+- abrir el grupo repetible `Paquetes`
+- editar cada item del grupo para cambiar nombre, badge, precio, resumen, métricas y detalle
+
 ### Beneficios
 
 - título y subtítulo
@@ -170,6 +178,8 @@ No editar estos campos desde código para cambios cotidianos.
 Nota:
 
 - al actualizar módulos `plans_section` ya existentes, revisar que cada plan tenga rellenado `precio normal`, porque el modelo antiguo de `precio entero + decimales` se ha sustituido por un solo campo numérico
+- los 3 planes por defecto ahora viven en el grupo repetible `Paquetes` del módulo, no en un fallback dentro del template
+- si una landing antigua tenía el módulo en un estado inconsistente, puede hacer falta borrar y volver a cargar manualmente los 3 items del grupo `Paquetes` antes de publicar
 
 ## Cuándo pedir soporte de código
 

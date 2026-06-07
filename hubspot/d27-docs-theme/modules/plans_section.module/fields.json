@@ -101,6 +101,53 @@
       "sorting_label_field": "packages.package_name",
       "default": 3
     },
+    "default": [
+      {
+        "package_name": "BASIC",
+        "badge_label": "",
+        "featured": false,
+        "regular_price": 49.9,
+        "summary_features_html": "<ul><li>Unificación de canales (WhatsApp y correo)</li><li>Tres modelos de IA disponibles</li><li>Extracción automática de información de documentos con IA</li></ul>",
+        "metric_one_label": "Documentos/mes",
+        "metric_one_value": "Hasta 250",
+        "metric_two_label": "CLIENTES",
+        "metric_two_value": "Hasta 50",
+        "details_title": "El plan Basic incluye:",
+        "details_html": "<ul><li>Unificación de canales (WhatsApp y correo)</li><li>Tres modelos de IA disponibles</li><li>Extracción automática de información de documentos con IA</li></ul>",
+        "capacity_title": "Límites del plan:",
+        "capacity_html": "<ul><li>2.000 tokens/mes incluidos (hasta 250 documentos)</li><li>120 días de almacenamiento</li><li>50 clientes/usuarios simultáneos</li><li>2 proyectos simultáneos</li><li>Exportación simultánea de hasta 50 documentos</li></ul>"
+      },
+      {
+        "package_name": "PLUS",
+        "badge_label": "MAS COMPRADO",
+        "featured": true,
+        "regular_price": 199.9,
+        "summary_features_html": "<ul><li>Todo lo del BASIC y, además:</li><li>Extracción complementada con OCR</li><li>Recordatorios automáticos</li><li>Exportaciones personalizadas</li></ul>",
+        "metric_one_label": "Documentos/mes",
+        "metric_one_value": "Hasta 2.500",
+        "metric_two_label": "CLIENTES",
+        "metric_two_value": "Hasta 200",
+        "details_title": "Todo lo incluido en Basic y, además:",
+        "details_html": "<ul><li>Extracción complementada con OCR</li><li>Recordatorios</li><li>Exportaciones personalizadas</li></ul>",
+        "capacity_title": "Mayor capacidad:",
+        "capacity_html": "<ul><li>20.000 tokens/mes incluidos (hasta 2.500 documentos)</li><li>400 días de almacenamiento</li><li>200 clientes/usuarios simultáneos</li><li>5 proyectos simultáneos</li><li>Exportación simultánea de hasta 400 documentos</li></ul>"
+      },
+      {
+        "package_name": "CORPORATE",
+        "badge_label": "",
+        "featured": false,
+        "regular_price": 399.9,
+        "summary_features_html": "<ul><li>Todo lo del PLUS y, además:</li><li>Recordatorios personalizables</li><li>Exportaciones avanzadas</li><li>Integraciones vía APIs</li></ul>",
+        "metric_one_label": "Documentos/mes",
+        "metric_one_value": "Hasta 6.250",
+        "metric_two_label": "CLIENTES",
+        "metric_two_value": "Hasta 1.000",
+        "details_title": "Todo lo incluido en Plus y, además:",
+        "details_html": "<ul><li>Recordatorios personalizables</li><li>Exportaciones avanzadas</li><li>Trazabilidad y auditoría avanzada</li><li>Integraciones vía APIs</li></ul>",
+        "capacity_title": "Mayor capacidad:",
+        "capacity_html": "<ul><li>50.000 tokens/mes incluidos (hasta 6.250 documentos)</li><li>2.000 días de almacenamiento</li><li>1.000 clientes/usuarios simultáneos</li><li>Proyectos simultáneos ilimitados</li><li>Exportación simultánea de hasta 1.000 documentos</li></ul>"
+      }
+    ],
     "children": [
       {
         "id": "packages.package_name",
